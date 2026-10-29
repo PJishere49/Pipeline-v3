@@ -9,12 +9,14 @@ if (fs.existsSync(usageFile)) {
   usage = JSON.parse(fs.readFileSync(usageFile, 'utf8'));
   if (usage.month !== currentMonth) usage = { month: currentMonth, count: 0 };
 }
-if (usage.count >= 800) { console.error("HARD CAP": Usage limit reached."); process.exit(0); }
+if (usage.count >= 800) { 
+  console.error("HARD CAP: Usage limit reached."); 
+  process.exit(0); 
+}
 
 const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
 const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
 
-// Massive block list for directories and national brands
 const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:angieslist.com -site:nexdoor.com -site:pinging.com -site:mapness.com -jobs -directory -careers -salary';
 
 async function runSearch() {

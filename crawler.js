@@ -38,7 +38,6 @@ async function runCrawler() {
       const response = await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
       await page.waitForTimeout(3000);
 
-      // CHECK FOR WAF / ACCESS DENIED
       const status = response ? response.status() : 500;
       const pageText = await page.content();
       if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare')) {
@@ -49,7 +48,7 @@ async function runCrawler() {
       }
 
       const pageData = await page.evaluate(() => {
-        const hasTel = !!document.querySelector('a[hred^="tel:"]');
+        const hasTel = !!document.querySelector('a[href^="tel:"]');
         const hasMailto = !!document.querySelector('a[href^="mailto:"]');
         const hasForm = !!document.querySelector('form') || !!document.querySelector('input[type="email"]');
         const text = document.body.innerText;
