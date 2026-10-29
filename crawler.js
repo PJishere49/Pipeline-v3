@@ -8,7 +8,7 @@ async function sendTelegram(photoBuffer, caption) {
   const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`;
   const formData = new FormData();
   formData.append('chat_id', TELEGRAM_CHAT_ID);
-  formData.append('photo', new Blob([photoBuffer]), 'screenshot.png');
+  formData.append('photo', new Blob([photoBuffer]), 'screenshot.jpg');
   formData.append('caption', caption);
   await fetch(url, { method: 'POST', body: formData });
 }
@@ -30,7 +30,9 @@ async function runCrawler() {
     try {
       console.log(`Crawling: ${prospect.url}`);
       await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
-      const screenshot = await page.screenshot({ fullPage: true });
+      
+      // Use JPG and compression to fix the Telegram error
+      const screenshot = await page.screenshot({ fullPage: true, type: 'jpeg', quality: 60 });
       
       const isHttps = prospect.url.startsWith('https://');
       await sendTelegram(screenshot, `Audit: ${prospect.title || prospect.url}\nSSL: ${isHttps ? 'Yes' : 'No'}`);
