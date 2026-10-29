@@ -10,7 +10,9 @@ async function sendTelegram(photoBuffer, caption) {
   formData.append('chat_id', TELEGRAM_CHAT_ID);
   formData.append('photo', new Blob([photoBuffer]), 'screenshot.jpg');
   formData.append('caption', caption);
-  await fetch(url, { method: 'POST', body: formData });
+  const response = await fetch(url, { method: 'POST', body: formData });
+  const json = await response.json();
+  if (!json.ok) console.error("Telegram Error:", json.description);
 }
 
 async function runCrawler() {
@@ -31,8 +33,8 @@ async function runCrawler() {
       console.log(`Crawling: ${prospect.url}`);
       await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
       
-      // Use JPG and compression to fix the Telegram error
-      const screenshot = await page.screenshot({ fullPage: true, type: 'jpeg', quality: 60 });
+      // Fixed: fullPage is now false (just the screen)
+      const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
       
       const isHttps = prospect.url.startsWith('https://');
       await sendTelegram(screenshot, `Audit: ${prospect.title || prospect.url}\nSSL: ${isHttps ? 'Yes' : 'No'}`);
