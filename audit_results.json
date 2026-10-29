@@ -6,14 +6,14 @@
     "status": "success"
   },
   {
-    "url": "https://www.angi.com/companylist/us/fl/tampa-bay/roofing.htm",
-    "title": "10 Best Roofers in Tampa, FL - Nov 2026 (Verified Reviews) | Angi",
-    "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.angi.com/companylist/us/fl/tampa-bay/roofing.htm\", waiting until \"networkidle\"\n"
-  },
-  {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
+    "isHttps": true,
+    "status": "success"
+  },
+  {
+    "url": "https://www.angi.com/companylist/us/fl/tampa-bay/roofing.htm",
+    "title": "10 Best Roofers in Tampa, FL - Nov 2026 (Verified Reviews) | Angi",
     "isHttps": true,
     "status": "success"
   },
@@ -24,8 +24,8 @@
     "status": "success"
   },
   {
-    "url": "https://www.eliteroofingservices.com/",
-    "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
+    "url": "https://www.rescueroofingoftampa.com/",
+    "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
     "isHttps": true,
     "status": "success"
   }
