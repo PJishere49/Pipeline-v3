@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.gaf.com/en-us/roofing-contractors/residential/usa/fl/tampa",
+    "title": "Best Roofers in Tampa, FL | GAF Roofing Contractors",
+    "priorityScore": 40,
+    "findings": [
+      {
+        "check_id": "11.1",
+        "status": "fail",
+        "grade": "A",
+        "issue": "Missing/Invalid SSL"
+      },
+      {
+        "check_id": "2.4",
+        "status": "fail",
+        "grade": "A",
+        "issue": "No working conversion mechanism (form/tel/mail)"
+      }
+    ],
+    "status": "scored"
+  },
+  {
+    "url": "https://www.billshieldsroofing.com/",
+    "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
+    "status": "error",
+    "error": "page.goto: net::ERR_CONNECTION_CLOSED at https://www.billshieldsroofing.com/\nCall log:\n  - navigating to \"https://www.billshieldsroofing.com/\", waiting until \"networkidle\"\n"
+  },
+  {
+    "url": "https://www.angi.com/companylist/us/fl/tampa-bay/roofing.htm",
+    "title": "10 Best Roofers in Tampa, FL - Nov 2026 (Verified Reviews) | Angi",
+    "priorityScore": 85,
+    "findings": [
+      {
+        "check_id": "1.4",
+        "status": "fail",
+        "grade": "B",
+        "issue": "No clickable phone or email link"
+      }
+    ],
+    "status": "scored"
+  },
+  {
+    "url": "https://jaeofamerica.com/best-roofing-companies-tampa-fl/",
+    "title": "7 Best Roofing Companies in Tampa, FL (2026) | JAEA - JA Edwards of America Roofing",
+    "priorityScore": 85,
+    "findings": [
+      {
+        "check_id": "5.3",
+        "status": "fail",
+        "grade": "B",
+        "issue": "No contact form on page"
+      }
+    ],
+    "status": "scored"
+  },
+  {
+    "url": "https://www.rescueroofingoftampa.com/",
+    "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
+    "priorityScore": 85,
+    "findings": [
+      {
+        "check_id": "5.3",
+        "status": "fail",
+        "grade": "B",
+        "issue": "No contact form on page"
+      }
+    ],
+    "status": "scored"
+  }
+]
