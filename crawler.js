@@ -33,7 +33,9 @@ async function runCrawler() {
       console.log(`Crawling: ${prospect.url}`);
       await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
       
-      // Fixed: fullPage is now false (just the screen)
+      // WAIT 3 SECONDS fOR THE PAGE TO PAINT
+      await page.waitForTimeout(3000);
+
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
       
       const isHttps = prospect.url.startsWith('https://');
