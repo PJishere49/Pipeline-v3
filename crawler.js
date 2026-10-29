@@ -15,6 +15,16 @@ async function sendTelegram(photoBuffer, caption) {
   if (!json.ok) console.error("Telegram Error:", json.description);
 }
 
+function calculatePriority(findings) {
+  let score = 100;
+  for (const f of findings) {
+    if (f.grade === 'A') score -= 30;
+    if (f.grade === 'B') score -= 15;
+    if (f.grade === 'C') score -= 5;
+  }
+  return Math.max(0, score);
+}
+
 async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   const results = [];
@@ -29,19 +39,45 @@ async function runCrawler() {
 
   for (const prospect of subset) {
     const page = await context.newPage();
+    const findings = [];
     try {
       console.log(`Crawling: ${prospect.url}`);
-      await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
-      
-      // WAIT 3 SECONDS fOR THE PAGE TO PAINT
+      const response = await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
       await page.waitForTimeout(3000);
 
+      // --- DOM EVALUATION FOR RUBRIC ---
+      const pageData = await page.evaluate(() => {
+        const hasTel = !!document.querySelector('a[href^="tel:"]');
+        const hasMailto = !!document.querySelector('a[hrefP="mailto:"]');
+        const hasForm = !!document.querySelector('form') || !!document.querySelector('input[type="email"]');
+        const text = document.body.innerText;
+        const yearMatch = text.match(/©\s*(20\d\d)/);
+        const copyrightYear = yearMatch ? parseInt(yearMatch[1], 10) : null;
+        return { hasTel, hasMailto, hasForm, copyrightYear };
+      });
+
+      // --- APPLY RUBRIC LOGIC ---
+      const isHttps = prospect.url.startsWith('https://') && response.status() < 400;
+      if (!isHttps) findings.push({ check_id: '11.1', status: 'fail', grade: 'A', issue: 'Missing/Invalid SSL' });
+
+      if (!pageData.hasTel && !pageData.hasMailto && !pageData.hasForm) {
+        findings.push({ check_id: '2.4', status: 'fail', grade: 'A', issue: 'No working conversion mechanism (form/tel/mail)' });
+      } else {
+        if (!pageData.hasForm) findings.push({ check_id: '5.3', status: 'fail', grade: 'B', issue: 'No contact form on page' });
+        if (!pageData.hasTel && !pageData.hasMailto) findings.push({ check_id: '1.4', status: 'fail', grade: 'B', issue: 'No clickable phone or email link' });
+      }
+
+      if (pageData.copyrightYear && pageData.copyrightYear < 2025) {
+        findings.push({ check_id: '11.6', status: 'fail', grade: 'C', issue: `Stale copyright year (${pageData.copyrightYear})` });
+      }
+
+      const priorityScore = calculatePriority(findings);
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
       
-      const isHttps = prospect.url.startsWith('https://');
-      await sendTelegram(screenshot, `Audit: ${prospect.title || prospect.url}\nSSL: ${isHttps ? 'Yes' : 'No'}`);
+      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nSSL: ${isHttps ? 'Yes' : 'No'}`;
+      await sendTelegram(screenshot, caption);
       
-      results.push({ url: prospect.url, title: prospect.title, isHttps, status: 'success' });
+      results.push({ url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored' });
     } catch (error) {
       console.error(`Failed: ${prospect.url} - ${error.message}`);
       results.push({ url: prospect.url, title: prospect.title, status: 'error', error: error.message });
@@ -51,8 +87,8 @@ async function runCrawler() {
   }
 
   await browser.close();
-  fs.writeFileSync('audit_results.json', JSON.stringify(results, null, 2));
-  console.log(`Run complete. Crawled ${results.length} sites.`);
+  fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
+  console.log(`Run complete. Scored ${results.length} sites.`);
 }
 
 runCrawler();
