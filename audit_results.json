@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://www.gaf.com/en-us/roofing-contractors/residential/usa/fl/tampa",
+    "title": "Best Roofers in Tampa, FL | GAF Roofing Contractors",
+    "isHttps": true,
+    "status": "success"
+  },
+  {
+    "url": "https://www.angi.com/companylist/us/fl/tampa-bay/roofing.htm",
+    "title": "10 Best Roofers in Tampa, FL - Nov 2026 (Verified Reviews) | Angi",
+    "status": "error",
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.angi.com/companylist/us/fl/tampa-bay/roofing.htm\", waiting until \"networkidle\"\n"
+  },
+  {
+    "url": "https://www.billshieldsroofing.com/",
+    "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
+    "isHttps": true,
+    "status": "success"
+  },
+  {
+    "url": "https://jaeofamerica.com/best-roofing-companies-tampa-fl/",
+    "title": "7 Best Roofing Companies in Tampa, FL (2026) | JAEA - JA Edwards of America Roofing",
+    "isHttps": true,
+    "status": "success"
+  },
+  {
+    "url": "https://www.eliteroofingservices.com/",
+    "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
+    "isHttps": true,
+    "status": "success"
+  }
+]
