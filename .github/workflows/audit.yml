@@ -1,0 +1,33 @@
+name: SMB Audit Pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify Secrets
+        run: |
+          if [ -z "${{ secrets.GROQ_API_KEY }}" ]; then echo "Missing GROQ key"; else echo "GROQ key present"; fi
+          if [ -z "${{ secrets.BRAVE_API_KEY }}" ]; then echo "Missing Brave key"; else echo "Brave key present"; fi
+          if [ -z "${{ secrets.TELEGRAM_BOT_TOKEN }}" ]; then echo "Missing Telegram Token"; else echo "Telegram Token present"; fi
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Run Test
+        run: echo "Pipeline is ready. Crawler can begin here."
