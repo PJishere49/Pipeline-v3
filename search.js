@@ -44,8 +44,19 @@ async function runSearch() {
         if (!response.ok) continue;
         const data = await response.json();
         const results = data.web?.results || [];
-        for (const res of results) {
-          prospects.push({ url: res.url, title: res.title, vertical, city });
+        
+          for (const res of results) {
+  prospects.push({ 
+    url: res.url, 
+    title: res.title, 
+    description: res.description,
+    page_age: res.page_age, 
+    has_thumbnail: !!res.thumbnail,
+    vertical, 
+    city 
+  });
+}
+        
         }
         queriesThisRun++;
         await new Promise(r => setTimeout(r, 2000));
