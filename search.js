@@ -17,7 +17,16 @@ if (usage.count >= 800) {
 const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
 const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
 
-const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:angieslist.com -site:nexdoor.com -site:pinging.com -site:mapness.com -jobs -directory -careers -salary';
+
+const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
+const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
+
+const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -jobs -careers -directory -"baker roofing" -"jaeofamerica"';
+
+
+async function runSearch() {
+  
+
 
 async function runSearch() {
   const prospects = [];
