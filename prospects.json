@@ -30,26 +30,14 @@
     "city": "Tampa"
   },
   {
+    "url": "https://rigroofing.com/service-area/hillsborough-county/tampa",
+    "title": "The Most Trusted Roof Repair & Replacement Company in Tampa, | RIG Roofing",
+    "vertical": "roofing",
+    "city": "Tampa"
+  },
+  {
     "url": "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
     "title": "5 Best-Rated Roofers In Tampa, FL: 2026 Comparison",
-    "vertical": "roofing",
-    "city": "Tampa"
-  },
-  {
-    "url": "https://janneyroofing.com/tampa/roofing-company/",
-    "title": "Your Home Deserves Protection – Tampa, FL Roofing Company, Trusted Local Roofers, and Reliable Residential Roof Replacement Contractor for Roof Repair & Quality Roofing Contractor Solutions",
-    "vertical": "roofing",
-    "city": "Tampa"
-  },
-  {
-    "url": "https://handymanroofing.com/areas-served/tampa/",
-    "title": "Trusted Roofers | Tampa, FL | Handyman Roofing",
-    "vertical": "roofing",
-    "city": "Tampa"
-  },
-  {
-    "url": "https://jenkinsroofingtampa.com/",
-    "title": "Jenkins Roofing Tampa | Florida's Premiere Roofing Company",
     "vertical": "roofing",
     "city": "Tampa"
   },
@@ -60,8 +48,14 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.forbes.com/home-improvement/roofing/local-roofers/roofing-companies-tampa-fl/",
-    "title": "Find The Best Roofing Contractors In Tampa, FL – Forbes Home",
+    "url": "https://janneyroofing.com/tampa/roofing-company/",
+    "title": "Your Home Deserves Protection – Tampa, FL Roofing Company, Trusted Local Roofers, and Reliable Residential Roof Replacement Contractor for Roof Repair & Quality Roofing Contractor Solutions",
+    "vertical": "roofing",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://jenkinsroofingtampa.com/",
+    "title": "Jenkins Roofing Tampa | Florida's Premiere Roofing Company",
     "vertical": "roofing",
     "city": "Tampa"
   },
@@ -78,20 +72,20 @@
     "city": "Tampa"
   },
   {
-    "url": "https://rigroofing.com/service-area/hillsborough-county/tampa",
-    "title": "The Most Trusted Roof Repair & Replacement Company in Tampa, | RIG Roofing",
+    "url": "https://handymanroofing.com/areas-served/tampa/",
+    "title": "Trusted Roofers | Tampa, FL | Handyman Roofing",
+    "vertical": "roofing",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://local.yahoo.com/roofing/article/best-roofing-companies-tampa-florida-130043365.html",
+    "title": "Best roofers in Tampa, Fla.",
     "vertical": "roofing",
     "city": "Tampa"
   },
   {
     "url": "https://roofxincfl.com/",
     "title": "Roofers Tampa FL | Roofing Company & Contractor | RoofX",
-    "vertical": "roofing",
-    "city": "Tampa"
-  },
-  {
-    "url": "https://www.evansroof.com/contact-tampa-fl",
-    "title": "Roof Repair Tampa | Residential Roofing Contractors Tampa",
     "vertical": "roofing",
     "city": "Tampa"
   },
@@ -104,6 +98,12 @@
   {
     "url": "https://actionroofing.com/tampa-roofing/",
     "title": "Tampa Roofing Services by Action Roofing | Builder Trusted, 40 Years in Florida",
+    "vertical": "roofing",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://primeroofrepairtampa.com/",
+    "title": "Roof Repair Tampa - Residential & Commercial Roofing Services",
     "vertical": "roofing",
     "city": "Tampa"
   },
@@ -144,20 +144,8 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.hawkinsserviceco.com/hvac/",
-    "title": "HVAC Company in Tampa and Fort Myers, FL | Hawkins Service Company",
-    "vertical": "hvac",
-    "city": "Tampa"
-  },
-  {
     "url": "https://www.marlinjames.com/tampa-fl/",
     "title": "Tampa, FL – Marlin James Air Conditioning & Heating",
-    "vertical": "hvac",
-    "city": "Tampa"
-  },
-  {
-    "url": "https://airrescueflorida.com/",
-    "title": "HVAC Contractor, Air Rescue Air Conditioning | Tampa, FL",
     "vertical": "hvac",
     "city": "Tampa"
   },
@@ -174,14 +162,20 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.delair.com/tampa/",
-    "title": "Tampa HVAC, Plumbing & Electrical | Del-Air",
+    "url": "https://airrescueflorida.com/",
+    "title": "HVAC Contractor, Air Rescue Air Conditioning | Tampa, FL",
     "vertical": "hvac",
     "city": "Tampa"
   },
   {
-    "url": "https://badgerbobs.com/city/hvac-service-tampa-heating-ac-repair-near-you",
-    "title": "Tampa, FL HVAC Repair Near Me - HVAC Services Tampa - AC Repair - Tampa Air Conditioning Installation - Furnace Repair - Emergency HVAC Repair Services Near You - Plumbing Repair - Electrical Repair - Badger Bobs | Badger Bob's Services",
+    "url": "https://www.hawkinsserviceco.com/hvac/",
+    "title": "HVAC Company in Tampa and Fort Myers, FL | Hawkins Service Company",
+    "vertical": "hvac",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://www.delair.com/tampa/",
+    "title": "Tampa HVAC, Plumbing & Electrical | Del-Air",
     "vertical": "hvac",
     "city": "Tampa"
   },
@@ -216,8 +210,14 @@
     "city": "Tampa"
   },
   {
-    "url": "https://planbairconditioning.com/",
-    "title": "HVAC Contractor in Tampa, FL | Plan B Air Conditioning",
+    "url": "https://badgerbobs.com/city/hvac-service-tampa-heating-ac-repair-near-you",
+    "title": "Tampa, FL HVAC Repair Near Me - HVAC Services Tampa - AC Repair - Tampa Air Conditioning Installation - Furnace Repair - Emergency HVAC Repair Services Near You - Plumbing Repair - Electrical Repair - Badger Bobs | Badger Bob's Services",
+    "vertical": "hvac",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://www.ferguson.com/store/fl/tampa/hvac-2523",
+    "title": "Tampa, FL 33610-9611 | Ferguson HVAC Supply Store",
     "vertical": "hvac",
     "city": "Tampa"
   },
@@ -228,8 +228,8 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.ferguson.com/store/fl/tampa/hvac-2523",
-    "title": "Tampa, FL 33610-9611 | Ferguson HVAC Supply Store",
+    "url": "https://www.airflowdesigns.com/locations/tampa/",
+    "title": "Air Conditioning & Heating Services in Tampa & Nearby Areas",
     "vertical": "hvac",
     "city": "Tampa"
   },
@@ -282,20 +282,14 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.ismiletampa.com/",
-    "title": "Dentist in Tampa FL, Family and Cosmetic Dentistry 33613",
-    "vertical": "dental",
-    "city": "Tampa"
-  },
-  {
     "url": "https://southtampadentistry.com/",
     "title": "Dentist in Tampa, Florida | South Tampa Dentistry",
     "vertical": "dental",
     "city": "Tampa"
   },
   {
-    "url": "https://www.coastdental.com/dentist-office/dentist-tampa",
-    "title": "Total Dental Care in Tampa, FL – Coast Dental Services",
+    "url": "https://www.ismiletampa.com/",
+    "title": "Dentist in Tampa FL, Family and Cosmetic Dentistry 33613",
     "vertical": "dental",
     "city": "Tampa"
   },
@@ -306,8 +300,26 @@
     "city": "Tampa"
   },
   {
+    "url": "https://www.coastdental.com/dentist-office/dentist-tampa",
+    "title": "Total Dental Care in Tampa, FL – Coast Dental Services",
+    "vertical": "dental",
+    "city": "Tampa"
+  },
+  {
     "url": "https://mytampadentistry.com/",
     "title": "Dentist in Tampa, Florida | Tampa Dentistry",
+    "vertical": "dental",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://smilesincluded.com/dentist-office/tampa-fl-33612",
+    "title": "Tampa Dentist | Dental Associates of Florida - Tampa",
+    "vertical": "dental",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://www.dentalofficeoftampa.com/",
+    "title": "Dentist in Tampa, FL | Dental Office of Tampa",
     "vertical": "dental",
     "city": "Tampa"
   },
@@ -330,12 +342,6 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.dentalofficeoftampa.com/",
-    "title": "Dentist in Tampa, FL | Dental Office of Tampa",
-    "vertical": "dental",
-    "city": "Tampa"
-  },
-  {
     "url": "https://www.tomlinsondentalcare.com/",
     "title": "Tomlinson Dental | Tampa, FL",
     "vertical": "dental",
@@ -354,9 +360,9 @@
     "city": "Tampa"
   },
   {
-    "url": "https://smilesincluded.com/dentist-office/tampa-fl-33612",
-    "title": "Tampa Dentist | Dental Associates of Florida - Tampa",
-    "vertical": "dental",
+    "url": "https://www.cataniaandcatania.com/",
+    "title": "Tampa Personal Injury Lawyers | Free Consultations",
+    "vertical": "injury lawyer",
     "city": "Tampa"
   },
   {
@@ -378,20 +384,8 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.cataniaandcatania.com/",
-    "title": "Tampa Personal Injury Lawyers | Free Consultations",
-    "vertical": "injury lawyer",
-    "city": "Tampa"
-  },
-  {
     "url": "https://www.lawhancock.com/",
     "title": "Tampa Personal Injury Lawyers | Hancock Injury Attorneys",
-    "vertical": "injury lawyer",
-    "city": "Tampa"
-  },
-  {
-    "url": "https://cappylaw.com/",
-    "title": "Tampa Personal Injury Attorneys | Cappy Law | Tampa, FL",
     "vertical": "injury lawyer",
     "city": "Tampa"
   },
@@ -408,8 +402,8 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.tragoslaw.com/tampa-injury/",
-    "title": "Personal Injury Lawyer Tampa, FL | Tragos, Sartes, & Tragos",
+    "url": "https://cappylaw.com/",
+    "title": "Tampa Personal Injury Attorneys | Cappy Law | Tampa, FL",
     "vertical": "injury lawyer",
     "city": "Tampa"
   },
@@ -422,6 +416,12 @@
   {
     "url": "https://fermanolaw.com/",
     "title": "Tampa Personal Injury Lawyer - Fermano Law, P.A. - Fermano Law - Personal Injury lawyer in Tampa FL",
+    "vertical": "injury lawyer",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://mickeykeenan.com/",
+    "title": "Tampa FL Personal Injury Attorneys | Mickey Keenan, P.A.",
     "vertical": "injury lawyer",
     "city": "Tampa"
   },
@@ -444,8 +444,14 @@
     "city": "Tampa"
   },
   {
-    "url": "https://mickeykeenan.com/",
-    "title": "Tampa FL Personal Injury Attorneys | Mickey Keenan, P.A.",
+    "url": "https://www.carterinjurylaw.com/",
+    "title": "Experienced Personal Injury Attorney in Tampa, Florida | Carter Injury Law",
+    "vertical": "injury lawyer",
+    "city": "Tampa"
+  },
+  {
+    "url": "https://brookslawgroup.com/tampa/personal-injury-lawyer/",
+    "title": "Tampa Personal Injury Lawyer | Free Consultation",
     "vertical": "injury lawyer",
     "city": "Tampa"
   },
@@ -456,20 +462,14 @@
     "city": "Tampa"
   },
   {
-    "url": "https://www.carterinjurylaw.com/",
-    "title": "Experienced Personal Injury Attorney in Tampa, Florida | Carter Injury Law",
-    "vertical": "injury lawyer",
-    "city": "Tampa"
-  },
-  {
     "url": "https://www.tampalaw.com/",
     "title": "Tampa Personal Injury Lawyers",
     "vertical": "injury lawyer",
     "city": "Tampa"
   },
   {
-    "url": "https://brookslawgroup.com/tampa/personal-injury-lawyer/",
-    "title": "Tampa Personal Injury Lawyer | Free Consultation",
+    "url": "https://www.erictaylor.org/",
+    "title": "Tampa Florida Personal Injury Lawyer | Tampa Eminent Domain Attorney",
     "vertical": "injury lawyer",
     "city": "Tampa"
   },
@@ -498,14 +498,20 @@
     "city": "St. Petersburg"
   },
   {
+    "url": "https://jamesroofinginc.com/",
+    "title": "Reliable Quality Roofing | Roofing Contractor St. Petersburg, FL",
+    "vertical": "roofing",
+    "city": "St. Petersburg"
+  },
+  {
     "url": "https://oldtimeroofing.net/",
     "title": "Best Roofing Company in St. Petersburg, FL | Call Trusted Roofers",
     "vertical": "roofing",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://jamesroofinginc.com/",
-    "title": "Reliable Quality Roofing | Roofing Contractor St. Petersburg, FL",
+    "url": "https://steadfastroofingfl.com/roofing/st-petersburg/",
+    "title": "Roofing St Petersburg FL | Steadfast Roofing",
     "vertical": "roofing",
     "city": "St. Petersburg"
   },
@@ -522,18 +528,6 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://steadfastroofingfl.com/roofing/st-petersburg/",
-    "title": "Roofing St Petersburg FL | Steadfast Roofing",
-    "vertical": "roofing",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://arsmi.com/service-area/st-petersburg",
-    "title": "Roofing Company St. Petersburg FL | American Roofing",
-    "vertical": "roofing",
-    "city": "St. Petersburg"
-  },
-  {
     "url": "https://nealrfg.com/locations/st-petersburg-fl",
     "title": "Experienced Roofing Company in St. Petersburg, FL | Neal Roofing",
     "vertical": "roofing",
@@ -542,6 +536,12 @@
   {
     "url": "https://reedroofingcompany.com/",
     "title": "Reed ROOFING – St. Petersburg & Tampa Bay – Best Roofing Company Pinellas & Tampa Bay Area",
+    "vertical": "roofing",
+    "city": "St. Petersburg"
+  },
+  {
+    "url": "https://arsmi.com/service-area/st-petersburg",
+    "title": "Roofing Company St. Petersburg FL | American Roofing",
     "vertical": "roofing",
     "city": "St. Petersburg"
   },
@@ -612,14 +612,14 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.kronwest.com/",
-    "title": "AC Installation, HVAC Service, AC Repair & Ductless Mini Splits | St. Petersburg, FL, South Pasadena, FL, St. Pete Beach, FL, Gulfport, FL & Treasure Island, FL | Kron & West",
+    "url": "https://www.totalairinc.net/",
+    "title": "HVAC, AC Repair & Install St Petersburg, FL | Total Air Inc",
     "vertical": "hvac",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.totalairinc.net/",
-    "title": "HVAC, AC Repair & Install St Petersburg, FL | Total Air Inc",
+    "url": "https://www.kronwest.com/",
+    "title": "AC Installation, HVAC Service, AC Repair & Ductless Mini Splits | St. Petersburg, FL, South Pasadena, FL, St. Pete Beach, FL, Gulfport, FL & Treasure Island, FL | Kron & West",
     "vertical": "hvac",
     "city": "St. Petersburg"
   },
@@ -666,12 +666,6 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.anthonysairconditioning.com/service-area/st-petersburg/",
-    "title": "AC Repair St. Petersburg, FL | Anthony’s Cooling-Heating-Electrical",
-    "vertical": "hvac",
-    "city": "St. Petersburg"
-  },
-  {
     "url": "https://browncoolingandplumbing.com/service-area/hvac/st-petersburg-fl/",
     "title": "HVAC Services in St. Petersburg, FL - Brown Heating, Cooling and Plumbing",
     "vertical": "hvac",
@@ -684,14 +678,14 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.delair.com/tampa/service-area/st-petersburg-fl/",
-    "title": "HVAC, Plumbing & Electrical | St. Petersburg | Call Now",
+    "url": "https://www.marlinjames.com/st-petersburg/",
+    "title": "St. Petersburg – Marlin James Air Conditioning & Heating",
     "vertical": "hvac",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.marlinjames.com/st-petersburg/",
-    "title": "St. Petersburg – Marlin James Air Conditioning & Heating",
+    "url": "https://www.delair.com/tampa/service-area/st-petersburg-fl/",
+    "title": "HVAC, Plumbing & Electrical | St. Petersburg | Call Now",
     "vertical": "hvac",
     "city": "St. Petersburg"
   },
@@ -714,6 +708,12 @@
     "city": "St. Petersburg"
   },
   {
+    "url": "https://www.totalairinc.net/service-areas/st-petersburg-fl-air-conditioning-heating-services",
+    "title": "St Petersburg FL Air Conditioning & Heating Services",
+    "vertical": "hvac",
+    "city": "St. Petersburg"
+  },
+  {
     "url": "https://www.reddit.com/r/StPetersburgFL/comments/1dgt5ho/ac_company_recommendations/",
     "title": "r/StPetersburgFL on Reddit: A/C company recommendations",
     "vertical": "hvac",
@@ -728,12 +728,6 @@
   {
     "url": "https://www.stpetersburgdental.com/st-petersburg",
     "title": "Family Dentists St. Petersburg, FL | Saint Petersburg Dental",
-    "vertical": "dental",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://www.stpetedentist.com/",
-    "title": "Most-Trusted Dentists in St. Petersburg FL | 2 Dental Offices Near You in St. Pete’s",
     "vertical": "dental",
     "city": "St. Petersburg"
   },
@@ -756,6 +750,12 @@
     "city": "St. Petersburg"
   },
   {
+    "url": "https://www.stpetedentist.com/",
+    "title": "Most-Trusted Dentists in St. Petersburg FL | 2 Dental Offices Near You in St. Pete’s",
+    "vertical": "dental",
+    "city": "St. Petersburg"
+  },
+  {
     "url": "https://www.stpetersburgdental.com/",
     "title": "Home | Saint Petersburg Dental",
     "vertical": "dental",
@@ -768,8 +768,8 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.coastdental.com/dentist-office/st-petersburg-fl-33702/",
-    "title": "Top Dentist in St. Petersburg, FL 33702 - Coast Dental",
+    "url": "https://www.spdentalstudio.com/",
+    "title": "St. Petersburg Dental Studio",
     "vertical": "dental",
     "city": "St. Petersburg"
   },
@@ -780,14 +780,8 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.spdentalstudio.com/",
-    "title": "St. Petersburg Dental Studio",
-    "vertical": "dental",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://www.floridadentalcenters.com/dentist-office/st-petersburg-fl-33702/dental-services",
-    "title": "Dental Services St. Petersburg - Florida Dental Centers | Florida Dental Centers",
+    "url": "https://www.coastdental.com/dentist-office/st-petersburg-fl-33702/",
+    "title": "Top Dentist in St. Petersburg, FL 33702 - Coast Dental",
     "vertical": "dental",
     "city": "St. Petersburg"
   },
@@ -804,26 +798,8 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://creating-smiles.com/",
-    "title": "Dentist St. Petersburg, FL | Creating Smiles Dental",
-    "vertical": "dental",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://www.mapquest.com/cat/us/florida/st.-petersburg/dentists",
-    "title": "Best Dentists in St. Petersburg, Florida - Mapquest",
-    "vertical": "dental",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://www.opencare.com/dentists/saint-petersburg-fl/",
-    "title": "20 Best Dentists Near Me in Saint Petersburg, FL | Opencare.com",
-    "vertical": "dental",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://mysagedental.com/st-petersburg-at-4th-street/",
-    "title": "Family Dentist in St. Petersburg, Florida | Sage Dental",
+    "url": "https://www.floridadentalcenters.com/dentist-office/st-petersburg-fl-33702/dental-services",
+    "title": "Dental Services St. Petersburg - Florida Dental Centers | Florida Dental Centers",
     "vertical": "dental",
     "city": "St. Petersburg"
   },
@@ -834,20 +810,44 @@
     "city": "St. Petersburg"
   },
   {
+    "url": "https://creating-smiles.com/",
+    "title": "Dentist St. Petersburg, FL | Creating Smiles Dental",
+    "vertical": "dental",
+    "city": "St. Petersburg"
+  },
+  {
+    "url": "https://dentalhealthfl.org/clinic/st-petersburg-free-clinic/",
+    "title": "St. Petersburg Free Clinic - Florida's Action for Dental Health",
+    "vertical": "dental",
+    "city": "St. Petersburg"
+  },
+  {
+    "url": "https://mysagedental.com/st-petersburg-at-4th-street/",
+    "title": "Family Dentist in St. Petersburg, Florida | Sage Dental",
+    "vertical": "dental",
+    "city": "St. Petersburg"
+  },
+  {
+    "url": "https://www.mapquest.com/cat/us/florida/st.-petersburg/dentists",
+    "title": "Best Dentists in St. Petersburg, Florida - Mapquest",
+    "vertical": "dental",
+    "city": "St. Petersburg"
+  },
+  {
     "url": "https://www.stpetersburgdental.com/services",
     "title": "Services | Saint Petersburg Dental",
     "vertical": "dental",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://emersonstraw.com/",
-    "title": "Personal Injury Lawyer & Car Accident Attorney in St Petersburg",
+    "url": "https://harlandlawfirm.com/",
+    "title": "Personal injury Attorneys St. Petersburg FL - Harland Law Firm",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://harlandlawfirm.com/",
-    "title": "Personal injury Attorneys St. Petersburg FL - Harland Law Firm",
+    "url": "https://emersonstraw.com/",
+    "title": "Personal Injury Lawyer & Car Accident Attorney in St Petersburg",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
@@ -864,26 +864,26 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.jeeveslawgroup.com/",
-    "title": "Personal Injury Lawyer St. Petersburg, FL | Jeeves Law Group",
-    "vertical": "injury lawyer",
-    "city": "St. Petersburg"
-  },
-  {
     "url": "https://jorgensenlawoffice.com/",
     "title": "Personal Injury Lawyer St. Petersburg, FL | Jorgensen Law, P.A.",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.cataniaandcatania.com/st-petersburg/",
-    "title": "St. Petersburg Personal Injury Lawyer | Catania & Catania, P.A.",
+    "url": "https://www.jeeveslawgroup.com/",
+    "title": "Personal Injury Lawyer St. Petersburg, FL | Jeeves Law Group",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.usalaw.com/st-petersburg-personal-injury-lawyer/",
-    "title": "St. Petersburg Personal Injury Lawyers | Perenich, Caulfield, Avril & Noyes",
+    "url": "https://www.mathiaslawfirm.com/",
+    "title": "Personal Injury Lawyer in St. Petersburg, Florida | Law Offices of John R. Mathias, P.A.",
+    "vertical": "injury lawyer",
+    "city": "St. Petersburg"
+  },
+  {
+    "url": "https://www.cataniaandcatania.com/st-petersburg/",
+    "title": "St. Petersburg Personal Injury Lawyer | Catania & Catania, P.A.",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
@@ -918,20 +918,14 @@
     "city": "St. Petersburg"
   },
   {
+    "url": "https://www.usalaw.com/st-petersburg-personal-injury-lawyer/",
+    "title": "St. Petersburg Personal Injury Lawyers | Perenich, Caulfield, Avril & Noyes",
+    "vertical": "injury lawyer",
+    "city": "St. Petersburg"
+  },
+  {
     "url": "https://www.dennishernandez.com/st-petersburg/",
     "title": "St. Petersburg Personal Injury Lawyer | Dennis Hernandez Injury Attorneys",
-    "vertical": "injury lawyer",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://allinjurieslaw.com/personal-injury-attorneys-in-st-petersburg-florida/",
-    "title": "St. Petersburg Personal Injury Lawyers - Legler, Murphy & Battaglia, PLLC",
-    "vertical": "injury lawyer",
-    "city": "St. Petersburg"
-  },
-  {
-    "url": "https://www.armandoinjurylaw.com/st-petersburg/",
-    "title": "St. Petersburg Personal Injury Lawyer | Armando Personal Injury Law",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
@@ -942,14 +936,20 @@
     "city": "St. Petersburg"
   },
   {
-    "url": "https://romanaustin.com/st-petersburg/",
-    "title": "St. Petersburg Personal Injury Lawyers | Roman Austin",
+    "url": "https://www.armandoinjurylaw.com/st-petersburg/",
+    "title": "St. Petersburg Personal Injury Lawyer | Armando Personal Injury Law",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
   {
-    "url": "https://www.pipaslaw.com/",
-    "title": "St. Petersburg Personal Injury Lawyers | Pipas Law Group",
+    "url": "https://allinjurieslaw.com/personal-injury-attorneys-in-st-petersburg-florida/",
+    "title": "St. Petersburg Personal Injury Lawyers - Legler, Murphy & Battaglia, PLLC",
+    "vertical": "injury lawyer",
+    "city": "St. Petersburg"
+  },
+  {
+    "url": "https://romanaustin.com/st-petersburg/",
+    "title": "St. Petersburg Personal Injury Lawyers | Roman Austin",
     "vertical": "injury lawyer",
     "city": "St. Petersburg"
   },
@@ -978,14 +978,14 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://roofingcontractorsclearwater.com/",
-    "title": "➤ Roofing Contractors Clearwater | Roofers | Roof Repair",
+    "url": "https://www.mightydogroofing.com/clearwater-fl/",
+    "title": "Roofing Services in Clearwater, FL | Mighty Dog Roofing",
     "vertical": "roofing",
     "city": "Clearwater"
   },
   {
-    "url": "https://www.mightydogroofing.com/clearwater-fl/",
-    "title": "Roofing Services in Clearwater, FL | Mighty Dog Roofing",
+    "url": "https://roofingcontractorsclearwater.com/",
+    "title": "➤ Roofing Contractors Clearwater | Roofers | Roof Repair",
     "vertical": "roofing",
     "city": "Clearwater"
   },
@@ -1002,20 +1002,14 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://deanroofs.com/",
-    "title": "Roofing Company in Clearwater, FL | Dean Roofing Since 1946.",
-    "vertical": "roofing",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://www.baldwinroofing.com/service-area/clearwater-fl",
-    "title": "Roofing Company Clearwater FL | Baldwin Roofing Company",
-    "vertical": "roofing",
-    "city": "Clearwater"
-  },
-  {
     "url": "https://classicroofreplacement.com/areas-we-serve/clearwater-florida/",
     "title": "Roofing Company in Clearwater, FL | Licensed & Local Since 2003",
+    "vertical": "roofing",
+    "city": "Clearwater"
+  },
+  {
+    "url": "https://deanroofs.com/",
+    "title": "Roofing Company in Clearwater, FL | Dean Roofing Since 1946.",
     "vertical": "roofing",
     "city": "Clearwater"
   },
@@ -1032,8 +1026,8 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://classicroofreplacement.com/",
-    "title": "Roofing Company Clearwater FL | Classic Roofing & Construction",
+    "url": "https://www.thumbtack.com/fl/clearwater/roofing",
+    "title": "Roofing professionals near Clearwater, FL",
     "vertical": "roofing",
     "city": "Clearwater"
   },
@@ -1044,26 +1038,26 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://www.doneriteroofinginc.com/service-area/roofing-company-in-clearwater-fl/",
-    "title": "Roofing Company in Clearwater, FL",
+    "url": "https://www.reddogsroofing.com/clearwater-fl/",
+    "title": "Clearwater, FL Roofing Company | Roofers in Florida",
     "vertical": "roofing",
     "city": "Clearwater"
   },
   {
-    "url": "https://www.thumbtack.com/fl/clearwater/roofing",
-    "title": "Roofing professionals near Clearwater, FL",
-    "vertical": "roofing",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://baysideroofingpros.com/service-areas/clearwater-fl-roofing/",
-    "title": "Roofing Services in Clearwater, Florida | BBB A+ Rating",
+    "url": "https://universalroof.com/service-areas/clearwater-fl/",
+    "title": "Clearwater, FL Roofing Contractor | 30+ Years | Universal Roof",
     "vertical": "roofing",
     "city": "Clearwater"
   },
   {
     "url": "https://www.eliteroofingservices.com/service-area/clearwater-fl/",
     "title": "Roofing Company Clearwater FL | Elite Roofing Services",
+    "vertical": "roofing",
+    "city": "Clearwater"
+  },
+  {
+    "url": "https://classicroofreplacement.com/",
+    "title": "Roofing Company Clearwater FL | Classic Roofing & Construction",
     "vertical": "roofing",
     "city": "Clearwater"
   },
@@ -1080,20 +1074,26 @@
     "city": "Clearwater"
   },
   {
+    "url": "https://local.yahoo.com/consumer-services/home-and-garden-services/roofing-contractors/fl/clearwater/",
+    "title": "Roofing Contractors in Clearwater, FL",
+    "vertical": "roofing",
+    "city": "Clearwater"
+  },
+  {
     "url": "https://acs-advancedcooling.com/",
     "title": "AC Repair & HVAC Services | Clearwater, FL | Advanced Cooling Systems",
     "vertical": "hvac",
     "city": "Clearwater"
   },
   {
-    "url": "https://bayside-ac.com/",
-    "title": "AC Repair, HVAC Service & Installation in Clearwater, FL. Serving Clearwater, Palm Harbor, Dunedin & Oldsmar. -",
+    "url": "https://www.reliantacguys.com/",
+    "title": "HVAC Services in Clearwater | Reliant Heating & Air Conditioning",
     "vertical": "hvac",
     "city": "Clearwater"
   },
   {
-    "url": "https://www.reliantacguys.com/",
-    "title": "HVAC Services in Clearwater | Reliant Heating & Air Conditioning",
+    "url": "https://bayside-ac.com/",
+    "title": "AC Repair, HVAC Service & Installation in Clearwater, FL. Serving Clearwater, Palm Harbor, Dunedin & Oldsmar. -",
     "vertical": "hvac",
     "city": "Clearwater"
   },
@@ -1122,14 +1122,14 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://www.varsityzone.com/clearwater-fl/",
-    "title": "HVAC Services in Clearwater, FL",
+    "url": "https://www.samsheatingandairfl.com/",
+    "title": "HVAC | Clearwater, FL | Sam's Heating & Air",
     "vertical": "hvac",
     "city": "Clearwater"
   },
   {
-    "url": "https://www.samsheatingandairfl.com/",
-    "title": "HVAC | Clearwater, FL | Sam's Heating & Air",
+    "url": "https://www.varsityzone.com/clearwater-fl/",
+    "title": "HVAC Services in Clearwater, FL",
     "vertical": "hvac",
     "city": "Clearwater"
   },
@@ -1152,6 +1152,12 @@
     "city": "Clearwater"
   },
   {
+    "url": "https://progressiveairsystems.com/locations/clearwater-fl-heating-and-cooling/",
+    "title": "Clearwater, FL Heating & Cooling Services | Progressive Air Systems",
+    "vertical": "hvac",
+    "city": "Clearwater"
+  },
+  {
     "url": "https://precisionairflorida.com/clearwater-fl/",
     "title": "Expert HVAC Services in Clearwater, FL | Precision Air Conditioning & Refrigeration Inc. | Precision Air Conditioning & Refrigeration Inc.",
     "vertical": "hvac",
@@ -1166,12 +1172,6 @@
   {
     "url": "https://www.cooltoday.com/about/service-area/clearwater",
     "title": "Clearwater HVAC - Heating & AC Repair, Service and Install in Clearwater, FL",
-    "vertical": "hvac",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://progressiveairsystems.com/locations/clearwater-fl-heating-and-cooling/",
-    "title": "Clearwater, FL Heating & Cooling Services | Progressive Air Systems",
     "vertical": "hvac",
     "city": "Clearwater"
   },
@@ -1218,6 +1218,12 @@
     "city": "Clearwater"
   },
   {
+    "url": "https://dentistplace.com/",
+    "title": "Dentist in Clearwater, FL | The Dentist Place",
+    "vertical": "dental",
+    "city": "Clearwater"
+  },
+  {
     "url": "https://www.clearwaterdentist.com/",
     "title": "Family & Cosmetic Dentistry in Clearwater, FL | Clearwater Dentist",
     "vertical": "dental",
@@ -1230,26 +1236,8 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://dentistplace.com/",
-    "title": "Dentist in Clearwater, FL | The Dentist Place",
-    "vertical": "dental",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://myclearwaterfamilydental.com/",
-    "title": "Clearwater Dentist | Clearwater Family Dental | Florida, 33756",
-    "vertical": "dental",
-    "city": "Clearwater"
-  },
-  {
     "url": "https://www.coastdental.com/dentist-office/clearwater-fl-33765/",
     "title": "Expert Clearwater FL Dentist Office - Coast Dental 33765",
-    "vertical": "dental",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://bayviewdental.com/clearwater-countryside/",
-    "title": "Dentist in Clearwater | Bayview Dental Near Safety Harbor",
     "vertical": "dental",
     "city": "Clearwater"
   },
@@ -1260,8 +1248,20 @@
     "city": "Clearwater"
   },
   {
+    "url": "https://bayviewdental.com/clearwater-countryside/",
+    "title": "Dentist in Clearwater | Bayview Dental Near Safety Harbor",
+    "vertical": "dental",
+    "city": "Clearwater"
+  },
+  {
     "url": "https://sunsetpointdental.com/",
     "title": "Dentist in Clearwater, FL, 33765 | Clearwater Dentistry Near You | Sunset Point Dental",
+    "vertical": "dental",
+    "city": "Clearwater"
+  },
+  {
+    "url": "https://myclearwaterfamilydental.com/",
+    "title": "Clearwater Dentist | Clearwater Family Dental | Florida, 33756",
     "vertical": "dental",
     "city": "Clearwater"
   },
@@ -1280,6 +1280,12 @@
   {
     "url": "https://www.floridadentalcenters.com/dentist-office/clearwater-fl-33765/dental-services",
     "title": "Dental Services in Clearwater, FL | Florida Dental Centers",
+    "vertical": "dental",
+    "city": "Clearwater"
+  },
+  {
+    "url": "https://evarahealth.org/location/clearwater-dental-center",
+    "title": "Clearwater Dental Center Hours & Contact Info",
     "vertical": "dental",
     "city": "Clearwater"
   },
@@ -1304,12 +1310,6 @@
   {
     "url": "https://www.clearwaterdentist.com/general-dentistry",
     "title": "General Dentistry in Clearwater, FL | Clearwater Dentist",
-    "vertical": "dental",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://evarahealth.org/location/clearwater-dental-center",
-    "title": "Clearwater Dental Center Hours & Contact Info",
     "vertical": "dental",
     "city": "Clearwater"
   },
@@ -1344,14 +1344,32 @@
     "city": "Clearwater"
   },
   {
+    "url": "https://www.cataniaandcatania.com/contact/clearwater-personal-injury-law-office/",
+    "title": "Clearwater Office | Catania & Catania Injury Lawyers | 600 Cleveland Street",
+    "vertical": "injury lawyer",
+    "city": "Clearwater"
+  },
+  {
+    "url": "https://wintersandyonker.com/clearwater-personal-injury-lawyer/",
+    "title": "Personal Injury Lawyer Clearwater FL - Winters & Yonker - Accident Injury Law Firm Clearwater FL",
+    "vertical": "injury lawyer",
+    "city": "Clearwater"
+  },
+  {
+    "url": "https://careyandleisure.com/",
+    "title": "Clearwater Personal Injury Lawyers",
+    "vertical": "injury lawyer",
+    "city": "Clearwater"
+  },
+  {
     "url": "https://bernsteininjurylaw.com/service-area/clearwater/",
     "title": "Clearwater Personal Injury Lawyer | Jack Bernstein, Injury Attorneys",
     "vertical": "injury lawyer",
     "city": "Clearwater"
   },
   {
-    "url": "https://www.cataniaandcatania.com/contact/clearwater-personal-injury-law-office/",
-    "title": "Clearwater Office | Catania & Catania Injury Lawyers | 600 Cleveland Street",
+    "url": "https://www.lawyers.com/personal-injury/clearwater/florida/law-firms/",
+    "title": "Clearwater, FL Personal Injury Lawyers & Law Firms - Find the Best Near You",
     "vertical": "injury lawyer",
     "city": "Clearwater"
   },
@@ -1368,26 +1386,8 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://wintersandyonker.com/clearwater-personal-injury-lawyer/",
-    "title": "Personal Injury Lawyer Clearwater FL - Winters & Yonker - Accident Injury Law Firm Clearwater FL",
-    "vertical": "injury lawyer",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://www.lawyers.com/personal-injury/clearwater/florida/law-firms/",
-    "title": "Clearwater, FL Personal Injury Lawyers & Law Firms - Find the Best Near You",
-    "vertical": "injury lawyer",
-    "city": "Clearwater"
-  },
-  {
     "url": "https://hermanwells.com/clearwater-injury/",
     "title": "Clearwater Personal Injury Lawyer | Injury Attorneys | Injury Lawyer",
-    "vertical": "injury lawyer",
-    "city": "Clearwater"
-  },
-  {
-    "url": "https://www.jeeveslawgroup.com/pinellascounty/clearwater/practice-areas/personal-injury",
-    "title": "Personal Injury Lawyer in Clearwater, FL | Pinellas County Attorney",
     "vertical": "injury lawyer",
     "city": "Clearwater"
   },
@@ -1398,8 +1398,8 @@
     "city": "Clearwater"
   },
   {
-    "url": "https://careyandleisure.com/",
-    "title": "Clearwater Personal Injury Lawyers",
+    "url": "https://www.jeeveslawgroup.com/pinellascounty/clearwater/practice-areas/personal-injury",
+    "title": "Personal Injury Lawyer in Clearwater, FL | Pinellas County Attorney",
     "vertical": "injury lawyer",
     "city": "Clearwater"
   },
@@ -1458,26 +1458,26 @@
     "city": "Brandon"
   },
   {
-    "url": "https://www.lifetimequalityroofing.com/roofing-location/brandon/",
-    "title": "Top-Rated Residential Roofing Services in Brandon, FL",
-    "vertical": "roofing",
-    "city": "Brandon"
-  },
-  {
     "url": "https://www.baldwinroofing.com/service-area/brandon-fl",
     "title": "Roofing Company Brandon FL | Baldwin Roofing Company",
     "vertical": "roofing",
     "city": "Brandon"
   },
   {
-    "url": "https://steadfastroofingfl.com/roofing/brandon/",
-    "title": "#1 Roofing Company Brandon, FL | Steadfast Roofing",
+    "url": "https://www.dynamicroofingconcepts.com/",
+    "title": "The Most Reliable Roof Repair & Replacement Company in Brandon, FL | Top Residential and Commercial Roofers | Roofing Services Brandon Florida - Dynamic Roofing Concepts",
     "vertical": "roofing",
     "city": "Brandon"
   },
   {
-    "url": "https://www.dynamicroofingconcepts.com/",
-    "title": "The Most Reliable Roof Repair & Replacement Company in Brandon, FL | Top Residential and Commercial Roofers | Roofing Services Brandon Florida - Dynamic Roofing Concepts",
+    "url": "https://www.lifetimequalityroofing.com/roofing-location/brandon/",
+    "title": "Top-Rated Residential Roofing Services in Brandon, FL",
+    "vertical": "roofing",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://steadfastroofingfl.com/roofing/brandon/",
+    "title": "#1 Roofing Company Brandon, FL | Steadfast Roofing",
     "vertical": "roofing",
     "city": "Brandon"
   },
@@ -1490,12 +1490,6 @@
   {
     "url": "https://www.regalroofingbrandon.com/areas-we-serve/roofer-brandon-fl/",
     "title": "Roofer Brandon FL: Residential Roofing | Regal Roofing Brandon",
-    "vertical": "roofing",
-    "city": "Brandon"
-  },
-  {
-    "url": "https://www.westfallroofing.com/roofing-company-brandon-florida/",
-    "title": "Roofing Company in Brandon, Florida | Westfall Roofing",
     "vertical": "roofing",
     "city": "Brandon"
   },
@@ -1524,14 +1518,20 @@
     "city": "Brandon"
   },
   {
-    "url": "https://chaseroofing.com/brandon-roofing/",
-    "title": "Roofing Contractor In Brandon | Brandon Roofing Services",
+    "url": "https://www.dynamicroofingconcepts.com/brandon-roofer/",
+    "title": "Reliable Roofers in Brandon, FL | Local Roofing Contractor",
     "vertical": "roofing",
     "city": "Brandon"
   },
   {
-    "url": "https://www.dynamicroofingconcepts.com/brandon-roofer/",
-    "title": "Reliable Roofers in Brandon, FL | Local Roofing Contractor",
+    "url": "https://www.westfallroofing.com/roofing-company-brandon-florida/",
+    "title": "Roofing Company in Brandon, Florida | Westfall Roofing",
+    "vertical": "roofing",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://chaseroofing.com/brandon-roofing/",
+    "title": "Roofing Contractor In Brandon | Brandon Roofing Services",
     "vertical": "roofing",
     "city": "Brandon"
   },
@@ -1554,8 +1554,8 @@
     "city": "Brandon"
   },
   {
-    "url": "https://www.affordableroofingflorida.com/local-roofing-companies/roof-repair-brandon/",
-    "title": "#1 Roofers in Brandon - Affordable Roofing Systems",
+    "url": "https://www.dynamicroofingconcepts.com/metal-roof/",
+    "title": "Metal Roofing in Brandon, FL | Durable Roofs by Dynamic Roofing Concepts",
     "vertical": "roofing",
     "city": "Brandon"
   },
@@ -1568,12 +1568,6 @@
   {
     "url": "https://www.marlinjames.com/",
     "title": "Marlin James Air Conditioning & Heating – AC Repair Brandon FL",
-    "vertical": "hvac",
-    "city": "Brandon"
-  },
-  {
-    "url": "https://www.jamiesairconditioning.com/",
-    "title": "HVAC Experts| Jamie's Air Conditioning | Brandon, FL",
     "vertical": "hvac",
     "city": "Brandon"
   },
@@ -1592,6 +1586,12 @@
   {
     "url": "https://www.rolandoshvac.com/brandon/",
     "title": "HVAC Contractor in Brandon, FL | Rolando’s HVAC",
+    "vertical": "hvac",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://www.jamiesairconditioning.com/",
+    "title": "HVAC Experts| Jamie's Air Conditioning | Brandon, FL",
     "vertical": "hvac",
     "city": "Brandon"
   },
@@ -1632,6 +1632,12 @@
     "city": "Brandon"
   },
   {
+    "url": "https://www.onehourheatandair.com/areas-we-service/brandon-fl/",
+    "title": "Brandon HVAC Repair | HVAC Repair Near Me | One Hour® of Tampa",
+    "vertical": "hvac",
+    "city": "Brandon"
+  },
+  {
     "url": "https://www.marlinjames.com/brandon-fl/",
     "title": "Brandon, FL – Marlin James Air Conditioning & Heating",
     "vertical": "hvac",
@@ -1644,8 +1650,8 @@
     "city": "Brandon"
   },
   {
-    "url": "https://www.onehourheatandair.com/areas-we-service/brandon-fl/",
-    "title": "Brandon HVAC Repair | HVAC Repair Near Me | One Hour® of Tampa",
+    "url": "https://todayshomeowner.com/near-me/florida/brandon/hvac/",
+    "title": "10 Best HVAC Companies in Brandon, FL - Today's Homeowner",
     "vertical": "hvac",
     "city": "Brandon"
   },
@@ -1656,20 +1662,14 @@
     "city": "Brandon"
   },
   {
-    "url": "https://todayshomeowner.com/near-me/florida/brandon/hvac/",
-    "title": "10 Best HVAC Companies in Brandon, FL - Today's Homeowner",
+    "url": "https://brandonairconditioning.com/",
+    "title": "Air Conditioning Repair Brandon FL | AC Repair Service",
     "vertical": "hvac",
     "city": "Brandon"
   },
   {
     "url": "https://www.delair.com/tampa/service-area/brandon-fl/",
     "title": "HVAC, Plumbing & Electrical I Brandon, FL | Call Now",
-    "vertical": "hvac",
-    "city": "Brandon"
-  },
-  {
-    "url": "https://brandonairconditioning.com/",
-    "title": "Air Conditioning Repair Brandon FL | AC Repair Service",
     "vertical": "hvac",
     "city": "Brandon"
   },
@@ -1764,12 +1764,6 @@
     "city": "Brandon"
   },
   {
-    "url": "https://www.gentledentalbrandon.com/",
-    "title": "Bright Now! Dental | Trusted Family Dentist in Brandon, FL",
-    "vertical": "dental",
-    "city": "Brandon"
-  },
-  {
     "url": "https://www.dentalspecialtyflorida.com/dentist-office/brandon-fl-33511",
     "title": "Brandon Dentist | Dental Specialty Centers of Florida",
     "vertical": "dental",
@@ -1784,6 +1778,12 @@
   {
     "url": "https://brandonperfectdental.com/",
     "title": "Dentist in Brandon, FL 33511 | Cosmetic Dentistry Near You",
+    "vertical": "dental",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://www.dentaltheorybrandon.com/",
+    "title": "Dental Theory Brandon - Adult & Pediatric Dentist in Brandon, Florida",
     "vertical": "dental",
     "city": "Brandon"
   },
@@ -1824,20 +1824,14 @@
     "city": "Brandon"
   },
   {
-    "url": "https://www.lawfran.com/brandon-personal-injury-lawyers/",
-    "title": "Brandon, FL Personal Injury Lawyer | Fran Haasch",
-    "vertical": "injury lawyer",
-    "city": "Brandon"
-  },
-  {
     "url": "https://www.brandonlegal.com/",
     "title": "Personal Injury & Family Law Attorney Brandon, FL | Carman & Finegan",
     "vertical": "injury lawyer",
     "city": "Brandon"
   },
   {
-    "url": "https://www.kemplaw.com/brandon",
-    "title": "Brandon Personal Injury Attorney | Free Consultation — Kemp Law Group",
+    "url": "https://www.lawfran.com/brandon-personal-injury-lawyers/",
+    "title": "Brandon, FL Personal Injury Lawyer | Fran Haasch",
     "vertical": "injury lawyer",
     "city": "Brandon"
   },
@@ -1872,26 +1866,8 @@
     "city": "Brandon"
   },
   {
-    "url": "https://www.expertise.com/legal/personal-injury-lawyers/florida/brandon",
-    "title": "18 Best Personal Injury Lawyers Brandon, FL | Expertise.com",
-    "vertical": "injury lawyer",
-    "city": "Brandon"
-  },
-  {
     "url": "https://www.jeeveslawgroup.com/personal-injury-attorney-brandon-fl",
     "title": "Personal Injury Attorney, Personal Injury Claim Lawyer Brandon FL - Jeeves Law Group",
-    "vertical": "injury lawyer",
-    "city": "Brandon"
-  },
-  {
-    "url": "https://matthewslawpa.com/areas-of-practice/personal-injury-law/",
-    "title": "Local Personal Injury Lawyer Brandon FL | Personal Lawsuit Attorney | Matthews Law & Associates",
-    "vertical": "injury lawyer",
-    "city": "Brandon"
-  },
-  {
-    "url": "https://www.all-injuries.com/brandon-personal-injury-lawyer/",
-    "title": "Brandon Personal Injury Lawyer | Smith Feddeler & Smith, P.A.",
     "vertical": "injury lawyer",
     "city": "Brandon"
   },
@@ -1902,8 +1878,38 @@
     "city": "Brandon"
   },
   {
+    "url": "https://www.expertise.com/legal/personal-injury-lawyers/florida/brandon",
+    "title": "18 Best Personal Injury Lawyers Brandon, FL | Expertise.com",
+    "vertical": "injury lawyer",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://www.all-injuries.com/brandon-personal-injury-lawyer/",
+    "title": "Brandon Personal Injury Lawyer | Smith Feddeler & Smith, P.A.",
+    "vertical": "injury lawyer",
+    "city": "Brandon"
+  },
+  {
     "url": "https://www.theinjurylawyers.com/brandon-personal-injury-lawyer/",
     "title": "24/7 Local Brandon Personal Injury Attorneys Near You - Personal Injury Lawyers in Brandon, FL",
+    "vertical": "injury lawyer",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://www.kemplaw.com/brandon",
+    "title": "Brandon Personal Injury Attorney | Free Consultation — Kemp Law Group",
+    "vertical": "injury lawyer",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://matthewslawpa.com/areas-of-practice/personal-injury-law/",
+    "title": "Local Personal Injury Lawyer Brandon FL | Personal Lawsuit Attorney | Matthews Law & Associates",
+    "vertical": "injury lawyer",
+    "city": "Brandon"
+  },
+  {
+    "url": "https://www.avvo.com/personal-injury-lawyer/fl/brandon.html",
+    "title": "Top Rated Brandon, FL Personal Injury Lawyers",
     "vertical": "injury lawyer",
     "city": "Brandon"
   },
@@ -1914,26 +1920,20 @@
     "city": "Brandon"
   },
   {
-    "url": "https://tacherlawmiami.com/personal-injury-lawyer-brandon/",
-    "title": "Personal Injury Lawyer in Brandon, FL - Tacher Law",
-    "vertical": "injury lawyer",
-    "city": "Brandon"
-  },
-  {
     "url": "https://www.floridaroofing.com/",
     "title": "Sarasota Roofing Contractor | Residential Commercial Roofs FL",
     "vertical": "roofing",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.bestpickreports.com/roofers/sarasota",
-    "title": "Best Roofing Companies in Sarasota, FL",
+    "url": "https://www.roofingbycurry.com/",
+    "title": "Residential Roofer Sarasota, FL | Lakewood Ranch, FL",
     "vertical": "roofing",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.roofingbycurry.com/",
-    "title": "Residential Roofer Sarasota, FL | Lakewood Ranch, FL",
+    "url": "https://www.bestpickreports.com/roofers/sarasota",
+    "title": "Best Roofing Companies in Sarasota, FL",
     "vertical": "roofing",
     "city": "Sarasota"
   },
@@ -1968,26 +1968,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://www.expertise.com/home-improvement/roofing/florida/sarasota",
-    "title": "17 Best Sarasota, FL Roofers | Expertise.com",
+    "url": "https://strongroofingsrq.com/",
+    "title": "Roofing Contractor in Sarasota, FL | Strong Roofing",
     "vertical": "roofing",
     "city": "Sarasota"
   },
   {
     "url": "https://www.wolffroofing.com/",
     "title": "Best Sarasota FL Roofing Company & Contractor- Wolff Roofing LLC",
-    "vertical": "roofing",
-    "city": "Sarasota"
-  },
-  {
-    "url": "https://www.gopherroofing.com/",
-    "title": "Local Roofer Sarasota, FL | Punta Gorda, FL | Gopher Roofing",
-    "vertical": "roofing",
-    "city": "Sarasota"
-  },
-  {
-    "url": "https://strongroofingsrq.com/",
-    "title": "Roofing Contractor in Sarasota, FL | Strong Roofing",
     "vertical": "roofing",
     "city": "Sarasota"
   },
@@ -2004,20 +1992,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://trustroofing.com/roofing/sarasota/",
-    "title": "#1 Roofing Company In Sarasota, FL | 5-Star Contractors",
-    "vertical": "roofing",
-    "city": "Sarasota"
-  },
-  {
     "url": "https://siestaroofing.com/",
     "title": "Siesta Roofing | Trusted Roofing Contractor Sarasota FL",
     "vertical": "roofing",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.romanroofing.com/sarasota-fl/roofing/",
-    "title": "Sarasota, FL Roofing Company | Roofing Repair Contractor",
+    "url": "https://trustroofing.com/roofing/sarasota/",
+    "title": "#1 Roofing Company In Sarasota, FL | 5-Star Contractors",
     "vertical": "roofing",
     "city": "Sarasota"
   },
@@ -2028,8 +2010,26 @@
     "city": "Sarasota"
   },
   {
+    "url": "https://rooflineinc.com/",
+    "title": "Roofline Roofing | Roofers in Bradenton & Sarasota, FL",
+    "vertical": "roofing",
+    "city": "Sarasota"
+  },
+  {
     "url": "https://thesarasotaroofers.com/",
     "title": "Cost-Efficient Sarasota Roofer | Home Roofing | FREE Quotes!",
+    "vertical": "roofing",
+    "city": "Sarasota"
+  },
+  {
+    "url": "https://www.romanroofing.com/sarasota-fl/roofing/",
+    "title": "Sarasota, FL Roofing Company | Roofing Repair Contractor",
+    "vertical": "roofing",
+    "city": "Sarasota"
+  },
+  {
+    "url": "https://armourroofinc.com/",
+    "title": "Roofing Contractor Sarasota FL | Top-Rated Roofers Lakewood Ranch",
     "vertical": "roofing",
     "city": "Sarasota"
   },
@@ -2070,14 +2070,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://trustacree.com/sarasota-fl/",
-    "title": "Same-Day HVAC Services in Sarasota, FL | Schedule",
+    "url": "https://www.airnowtoday.com/",
+    "title": "HVAC Contractor - Sarasota, FL | AirNow Air Conditioning",
     "vertical": "hvac",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.airnowtoday.com/",
-    "title": "HVAC Contractor - Sarasota, FL | AirNow Air Conditioning",
+    "url": "https://trustacree.com/sarasota-fl/",
+    "title": "Same-Day HVAC Services in Sarasota, FL | Schedule",
     "vertical": "hvac",
     "city": "Sarasota"
   },
@@ -2094,14 +2094,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://www.thumbtack.com/fl/sarasota/hvac/",
-    "title": "The 10 Best HVAC Services in Sarasota, FL (with Free Estimates)",
+    "url": "https://www.actoday-fl.com/",
+    "title": "HVAC Installation & AC Repair Services in Sarasota | AC Today Heating & Air Conditioning",
     "vertical": "hvac",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.actoday-fl.com/",
-    "title": "HVAC Installation & AC Repair Services in Sarasota | AC Today Heating & Air Conditioning",
+    "url": "https://www.thumbtack.com/fl/sarasota/hvac/",
+    "title": "The 10 Best HVAC Services in Sarasota, FL (with Free Estimates)",
     "vertical": "hvac",
     "city": "Sarasota"
   },
@@ -2118,14 +2118,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://hvaheatingandair.com/",
-    "title": "HVAC Services in Sarasota, FL | HVA Heating & Air",
+    "url": "https://www.elitecustomservices.com/locations/florida/sarasota/",
+    "title": "HVAC, Plumbing & Electrical Services in Sarasota, FL | Elite",
     "vertical": "hvac",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.elitecustomservices.com/locations/florida/sarasota/",
-    "title": "HVAC, Plumbing & Electrical Services in Sarasota, FL | Elite",
+    "url": "https://hvaheatingandair.com/",
+    "title": "HVAC Services in Sarasota, FL | HVA Heating & Air",
     "vertical": "hvac",
     "city": "Sarasota"
   },
@@ -2136,14 +2136,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://www.actoday-fl.com/hvac/",
-    "title": "Professional HVAC Services in Sarasota | AC Today Heating & Air Conditioning",
+    "url": "https://jimmcdonaldcool.com/",
+    "title": "Sarasota, FL AC Repair & HVAC Services",
     "vertical": "hvac",
     "city": "Sarasota"
   },
   {
-    "url": "https://jimmcdonaldcool.com/",
-    "title": "Sarasota, FL AC Repair & HVAC Services",
+    "url": "https://www.bestpickreports.com/air-conditioning-and-heating/sarasota",
+    "title": "Best Air Conditioning & Heating Companies in Sarasota, FL",
     "vertical": "hvac",
     "city": "Sarasota"
   },
@@ -2154,8 +2154,8 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://www.bestpickreports.com/air-conditioning-and-heating/sarasota",
-    "title": "Best Air Conditioning & Heating Companies in Sarasota, FL",
+    "url": "https://www.actoday-fl.com/hvac/",
+    "title": "Professional HVAC Services in Sarasota | AC Today Heating & Air Conditioning",
     "vertical": "hvac",
     "city": "Sarasota"
   },
@@ -2202,14 +2202,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://sarasotafamilydental.com/",
-    "title": "Dentist in Sarasota FL | Michael Dorociak, DDS | Sarasota Family Dental",
+    "url": "https://www.vitaldentalsarasota.com/",
+    "title": "Dentist in Sarasota FL, Family and Cosmetic Dentistry 34233",
     "vertical": "dental",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.vitaldentalsarasota.com/",
-    "title": "Dentist in Sarasota FL, Family and Cosmetic Dentistry 34233",
+    "url": "https://sarasotafamilydental.com/",
+    "title": "Dentist in Sarasota FL | Michael Dorociak, DDS | Sarasota Family Dental",
     "vertical": "dental",
     "city": "Sarasota"
   },
@@ -2226,32 +2226,14 @@
     "city": "Sarasota"
   },
   {
-    "url": "https://yoursarasotadentist.com/",
-    "title": "Dentist, Family Dentist, Cosmetic Dentist & Emergency Dentist | Sarasota, FL, Sarasota Springs, FL, Gulf Gate Estates. FL, Fruitville, FL, South Sarasota, FL & Bee Ridge, FL | Your Sarasota Dentist",
-    "vertical": "dental",
-    "city": "Sarasota"
-  },
-  {
     "url": "https://www.coastdental.com/dentist-office/dentist-sarasota/",
     "title": "Sarasota Dentist: Dentist Office in Sarasota, FL Near Me | Coast Dental",
     "vertical": "dental",
     "city": "Sarasota"
   },
   {
-    "url": "https://bayviewdental.com/sarasota-downtown/",
-    "title": "Sarasota Downtown Dentist | Bayview Dental Sarasota, FL",
-    "vertical": "dental",
-    "city": "Sarasota"
-  },
-  {
-    "url": "https://sarasotacompletedental.com/",
-    "title": "Dentist in Sarasota, Florida | Sarasota Complete Dental",
-    "vertical": "dental",
-    "city": "Sarasota"
-  },
-  {
-    "url": "https://topsarasotadentist.com/",
-    "title": "Restorative Dentistry, Cosmetic Dentist, Dentist Near Me & Dental Implants | Sarasota, FL | Kenneth Martin Schweizer, D.D.S.",
+    "url": "https://yoursarasotadentist.com/",
+    "title": "Dentist, Family Dentist, Cosmetic Dentist & Emergency Dentist | Sarasota, FL, Sarasota Springs, FL, Gulf Gate Estates. FL, Fruitville, FL, South Sarasota, FL & Bee Ridge, FL | Your Sarasota Dentist",
     "vertical": "dental",
     "city": "Sarasota"
   },
@@ -2262,20 +2244,38 @@
     "city": "Sarasota"
   },
   {
+    "url": "https://bayviewdental.com/sarasota-downtown/",
+    "title": "Sarasota Downtown Dentist | Bayview Dental Sarasota, FL",
+    "vertical": "dental",
+    "city": "Sarasota"
+  },
+  {
+    "url": "https://topsarasotadentist.com/",
+    "title": "Restorative Dentistry, Cosmetic Dentist, Dentist Near Me & Dental Implants | Sarasota, FL | Kenneth Martin Schweizer, D.D.S.",
+    "vertical": "dental",
+    "city": "Sarasota"
+  },
+  {
+    "url": "https://sarasotacompletedental.com/",
+    "title": "Dentist in Sarasota, Florida | Sarasota Complete Dental",
+    "vertical": "dental",
+    "city": "Sarasota"
+  },
+  {
     "url": "https://prestigedentalsarasota.com/",
     "title": "Sarasota Dentist — Prestige Dental — Sarasota, FL",
     "vertical": "dental",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.coastdental.com/dentist-office/sarasota-fl-34232/",
-    "title": "Top Dentist in Sarasota FL 34232 - Coast Dental Services",
+    "url": "https://www.adc-fl.com/dentist-office/sarasota-fl-34233/dental-services",
+    "title": "Dental Services in Sarasota, FL | Advanced Dental Care of Florida",
     "vertical": "dental",
     "city": "Sarasota"
   },
   {
-    "url": "https://www.adc-fl.com/dentist-office/sarasota-fl-34233/dental-services",
-    "title": "Dental Services in Sarasota, FL | Advanced Dental Care of Florida",
+    "url": "https://www.coastdental.com/dentist-office/sarasota-fl-34232/",
+    "title": "Top Dentist in Sarasota FL 34232 - Coast Dental Services",
     "vertical": "dental",
     "city": "Sarasota"
   },

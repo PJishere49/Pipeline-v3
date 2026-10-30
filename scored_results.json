@@ -51,7 +51,7 @@
   {
     "url": "https://bakerroofing.com/tampa-roofing-company/",
     "title": "Tampa, Florida Roofing Company | Baker Roofing Company",
-    "status": "inconclusive",
-    "reason": "WAV/Access Denied"
+    "status": "error",
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://bakerroofing.com/tampa-roofing-company/\", waiting until \"networkidle\"\n"
   }
 ]
