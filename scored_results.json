@@ -14,19 +14,8 @@
   {
     "url": "https://jaeofamerica.com/best-roofing-companies-tampa-fl/",
     "title": "7 Best Roofing Companies in Tampa, FL (2026) | JAEA - JA Edwards of America Roofing",
-    "priorityScore": 85,
-    "findings": [
-      {
-        "check_id": "5.3",
-        "issue": "No contact form",
-        "grade": "B"
-      }
-    ],
-    "status": "scored",
-    "page_age": "2026-10-26T20:07:22",
-    "age": "5 days ago",
-    "location": null,
-    "rating": null
+    "status": "inconclusive",
+    "reason": "WAF/No Website"
   },
   {
     "url": "https://bakerroofing.com/commercial-roofing-tampa/",
