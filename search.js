@@ -16,7 +16,6 @@ if (usage.count >= 800) {
 
 const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
 const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
-
 const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -jobs -careers -directory -"baker roofing" -"jaeofamerica"';
 
 async function runSearch() {
@@ -32,26 +31,14 @@ async function runSearch() {
       
       try {
         const response = await fetch(`https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}&count=20&extra_snippets=true`, {
-          headers: { 
-            'Accept': 'application/json', 
-            'X-Subscription-Token': BRAVE_KEY 
-          }
+          headers: { 'Accept': 'application/json', 'X-Subscription-Token': BRAVE_KEY }
         });
         
-        if (!response.ok) {
-          console.error(`Brave API error: ${response.status}`);
-          continue;
-        }
+        if (!response.ok) { console.error(`Brave API error: ${response.status}`); continue; }
         
         const data = await response.json();
-        
-        // 1. Top-Level Data (siblings to 'web')
-        const infobox = data.infobox || null;
-        const mixed = data.mixed || null;
-        const locations = data.locations || [];
-
-        // 2. Web Results
         const results = data.web?.results || [];
+        
         for (const res of results) {
           prospects.push({ 
             url: res.url, 
@@ -59,33 +46,36 @@ async function runSearch() {
             description: res.description,
             page_age: res.page_age,
             page_fetched: res.page_fetched,
-            profile: res.profile,
-            is_source_local: res.is_source_local,
-            is_source_both: res.is_source_both,
-            meta_url: res.meta_url,
+            is_source_local: res.is_source_local || false,
+            is_source_both: res.is_source_both || false,
             age: res.age,
-            location: res.location,
-            rating: res.rating,
-            organization: res.organization,
-            schemas: res.schemas,
+            favicon: res.profile?.img || null,
+            // Flatten location/rating/organization so they don't bloat the file
+            location: res.location ? `${res.location.city || ''}, ${res.location.state || ''}`.trim() : null,
+            rating: res.rating?.ratingValue || null,
+            review_count: res.rating?.reviewCount || null,
+            organization: res.organization?.name || null,
+            schema_types: res.schemas?.map(s => s.type).join(', ') || null,
             content_type: res.content_type,
-            extra_snippets: res.extra_snippets,
-            infobox: infobox,
-            mixed: mixed,
+            // Only save the first extra snippet to save space
+            extra_snippet_1: res.extra_snippets?.[0] || null,
             vertical: vertical, 
             city: city,
             source: 'web_result'
           });
         }
 
-        // 3. Locations Data (The Gold Mine - Businesses with no website)
+        // Handle the Gold Mine (Locations without websites)
+        const locations = data.locations || [];
         for (const loc of locations) {
           prospects.push({
-            // If no URL exists, give it a placeholder so deduplication doesn't crash
             url: loc.url || `no_website://${encodeURIComponent(loc.title)}`, 
             title: loc.title,
             description: loc.description,
-            location: loc,
+            location: loc.address || null,
+            rating: loc.rating?.ratingValue || null,
+            review_count: loc.rating?.reviewCount || null,
+            phone: loc.phone || null,
             vertical: vertical,
             city: city,
             source: 'location_result'
@@ -94,20 +84,16 @@ async function runSearch() {
 
         queriesThisRun++;
         await new Promise(r => setTimeout(r, 2000)); 
-        
       } catch (err) { 
         console.error(`Failed: ${err.message}`); 
       }
     }
   }
 
-  // Update usage
   usage.count += queriesThisRun;
   fs.writeFileSync(usageFile, JSON.stringify(usage, null, 2));
 
-  // Deduplicate by URL
   const uniqueProspects = Array.from(new Map(prospects.map(p => [p.url, p])).values());
-  
   fs.writeFileSync('prospects.json', JSON.stringify(uniqueProspects, null, 2));
   console.log(`Saved ${uniqueProspects.length} unique prospects to prospects.json`);
 }
