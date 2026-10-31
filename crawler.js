@@ -44,7 +44,16 @@ async function runCrawler() {
       const status = response ? response.status() : 500;
       const pageText = await page.content();
       if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare')) {
-        results.push({ url: prospect.url, title: prospect.title, status: 'inconclusive', reason: 'WAF/Access Denied' });
+        results.push({ 
+          url: prospect.url, 
+          title: prospect.title, 
+          status: 'inconclusive', 
+          reason: 'WAF/Access Denied',
+          page_age: prospect.page_age,
+          profile: prospect.profile,
+          location: prospect.location,
+          rating: prospect.rating
+        });
         await page.close();
         continue;
       }
@@ -91,7 +100,27 @@ async function runCrawler() {
       
       const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nCorporate: ${pageData.isCorporate ? 'Yes' : 'No'}`;
       await sendTelegram(screenshot, caption);
-      results.push({ url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored' });
+      
+      // THIS IS THE BLOCK THAT SAVES THE NEW DATA
+      results.push({ 
+        url: prospect.url, 
+        title: prospect.title, 
+        priorityScore, 
+        findings, 
+        status: 'scored',
+        page_age: prospect.page_age,
+        profile: prospect.profile,
+        is_source_local: prospect.is_source_local,
+        meta_url: prospect.meta_url,
+        age: prospect.age,
+        location: prospect.location,
+        rating: prospect.rating,
+        organization: prospect.organization,
+        schemas: prospect.schemas,
+        content_type: prospect.content_type,
+        extra_snippets: prospect.extra_snippets
+      });
+
     } catch (error) {
       results.push({ url: prospect.url, title: prospect.title, status: 'error', error: error.message });
     } finally {
