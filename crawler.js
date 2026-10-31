@@ -13,7 +13,7 @@ async function sendTelegram(photoBuffer, caption) {
 }
 
 function calculatePriority(findings, isCorporate) {
-  if (isCorporate) return 100; // Disqualify corporate sites
+  if (isCorporate) return 100; 
   let score = 100;
   for (const f of findings) {
     if (f.grade === 'A') score -= 30;
@@ -43,16 +43,16 @@ async function runCrawler() {
 
       const status = response ? response.status() : 500;
       const pageText = await page.content();
+      
       if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare')) {
         results.push({ 
           url: prospect.url, 
           title: prospect.title, 
           status: 'inconclusive', 
           reason: 'WAF/Access Denied',
-          page_age: prospect.page_age,
-          profile: prospect.profile,
-          location: prospect.location,
-          rating: prospect.rating
+          page_age: prospect.page_age || null,
+          location: prospect.location || null,
+          rating: prospect.rating || null
         });
         await page.close();
         continue;
@@ -76,19 +76,18 @@ async function runCrawler() {
 
       const isHttps = prospect.url.startsWith('https://');
       if (!isHttps) findings.push({ check_id: '11.1', issue: 'Missing/Invalid SSL' });
-      if (!pageData.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag (pinch-to-zoom)' });
+      if (!pageData.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag' });
       if (pageData.hasHorizontalScroll) findings.push({ check_id: '3.1', issue: 'Horizontal scroll on mobile' });
-      if (!pageData.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics tracking' });
-      if (!pageData.hasTrust) findings.push({ check_id: '6.1', issue: 'No trust signals (reviews/testimonials)' });
+      if (!pageData.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics' });
+      if (!pageData.hasTrust) findings.push({ check_id: '6.1', issue: 'No trust signals' });
       if (pageData.copyrightYear && pageData.copyrightYear < 2025) findings.push({ check_id: '11.6', issue: `Stale copyright (${pageData.copyrightYear})` });
       
       if (!pageData.hasForm && !pageData.hasTel && !pageData.hasMailto) {
-         findings.push({ check_id: '2.4', issue: 'No conversion mechanism (form/tel/mailto)' });
+         findings.push({ check_id: '2.4', issue: 'No conversion mechanism' });
       } else if (!pageData.hasForm) {
-         findings.push({ check_id: '5.3', issue: 'No contact form on page' });
+         findings.push({ check_id: '5.3', issue: 'No contact form' });
       }
 
-      // Convert to Grades
       findings.forEach(f => {
         if (f.check_id === '11.1' || f.issue.includes('viewport') || f.issue.includes('Horizontal')) f.grade = 'A';
         else if (f.issue.includes('Analytics') || f.issue.includes('trust') || f.issue.includes('form')) f.grade = 'B';
@@ -98,25 +97,25 @@ async function runCrawler() {
       const priorityScore = calculatePriority(findings, pageData.isCorporate);
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
       
-      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nAge: ${prospect.age || 'Unknown'}\nRating: ${prospect.rating || 'None'} (${prospect.review_count || 0} reviews)`;
-      // THIS IS THE BLOCK THAT SAVES THE NEW DATA
+      const ratingText = prospect.rating ? `${prospect.rating} (${prospect.review_count} reviews)` : 'No rating found';
+      const ageText = prospect.age || 'Unknown';
+      
+      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nAge: ${ageText}\nRating: ${ratingText}`;
+      
+      await sendTelegram(screenshot, caption);
+      
       results.push({ 
         url: prospect.url, 
         title: prospect.title, 
         priorityScore, 
         findings, 
         status: 'scored',
-        page_age: prospect.page_age,
-        profile: prospect.profile,
-        is_source_local: prospect.is_source_local,
-        meta_url: prospect.meta_url,
-        age: prospect.age,
-        location: prospect.location,
-        rating: prospect.rating,
-        organization: prospect.organization,
-        schemas: prospect.schemas,
-        content_type: prospect.content_type,
-        extra_snippets: prospect.extra_snippets
+        page_age: prospect.page_age || null,
+        is_source_local: prospect.is_source_local || null,
+        age: prospect.age || null,
+        location: prospect.location || null,
+        rating: prospect.rating || null,
+        review_count: prospect.review_count || null
       });
 
     } catch (error) {
