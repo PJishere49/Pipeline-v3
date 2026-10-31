@@ -33,13 +33,15 @@
   {
     "url": "https://bakerroofing.com/commercial-roofing-tampa/",
     "title": "Baker Roofing Company of Tampa | Baker Roofing",
-    "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://bakerroofing.com/commercial-roofing-tampa/\", waiting until \"networkidle\"\n"
+    "status": "inconclusive",
+    "reason": "WAF/Access Denied",
+    "location": null,
+    "rating": null
   },
   {
-    "url": "https://jaeofamerica.com/tampa-fl/roof-replacement-tampa-fl/",
-    "title": "Roof Replacement Contractor in Tampa, FL | JA Edwards of America",
+    "url": "https://jaeofamerica.com/tampa-fl/commercial-roofing-tampa-fl/",
+    "title": "Commercial Roofing Tampa, FL | Licensed Contractor | JA Edwards",
     "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jaeofamerica.com/tampa-fl/roof-replacement-tampa-fl/\", waiting until \"networkidle\"\n"
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jaeofamerica.com/tampa-fl/commercial-roofing-tampa-fl/\", waiting until \"networkidle\"\n"
   }
 ]
