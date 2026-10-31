@@ -8,15 +8,8 @@
   {
     "url": "https://bakerroofing.com/tampa-roofing-company/",
     "title": "Tampa, Florida Roofing Company | Baker Roofing Company",
-    "status": "inconclusive",
-    "reason": "WAF/Access Denied",
-    "page_age": "2026-06-30T14:48:17",
-    "profile": {
-      "name": "Bakerroofing",
-      "url": "https://bakerroofing.com/tampa-roofing-company/",
-      "long_name": "bakerroofing.com",
-      "img": "https://imgs.search.brave.com/wifJDmwGihxGA-teBGZrTx5ovzvdekDaBWY7p_bBkSI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZGYxNzI3Zjdi/OWViY2MwYmNmOGVh/ZWUwYzdjYzAxMDVj/MDQxZTMzOTQwZTg4/MzcwZTBmMTBlZGMy/Zjk5NTQ1NC9iYWtl/cnJvb2ZpbmcuY29t/Lw"
-    }
+    "status": "error",
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://bakerroofing.com/tampa-roofing-company/\", waiting until \"networkidle\"\n"
   },
   {
     "url": "https://jaeofamerica.com/best-roofing-companies-tampa-fl/",
@@ -31,27 +24,11 @@
     ],
     "status": "scored",
     "page_age": "2026-10-26T20:07:22",
-    "profile": {
-      "name": "Jaeofamerica",
-      "url": "https://jaeofamerica.com/best-roofing-companies-tampa-fl/",
-      "long_name": "jaeofamerica.com",
-      "img": "https://imgs.search.brave.com/lLD1nanzlms8WRz8n82N-dMQ0r2ZVq1Fc0_Q0iSJkss/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjhjNzE5YjNm/ZDgyZWJiODc2MTdm/MjFjOTAyMDZlYjg4/NDQ0NzA0ZjFkNzJm/M2JiZTRjNzUyMDNh/ZmY2MmJmYS9qYWVv/ZmFtZXJpY2EuY29t/Lw"
-    },
     "is_source_local": false,
-    "meta_url": {
-      "scheme": "https",
-      "netloc": "jaeofamerica.com",
-      "hostname": "jaeofamerica.com",
-      "favicon": "https://imgs.search.brave.com/lLD1nanzlms8WRz8n82N-dMQ0r2ZVq1Fc0_Q0iSJkss/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYjhjNzE5YjNm/ZDgyZWJiODc2MTdm/MjFjOTAyMDZlYjg4/NDQ0NzA0ZjFkNzJm/M2JiZTRjNzUyMDNh/ZmY2MmJmYS9qYWVv/ZmFtZXJpY2EuY29t/Lw",
-      "path": "› best-roofing-companies-tampa-fl"
-    },
     "age": "5 days ago",
-    "extra_snippets": [
-      "Tampa, FL office, Suite 612, 9270 Bay Plaza Blvd · jaeofamerica.com · Founded 2004 · License CGC1534283 / CCC1334804 · We're a GAF Master Elite contractor and GAF President's Club 3-Star recipient, a certification tier held by a small fraction of roofing contractors nationally.",
-      "We didn't put ourselves first, and we're not pretending we're the only option in the Tampa Bay area. Being straight about where we don't have the longest track record or the largest review volume is more useful to you than another list that quietly ranks the company that wrote it as number one. Every company below meets a baseline: an active Florida roofing license verifiable through the Department of Business and Professional Regulation, general liability and workers' compensation insurance, and a physical office serving the Tampa Bay area.",
-      "Tampa Bay's roofing market is genuinely crowded compared to JAEA's other Florida markets, storm exposure, an aging housing stock across Hillsborough and Pinellas counties, and a large population all support a bigger pool of contractors than a smaller metro sees.",
-      "We've served Florida since 2004 from offices in Orlando, Tampa, Jacksonville, and Port St. Lucie, and we handle both residential and commercial roofing in Tampa along with storm damage restoration and insurance claim support, meeting adjusters on the roof and documenting damage the way carriers expect."
-    ]
+    "location": null,
+    "rating": null,
+    "organization": null
   },
   {
     "url": "https://bakerroofing.com/commercial-roofing-tampa/",
