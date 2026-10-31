@@ -16,6 +16,7 @@ if (usage.count >= 800) {
 
 const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
 const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
+
 const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -jobs -careers -directory -"baker roofing" -"jaeofamerica"';
 
 async function runSearch() {
@@ -31,10 +32,16 @@ async function runSearch() {
       
       try {
         const response = await fetch(`https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}&count=20&extra_snippets=true`, {
-          headers: { 'Accept': 'application/json', 'X-Subscription-Token': BRAVE_KEY }
+          headers: { 
+            'Accept': 'application/json', 
+            'X-Subscription-Token': BRAVE_KEY 
+          }
         });
         
-        if (!response.ok) { console.error(`Brave API error: ${response.status}`); continue; }
+        if (!response.ok) {
+          console.error(`Brave API error: ${response.status}`);
+          continue;
+        }
         
         const data = await response.json();
         const results = data.web?.results || [];
@@ -50,14 +57,12 @@ async function runSearch() {
             is_source_both: res.is_source_both || false,
             age: res.age,
             favicon: res.profile?.img || null,
-            // Flatten location/rating/organization so they don't bloat the file
             location: res.location ? `${res.location.city || ''}, ${res.location.state || ''}`.trim() : null,
             rating: res.rating?.ratingValue || null,
             review_count: res.rating?.reviewCount || null,
             organization: res.organization?.name || null,
             schema_types: res.schemas?.map(s => s.type).join(', ') || null,
             content_type: res.content_type,
-            // Only save the first extra snippet to save space
             extra_snippet_1: res.extra_snippets?.[0] || null,
             vertical: vertical, 
             city: city,
@@ -65,7 +70,7 @@ async function runSearch() {
           });
         }
 
-        // Handle the Gold Mine (Locations without websites)
+        // Handle Local Businesses (The Gold Mine)
         const locations = data.locations || [];
         for (const loc of locations) {
           prospects.push({
@@ -84,6 +89,7 @@ async function runSearch() {
 
         queriesThisRun++;
         await new Promise(r => setTimeout(r, 2000)); 
+        
       } catch (err) { 
         console.error(`Failed: ${err.message}`); 
       }
