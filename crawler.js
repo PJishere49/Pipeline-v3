@@ -25,9 +25,23 @@ function calculatePriority(findings, isCorporate) {
 
 async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
-  const results = [];
+  
+  // THE FIX: Load processed list and filter out sites we've already done
+  let processed = [];
+  if (fs.existsSync('processed.json')) {
+    processed = JSON.parse(fs.readFileSync('processed.json', 'utf8'));
+  }
+  
+  const unprocessed = prospects.filter(p => !processed.includes(p.url));
   const limit = 5;
-  const subset = prospects.slice(0, limit);
+  const subset = unprocessed.slice(0, limit);
+  
+  if (subset.length === 0) {
+    console.log("All prospects have been crawled! Delete prospects.json to run a new Brave search.");
+    return;
+  }
+
+  const results = [];
   const browser = await chromium.launch();
   const context = await browser.newContext({ 
     viewport: { width: 390, height: 844 }, 
@@ -44,16 +58,9 @@ async function runCrawler() {
       const status = response ? response.status() : 500;
       const pageText = await page.content();
       
-      if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare')) {
-        results.push({ 
-          url: prospect.url, 
-          title: prospect.title, 
-          status: 'inconclusive', 
-          reason: 'WAF/Access Denied',
-          page_age: prospect.page_age || null,
-          location: prospect.location || null,
-          rating: prospect.rating || null
-        });
+      if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare') || prospect.url.startsWith('no_website://')) {
+        results.push({ url: prospect.url, title: prospect.title, status: 'inconclusive', reason: 'WAF/No Website' });
+        processed.push(prospect.url); // Mark as processed
         await page.close();
         continue;
       }
@@ -101,30 +108,24 @@ async function runCrawler() {
       const ageText = prospect.age || 'Unknown';
       
       const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nAge: ${ageText}\nRating: ${ratingText}`;
-      
       await sendTelegram(screenshot, caption);
       
       results.push({ 
-        url: prospect.url, 
-        title: prospect.title, 
-        priorityScore, 
-        findings, 
-        status: 'scored',
-        page_age: prospect.page_age || null,
-        is_source_local: prospect.is_source_local || null,
-        age: prospect.age || null,
-        location: prospect.location || null,
-        rating: prospect.rating || null,
-        review_count: prospect.review_count || null
+        url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored',
+        page_age: prospect.page_age || null, age: prospect.age || null,
+        location: prospect.location || null, rating: prospect.rating || null
       });
-
+      
+      processed.push(prospect.url); // Mark as processed
     } catch (error) {
       results.push({ url: prospect.url, title: prospect.title, status: 'error', error: error.message });
+      processed.push(prospect.url); // Mark as processed even if it errored
     } finally {
       await page.close();
     }
   }
   await browser.close();
   fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
+  fs.writeFileSync('processed.json', JSON.stringify(processed, null, 2));
 }
 runCrawler();
