@@ -98,9 +98,7 @@ async function runCrawler() {
       const priorityScore = calculatePriority(findings, pageData.isCorporate);
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
       
-      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nCorporate: ${pageData.isCorporate ? 'Yes' : 'No'}`;
-      await sendTelegram(screenshot, caption);
-      
+      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nAge: ${prospect.age || 'Unknown'}\nRating: ${prospect.rating || 'None'} (${prospect.review_count || 0} reviews)`;
       // THIS IS THE BLOCK THAT SAVES THE NEW DATA
       results.push({ 
         url: prospect.url, 
