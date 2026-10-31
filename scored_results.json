@@ -18,30 +18,28 @@
     "findings": [
       {
         "check_id": "5.3",
-        "issue": "No contact form on page",
+        "issue": "No contact form",
         "grade": "B"
       }
     ],
     "status": "scored",
     "page_age": "2026-10-26T20:07:22",
-    "is_source_local": false,
+    "is_source_local": null,
     "age": "5 days ago",
     "location": null,
     "rating": null,
-    "organization": null
+    "review_count": null
   },
   {
     "url": "https://bakerroofing.com/commercial-roofing-tampa/",
     "title": "Baker Roofing Company of Tampa | Baker Roofing",
-    "status": "inconclusive",
-    "reason": "WAF/Access Denied",
-    "location": null,
-    "rating": null
+    "status": "error",
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://bakerroofing.com/commercial-roofing-tampa/\", waiting until \"networkidle\"\n"
   },
   {
-    "url": "https://jaeofamerica.com/tampa-fl/commercial-roofing-tampa-fl/",
-    "title": "Commercial Roofing Tampa, FL | Licensed Contractor | JA Edwards",
+    "url": "https://jaeofamerica.com/tampa-fl/roof-replacement-tampa-fl/",
+    "title": "Roof Replacement Contractor in Tampa, FL | JA Edwards of America",
     "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jaeofamerica.com/tampa-fl/commercial-roofing-tampa-fl/\", waiting until \"networkidle\"\n"
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jaeofamerica.com/tampa-fl/roof-replacement-tampa-fl/\", waiting until \"networkidle\"\n"
   }
 ]
