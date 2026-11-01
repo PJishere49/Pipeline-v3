@@ -1,21 +1,14 @@
 [
   {
-    "url": "https://jaeofamerica.com/tampa-fl/",
-    "title": "Trusted Roofing Company in Tampa, FL | JA Edwards of America",
-    "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jaeofamerica.com/tampa-fl/\", waiting until \"networkidle\"\n"
-  },
-  {
-    "url": "https://bakerroofing.com/tampa-roofing-company/",
-    "title": "Tampa, Florida Roofing Company | Baker Roofing Company",
-    "status": "inconclusive",
-    "reason": "WAF/No Website"
-  },
-  {
-    "url": "https://jaeofamerica.com/best-roofing-companies-tampa-fl/",
-    "title": "7 Best Roofing Companies in Tampa, FL (2026) | JAEA - JA Edwards of America Roofing",
-    "priorityScore": 85,
+    "url": "https://www.billshieldsroofing.com/",
+    "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
+    "priorityScore": 70,
     "findings": [
+      {
+        "check_id": "9.1",
+        "issue": "No Google Analytics",
+        "grade": "B"
+      },
       {
         "check_id": "5.3",
         "issue": "No contact form",
@@ -23,21 +16,38 @@
       }
     ],
     "status": "scored",
-    "page_age": "2026-10-26T20:07:22",
-    "age": "5 days ago",
+    "page_age": null,
+    "age": null,
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://www.rescueroofingoftampa.com/",
+    "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
+    "status": "error",
+    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.rescueroofingoftampa.com/\nCall log:\n  - navigating to \"https://www.rescueroofingoftampa.com/\", waiting until \"networkidle\"\n"
+  },
+  {
+    "url": "https://www.lifetimequalityroofing.com/locations/tampa-florida/",
+    "title": "Tampa Roofing Company | Roof Repair & Installation",
+    "status": "error",
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.lifetimequalityroofing.com/locations/tampa-florida/\", waiting until \"networkidle\"\n"
+  },
+  {
+    "url": "https://www.eliteroofingservices.com/",
+    "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": "2023-05-25T21:43:46",
+    "age": "May 25, 2023",
     "location": null,
     "rating": null
   },
   {
-    "url": "https://bakerroofing.com/commercial-roofing-tampa/",
-    "title": "Baker Roofing Company of Tampa | Baker Roofing",
-    "status": "inconclusive",
-    "reason": "WAF/No Website"
-  },
-  {
-    "url": "https://jaeofamerica.com/tampa-fl/roof-replacement-tampa-fl/",
-    "title": "Roof Replacement Contractor in Tampa, FL | JA Edwards of America",
+    "url": "https://westroofingfl.com/",
+    "title": "Professional Roofing Services in Tampa, FL | West Florida",
     "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jaeofamerica.com/tampa-fl/roof-replacement-tampa-fl/\", waiting until \"networkidle\"\n"
+    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://westroofingfl.com/\nCall log:\n  - navigating to \"https://westroofingfl.com/\", waiting until \"networkidle\"\n"
   }
 ]
