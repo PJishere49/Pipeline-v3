@@ -52,9 +52,8 @@ async function runCrawler() {
     const page = await context.newPage();
     const findings = [];
     try {
-      const response = await page.goto(prospect.url, { waitUntil: 'networkidle', timeout: 30000 });
-      await page.waitForTimeout(3000);
-
+      const response = await page.goto(prospect.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      
       const status = response ? response.status() : 500;
       const pageText = await page.content();
       
