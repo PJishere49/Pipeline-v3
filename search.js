@@ -1,7 +1,6 @@
 const fs = require('fs');
 const BRAVE_KEY = process.env.BRAVE_API_KEY;
 
-// THE FIX: If we already have a list, don't waste Brave credits.
 if (fs.existsSync('prospects.json')) {
   const existing = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   if (existing.length > 0) {
@@ -9,7 +8,6 @@ if (fs.existsSync('prospects.json')) {
     process.exit(0);
   }
 }
-
 if (!BRAVE_KEY) { console.error("Missing BRAVE_API_KEY"); process.exit(1); }
 
 const usageFile = 'usage.json';
@@ -19,16 +17,14 @@ if (fs.existsSync(usageFile)) {
   usage = JSON.parse(fs.readFileSync(usageFile, 'utf8'));
   if (usage.month !== currentMonth) usage = { month: currentMonth, count: 0 };
 }
-if (usage.count >= 800) {
-  console.error("HARD CAP: Usage limit reached.");
-  process.exit(0);
-}
+if (usage.count >= 800) { console.error("HARD CAP: Usage limit reached."); process.exit(0); }
 
 const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
 const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
 
+const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -site:jaeofamerica.com -site:bakerroofing.com -site:reddit.com -site:yahoo.com -site:forbes.com -site:webmd.com -site:avvo.com -site:superlawyers.com -site:thumbtack.com -site:findlaw.com -site:guildquality.com -site:opencare.com -site:consumeraffairs.com -site:bestpickreports.com -site:lawyers.com -site:expertise.com -site:healthgrades.com -site:zocdoc.com -site:1800dentist.com -site:justia.com -site:buildzoom.com -site:nextdoor.com -site:manta.com -site:yellowpages.com -site:clearchoice.com -site:aspendental.com -site:deltadental.com -site:nsuhealth.nova.edu -site:downtobid.com -site:sutterroofing.com -site:arsmi.com -site:sarasotachamber.com -site:forthepeople.com -jobs -careers -directory';
 
-const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -site:jaeofamerica.com -site:bakerroofing.com -site:reddit.com -site:yahoo.com -site:forbes.com -site:webmd.com -site:avvo.com -site:superlawyers.com -site:thumbtack.com -site:findlaw.com -site:guildquality.com -site:opencare.com -site:consumeraffairs.com -site:bestpickreports.com -site:lawyers.com -site:expertise.com -jobs -careers -directory';async function runSearch() {
+async function runSearch() {
   const prospects = [];
   let queriesThisRun = 0;
 
@@ -55,18 +51,12 @@ const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.
             title: res.title, 
             description: res.description,
             page_age: res.page_age,
-            page_fetched: res.page_fetched,
-            is_source_local: res.is_source_local || false,
-            is_source_both: res.is_source_both || false,
             age: res.age,
             favicon: res.profile?.img || null,
             location: res.location ? `${res.location.city || ''}, ${res.location.state || ''}`.trim() : null,
             rating: res.rating?.ratingValue || null,
             review_count: res.rating?.reviewCount || null,
             organization: res.organization?.name || null,
-            schema_types: res.schemas?.map(s => s.type).join(', ') || null,
-            content_type: res.content_type,
-            extra_snippet_1: res.extra_snippets?.[0] || null,
             vertical: vertical, 
             city: city,
             source: 'web_result'
@@ -102,5 +92,4 @@ const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.
   fs.writeFileSync('prospects.json', JSON.stringify(uniqueProspects, null, 2));
   console.log(`Saved ${uniqueProspects.length} unique prospects to prospects.json`);
 }
-
 runSearch();
