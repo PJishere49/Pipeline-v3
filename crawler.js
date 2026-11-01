@@ -2,6 +2,7 @@ const fs = require('fs');
 const { chromium } = require('playwright');
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
 async function sendTelegram(photoBuffer, caption) {
   const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`;
@@ -12,8 +13,26 @@ async function sendTelegram(photoBuffer, caption) {
   await fetch(url, { method: 'POST', body: formData });
 }
 
-function calculatePriority(findings, isCorporate) {
-  if (isCorporate) return 100; 
+async function isSMBWithLLM(url, title) {
+  const prompt = `Analyze this business: "${title}" at ${url}. Is this a local small-to-medium business (SMB) like a family-owned contractor, or is it a large national enterprise, franchise, or directory? Answer with only one word: SMB or ENTERPRISE.`;
+  try {
+    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.1
+      })
+    });
+    const data = await res.json();
+    return data.choices[0].message.content.trim().toUpperCase().includes('SMB');
+  } catch (e) {
+    return false; 
+  }
+}
+
+function calculatePriority(findings) {
   let score = 100;
   for (const f of findings) {
     if (f.grade === 'A') score -= 30;
@@ -25,24 +44,12 @@ function calculatePriority(findings, isCorporate) {
 
 async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
-  
-  // THE FIX: Load processed list and filter out sites we've already done
-  let processed = [];
-  if (fs.existsSync('processed.json')) {
-    processed = JSON.parse(fs.readFileSync('processed.json', 'utf8'));
-  }
-  
-  const unprocessed = prospects.filter(p => !processed.includes(p.url));
-  const limit = 20;
-  const subset = unprocessed.slice(0, limit);
-  
-  if (subset.length === 0) {
-    console.log("All prospects have been crawled! Delete prospects.json to run a new Brave search.");
-    return;
-  }
-
   const results = [];
-  const browser = await chromium.launch();
+  const reviewManually = [];
+  const limit = 20;
+  const subset = prospects.slice(0, limit);
+  
+  const browser = await chromium.launch({ args: ['--disable-http2'] });
   const context = await browser.newContext({ 
     viewport: { width: 390, height: 844 }, 
     userAgent: 'Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36' 
@@ -53,17 +60,24 @@ async function runCrawler() {
     const findings = [];
     try {
       const response = await page.goto(prospect.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-      
+      await page.waitForTimeout(3000);
+
       const status = response ? response.status() : 500;
       const pageText = await page.content();
       
-      if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare') || prospect.url.startsWith('no_website://')) {
-        results.push({ url: prospect.url, title: prospect.title, status: 'inconclusive', reason: 'WAF/No Website' });
-        processed.push(prospect.url); // Mark as processed
+      // 1. WAF CHECK
+      if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare')) {
+        const isSMB = await isSMBWithLLM(prospect.url, prospect.title);
+        if (isSMB) {
+          reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF Blocked but LLM says SMB' });
+        } else {
+          results.push({ url: prospect.url, title: prospect.title, status: 'disqualified', reason: 'Enterprise WAF' });
+        }
         await page.close();
         continue;
       }
 
+      // 2. RUN RUBRIC CHECKS
       const pageData = await page.evaluate(() => {
         const text = document.body.innerText.toLowerCase();
         const html = document.documentElement.innerHTML.toLowerCase();
@@ -74,57 +88,71 @@ async function runCrawler() {
         const hasHorizontalScroll = document.documentElement.scrollWidth > window.innerWidth;
         const hasAnalytics = html.includes('gtag(') || html.includes('googletagmanager');
         const hasTrust = text.includes('review') || text.includes('testimonial') || text.includes('guarantee');
-        const isCorporate = text.includes('franchise') || text.includes('locations') || text.includes('careers');
         const yearMatch = text.match(/©\s*(20\d\d)/);
         const copyrightYear = yearMatch ? parseInt(yearMatch[1], 10) : null;
-        return { hasTel, hasMailto, hasForm, hasViewport, hasHorizontalScroll, hasAnalytics, hasTrust, isCorporate, copyrightYear };
+        
+        // Broken Link Check (Scan first 10 internal links)
+        const links = Array.from(document.querySelectorAll('a')).slice(0, 10).map(a => a.href);
+        
+        return { hasTel, hasMailto, hasForm, hasViewport, hasHorizontalScroll, hasAnalytics, hasTrust, copyrightYear, links };
       });
 
-      const isHttps = prospect.url.startsWith('https://');
-      if (!isHttps) findings.push({ check_id: '11.1', issue: 'Missing/Invalid SSL' });
-      if (!pageData.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag' });
-      if (pageData.hasHorizontalScroll) findings.push({ check_id: '3.1', issue: 'Horizontal scroll on mobile' });
-      if (!pageData.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics' });
-      if (!pageData.hasTrust) findings.push({ check_id: '6.1', issue: 'No trust signals' });
-      if (pageData.copyrightYear && pageData.copyrightYear < 2025) findings.push({ check_id: '11.6', issue: `Stale copyright (${pageData.copyrightYear})` });
-      
-      if (!pageData.hasForm && !pageData.hasTel && !pageData.hasMailto) {
-         findings.push({ check_id: '2.4', issue: 'No conversion mechanism' });
-      } else if (!pageData.hasForm) {
-         findings.push({ check_id: '5.3', issue: 'No contact form' });
+      // SSL Check
+      const securityDetails = response ? response.securityDetails() : null;
+      if (!securityDetails || !prospect.url.startsWith('https://')) {
+        findings.push({ check_id: '11.1', issue: 'Missing/Invalid SSL', grade: 'A' });
       }
 
-      findings.forEach(f => {
-        if (f.check_id === '11.1' || f.issue.includes('viewport') || f.issue.includes('Horizontal')) f.grade = 'A';
-        else if (f.issue.includes('Analytics') || f.issue.includes('trust') || f.issue.includes('form')) f.grade = 'B';
-        else f.grade = 'C';
-      });
+      // Mobile Checks
+      if (!pageData.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag', grade: 'A' });
+      if (pageData.hasHorizontalScroll) findings.push({ check_id: '3.1', issue: 'Horizontal scroll on mobile', grade: 'A' });
 
-      const priorityScore = calculatePriority(findings, pageData.isCorporate);
+      // Path Integrity (J1 Journey Test)
+      // Try to find and click a primary CTA
+      try {
+        const ctaButton = page.locator('a, button').filter({ hasText: /contact|quote|schedule|estimate|get started/i }).first();
+        if (await ctaButton.count() > 0 && await ctaButton.isVisible()) {
+          await ctaButton.click({ timeout: 3000 });
+          await page.waitForTimeout(2000);
+        } else {
+          findings.push({ check_id: '1.2', issue: 'No visible primary CTA above fold', grade: 'B' });
+        }
+      } catch (e) {
+        findings.push({ check_id: '2.1', issue: 'Primary CTA is broken or leads to a dead end', grade: 'A' });
+      }
+
+      // Conversion & Forms
+      if (!pageData.hasForm && !pageData.hasTel && !pageData.hasMailto) {
+         findings.push({ check_id: '2.4', issue: 'No conversion mechanism', grade: 'A' });
+      } else if (!pageData.hasForm) {
+         findings.push({ check_id: '5.3', issue: 'No contact form', grade: 'B' });
+      }
+
+      // Trust & Analytics
+      if (!pageData.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics', grade: 'B' });
+      if (!pageData.hasTrust) findings.push({ check_id: '6.1', issue: 'No trust signals', grade: 'B' });
+      if (pageData.copyrightYear && pageData.copyrightYear < 2025) findings.push({ check_id: '11.6', issue: `Stale copyright (${pageData.copyrightYear})`, grade: 'C' });
+
+      const priorityScore = calculatePriority(findings);
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
       
-      const ratingText = prospect.rating ? `${prospect.rating} (${prospect.review_count} reviews)` : 'No rating found';
-      const ageText = prospect.age || 'Unknown';
-      
-      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nAge: ${ageText}\nRating: ${ratingText}`;
+      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}`;
       await sendTelegram(screenshot, caption);
       
       results.push({ 
-        url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored',
-        page_age: prospect.page_age || null, age: prospect.age || null,
-        location: prospect.location || null, rating: prospect.rating || null
+        url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored'
       });
-      
-      processed.push(prospect.url); // Mark as processed
+
     } catch (error) {
-      results.push({ url: prospect.url, title: prospect.title, status: 'error', error: error.message });
-      processed.push(prospect.url); // Mark as processed even if it errored
+      const isSMB = await isSMBWithLLM(prospect.url, prospect.title);
+      if (isSMB) reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'Timeout but LLM says SMB' });
+      else results.push({ url: prospect.url, title: prospect.title, status: 'error', error: error.message });
     } finally {
       await page.close();
     }
   }
   await browser.close();
   fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
-  fs.writeFileSync('processed.json', JSON.stringify(processed, null, 2));
+  fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
 }
 runCrawler();
