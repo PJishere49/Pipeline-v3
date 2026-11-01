@@ -25,13 +25,18 @@
     "url": "https://www.rescueroofingoftampa.com/",
     "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
     "status": "error",
-    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.rescueroofingoftampa.com/\nCall log:\n  - navigating to \"https://www.rescueroofingoftampa.com/\", waiting until \"networkidle\"\n"
+    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.rescueroofingoftampa.com/\nCall log:\n  - navigating to \"https://www.rescueroofingoftampa.com/\", waiting until \"domcontentloaded\"\n"
   },
   {
     "url": "https://www.lifetimequalityroofing.com/locations/tampa-florida/",
     "title": "Tampa Roofing Company | Roof Repair & Installation",
-    "status": "error",
-    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.lifetimequalityroofing.com/locations/tampa-florida/\", waiting until \"networkidle\"\n"
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": "2026-06-19T18:21:07",
+    "age": "June 19, 2026",
+    "location": null,
+    "rating": null
   },
   {
     "url": "https://www.eliteroofingservices.com/",
@@ -48,6 +53,207 @@
     "url": "https://westroofingfl.com/",
     "title": "Professional Roofing Services in Tampa, FL | West Florida",
     "status": "error",
-    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://westroofingfl.com/\nCall log:\n  - navigating to \"https://westroofingfl.com/\", waiting until \"networkidle\"\n"
+    "error": "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://westroofingfl.com/\nCall log:\n  - navigating to \"https://westroofingfl.com/\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "url": "https://latite.com/tampa-roofer/",
+    "title": "Roofing Contractor - Tampa, FL - Latite Roofing",
+    "priorityScore": 100,
+    "findings": [
+      {
+        "check_id": "9.1",
+        "issue": "No Google Analytics",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "page_age": "2026-08-20T14:28:54",
+    "age": "August 20, 2026",
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://local.yahoo.com/roofing/article/best-roofing-companies-tampa-florida-130043365.html",
+    "title": "Best roofers in Tampa, Fla.",
+    "priorityScore": 100,
+    "findings": [
+      {
+        "check_id": "9.1",
+        "issue": "No Google Analytics",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "page_age": "2025-12-05T20:00:36",
+    "age": "December 5, 2025",
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://actionroofing.com/tampa-roofing/",
+    "title": "Tampa Roofing Services by Action Roofing | Builder Trusted, 40 Years in Florida",
+    "priorityScore": 100,
+    "findings": [
+      {
+        "check_id": "5.3",
+        "issue": "No contact form",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "page_age": "2025-12-14T18:45:32",
+    "age": "December 14, 2025",
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
+    "title": "5 Best-Rated Roofers In Tampa, FL: 2026 Comparison",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": "2026-10-07T19:10:39",
+    "age": "4 weeks ago",
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://roofxincfl.com/",
+    "title": "Roofers Tampa FL | Roofing Company & Contractor | RoofX",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://jenkinsroofingtampa.com/",
+    "title": "Jenkins Roofing Tampa | Florida's Premiere Roofing Company",
+    "priorityScore": 85,
+    "findings": [
+      {
+        "check_id": "9.1",
+        "issue": "No Google Analytics",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://handymanroofing.com/areas-served/tampa/",
+    "title": "Trusted Roofers | Tampa, FL | Handyman Roofing",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": "2025-03-05T18:07:06",
+    "age": "March 5, 2025",
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://flsroof.com/residential-roofing/tampa-fl/",
+    "title": "The Best Tampa Roofing Company",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": "2024-11-19T12:26:21",
+    "age": "November 19, 2024",
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://www.guildquality.com/find/roofers/tampa-fl",
+    "title": "Tampa's Best Roofers Contractors",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://steadfastroofingfl.com/roofing/tampa/",
+    "title": "Roofing Company In Tampa FL | Repair & Replacement",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": "2026-05-26T12:49:46",
+    "age": "May 26, 2026",
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://tacticalroofingcompany.com/",
+    "title": "Tampa, Florida Roofing Company | Roof Installation & Replacement",
+    "priorityScore": 70,
+    "findings": [
+      {
+        "check_id": "6.1",
+        "issue": "No trust signals",
+        "grade": "B"
+      },
+      {
+        "check_id": "5.3",
+        "issue": "No contact form",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://janneyroofing.com/tampa/roofing-company/",
+    "title": "Your Home Deserves Protection – Tampa, FL Roofing Company, Trusted Local Roofers, and Reliable Residential Roof Replacement Contractor for Roof Repair & Quality Roofing Contractor Solutions",
+    "priorityScore": 100,
+    "findings": [
+      {
+        "check_id": "3.1",
+        "issue": "Horizontal scroll on mobile",
+        "grade": "A"
+      }
+    ],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://rigroofing.com/service-area/hillsborough-county/tampa",
+    "title": "The Most Trusted Roof Repair & Replacement Company in Tampa, | RIG Roofing",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": ",",
+    "rating": null
+  },
+  {
+    "url": "https://www.tcrfg.com/tampa",
+    "title": "Tampa's Top Commercial Roofing Specialists — TeamCraft Commercial and Industrial Roofing Company | Re-roofing and Repair Service",
+    "priorityScore": 100,
+    "findings": [],
+    "status": "scored",
+    "page_age": null,
+    "age": null,
+    "location": null,
+    "rating": null
+  },
+  {
+    "url": "https://www.reddit.com/r/tampa/comments/1ecqc3m/any_good_roofing_company_recommendations/",
+    "title": "Any good roofing company recommendations? : r/tampa",
+    "status": "inconclusive",
+    "reason": "WAF/No Website"
   }
 ]
