@@ -33,7 +33,7 @@ async function runCrawler() {
   }
   
   const unprocessed = prospects.filter(p => !processed.includes(p.url));
-  const limit = 5;
+  const limit = 20;
   const subset = unprocessed.slice(0, limit);
   
   if (subset.length === 0) {
