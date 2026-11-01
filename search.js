@@ -26,9 +26,9 @@ if (usage.count >= 800) {
 
 const verticals = ['roofing', 'hvac', 'dental', 'injury lawyer'];
 const cities = ['Tampa', 'St. Petersburg', 'Clearwater', 'Brandon', 'Sarasota'];
-const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -site:jaeofamerica.com -site:bakerroofing.com -jobs -careers -directory';
 
-async function runSearch() {
+
+const negatives = '-site:yelp.com -site:facebook.com -site:bbb.org -site:indeed.com -site:threebestrated.com -site:angi.com -site:gaf.com -site:homeadvisor.com -site:porch.com -site:houzz.com -site:nexdoor.com -site:mapquest.com -site:*.gov -site:jaeofamerica.com -site:bakerroofing.com -site:reddit.com -site:yahoo.com -site:forbes.com -site:webmd.com -site:avvo.com -site:superlawyers.com -site:thumbtack.com -site:findlaw.com -site:guildquality.com -site:opencare.com -site:consumeraffairs.com -site:bestpickreports.com -site:lawyers.com -site:expertise.com -jobs -careers -directory';async function runSearch() {
   const prospects = [];
   let queriesThisRun = 0;
 
