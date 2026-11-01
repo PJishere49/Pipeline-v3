@@ -37,6 +37,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node crawler.js
 
+      - name: Generate Pitch Briefs
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: node llm.js
+
       - name: Commit Results to Repo
         run: |
           git config --global user.name "github-actions[bot]"
