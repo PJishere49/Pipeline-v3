@@ -41,6 +41,9 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: node crawler.js
 
+      - name: Generate Redesign Blueprints
+        run: node redesign.js
+
       - name: Generate Pitch Briefs
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -51,5 +54,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add prospects.json usage.json scored_results.json review_manually.json gold_mine.json
-          git commit -m "Auto-discovered prospects and scored results" || echo "No changes to commit"
+          git commit -m "Auto-discovered, scored, and generated blueprints" || echo "No changes to commit"
           git push
