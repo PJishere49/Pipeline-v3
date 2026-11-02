@@ -1,12 +1,1 @@
-[
-  {
-    "url": "https://www.rescueroofingoftampa.com/",
-    "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
-    "reason": "page.goto: net::ERR_EMPTY_RESPONSE at https://www.rescueroofingoftampa.com/\nCall log:\n  - navigating to \"https://www.rescueroofingoftampa.com/\", waiting until \"domcontentloaded\"\n"
-  },
-  {
-    "url": "https://westroofingfl.com/",
-    "title": "Professional Roofing Services in Tampa, FL | West Florida",
-    "reason": "page.goto: net::ERR_EMPTY_RESPONSE at https://westroofingfl.com/\nCall log:\n  - navigating to \"https://westroofingfl.com/\", waiting until \"domcontentloaded\"\n"
-  }
-]
+[]

@@ -2,7 +2,7 @@
   {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-    "priorityScore": 0,
+    "priorityScore": 10,
     "findings": [
       {
         "check_id": "3.2",
@@ -30,14 +30,14 @@
         "grade": "B"
       },
       {
-        "check_id": "2.1",
-        "issue": "Primary CTA is broken",
-        "grade": "A"
+        "check_id": "1.2",
+        "issue": "No visible primary CTA",
+        "grade": "B"
       }
     ],
     "status": "scored",
     "brand_data": {
-      "primaryColor": "rgba(0, 0, 0, 0)",
+      "primaryColor": "rgb(0, 126, 14)",
       "headingFont": "Play, \"Play Fallback\"",
       "bodyFont": "\"Source Sans Pro\"",
       "logoUrl": null,
@@ -62,16 +62,71 @@
       "trust_signals": false
     },
     "technical_metrics": {
-      "fcp": 264,
-      "loadTime": -1793639590867,
+      "fcp": 220,
       "formFields": 0,
       "hasSchema": true
     }
   },
   {
+    "url": "https://www.rescueroofingoftampa.com/",
+    "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
+    "priorityScore": 0,
+    "findings": [
+      {
+        "check_id": "3.1",
+        "issue": "No mobile viewport tag",
+        "grade": "A"
+      },
+      {
+        "check_id": "9.1",
+        "issue": "No Google Analytics",
+        "grade": "B"
+      },
+      {
+        "check_id": "8.1",
+        "issue": "No LocalBusiness Schema Markup",
+        "grade": "C"
+      },
+      {
+        "check_id": "6.1",
+        "issue": "No clear trust signals or guarantees",
+        "grade": "B"
+      },
+      {
+        "check_id": "2.4",
+        "issue": "No conversion mechanism (form/phone)",
+        "grade": "A"
+      },
+      {
+        "check_id": "1.2",
+        "issue": "No visible primary CTA",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "brand_data": {
+      "primaryColor": "transparent",
+      "headingFont": "\"Times New Roman\"",
+      "bodyFont": "\"Times New Roman\"",
+      "logoUrl": null,
+      "phone": null,
+      "email": null
+    },
+    "existing_pages": [],
+    "semantic_scores": {
+      "clarity_score": 3,
+      "trust_signals": false
+    },
+    "technical_metrics": {
+      "fcp": 0,
+      "formFields": 0,
+      "hasSchema": false
+    }
+  },
+  {
     "url": "https://www.lifetimequalityroofing.com/locations/tampa-florida/",
     "title": "Tampa Roofing Company | Roof Repair & Installation",
-    "priorityScore": 25,
+    "priorityScore": 55,
     "findings": [
       {
         "check_id": "3.2",
@@ -87,16 +142,11 @@
         "check_id": "6.1",
         "issue": "No clear trust signals or guarantees",
         "grade": "B"
-      },
-      {
-        "check_id": "2.1",
-        "issue": "Primary CTA is broken",
-        "grade": "A"
       }
     ],
     "status": "scored",
     "brand_data": {
-      "primaryColor": "rgba(0, 0, 0, 0)",
+      "primaryColor": "rgb(0, 58, 112)",
       "headingFont": "Montserrat, serif",
       "bodyFont": "Montserrat, serif",
       "logoUrl": null,
@@ -125,8 +175,7 @@
       "trust_signals": false
     },
     "technical_metrics": {
-      "fcp": 208,
-      "loadTime": -1793639599476,
+      "fcp": 200,
       "formFields": 3,
       "hasSchema": true
     }
@@ -134,7 +183,7 @@
   {
     "url": "https://www.eliteroofingservices.com/",
     "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-    "priorityScore": 0,
+    "priorityScore": 30,
     "findings": [
       {
         "check_id": "3.2",
@@ -160,11 +209,6 @@
         "check_id": "5.1",
         "issue": "High form friction (7 fields)",
         "grade": "B"
-      },
-      {
-        "check_id": "2.1",
-        "issue": "Primary CTA is broken",
-        "grade": "A"
       }
     ],
     "status": "scored",
@@ -198,9 +242,59 @@
       "trust_signals": false
     },
     "technical_metrics": {
-      "fcp": 364,
-      "loadTime": 735,
+      "fcp": 300,
       "formFields": 7,
+      "hasSchema": false
+    }
+  },
+  {
+    "url": "https://westroofingfl.com/",
+    "title": "Professional Roofing Services in Tampa, FL | West Florida",
+    "priorityScore": 15,
+    "findings": [
+      {
+        "check_id": "9.1",
+        "issue": "No Google Analytics",
+        "grade": "B"
+      },
+      {
+        "check_id": "8.1",
+        "issue": "No LocalBusiness Schema Markup",
+        "grade": "C"
+      },
+      {
+        "check_id": "6.1",
+        "issue": "No clear trust signals or guarantees",
+        "grade": "B"
+      },
+      {
+        "check_id": "2.4",
+        "issue": "No conversion mechanism (form/phone)",
+        "grade": "A"
+      },
+      {
+        "check_id": "1.2",
+        "issue": "No visible primary CTA",
+        "grade": "B"
+      }
+    ],
+    "status": "scored",
+    "brand_data": {
+      "primaryColor": "transparent",
+      "headingFont": "Arial, \"Helvetica sans-serif\"",
+      "bodyFont": "\"Times New Roman\"",
+      "logoUrl": null,
+      "phone": null,
+      "email": null
+    },
+    "existing_pages": [],
+    "semantic_scores": {
+      "clarity_score": 3,
+      "trust_signals": false
+    },
+    "technical_metrics": {
+      "fcp": 68,
+      "formFields": 0,
       "hasSchema": false
     }
   }
