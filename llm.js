@@ -19,12 +19,30 @@ async function generatePitch() {
         headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.7 })
       });
+
       const data = await response.json();
+
+      // NEW ERROR CHECKING
+      if (!response.ok) {
+        console.error(`❌ Groq API Error for ${lead.title}:`, data.error?.message || data);
+        continue; // Skip to the next lead
+      }
+
+      if (!data.choices || data.choices.length === 0) {
+        console.error(`❌ Groq returned no choices for ${lead.title}:`, data);
+        continue;
+      }
+
       lead.sales_pitch = data.choices[0].message.content;
-      console.log(`Pitch generated for: ${lead.title}`);
+      console.log(`✅ Pitch generated for: ${lead.title}`);
       await new Promise(r => setTimeout(r, 2000));
-    } catch (err) { console.error(`Failed for ${lead.url}: ${err.message}`); }
+      
+    } catch (err) { 
+      console.error(`❌ Fetch failed for ${lead.title}: ${err.message}`); 
+    }
   }
+  
   fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
+  console.log("Finished generating pitches.");
 }
 generatePitch();
