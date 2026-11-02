@@ -40,7 +40,7 @@ async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   const results = [];
   const reviewManually = [];
-  const limit = 5; // Kept at 5 as requested
+  const limit = 5; 
   const subset = prospects.slice(0, limit);
   
   const browser = await chromium.launch({ args: ['--disable-http2'] });
@@ -64,17 +64,26 @@ async function runCrawler() {
         continue;
       }
 
-      // --- 100% RUBRIC DOM & PERFORMANCE EXTRACTION ---
       const pageData = await page.evaluate(() => {
         const getStyle = (el) => window.getComputedStyle(el);
-        const primaryBtn = document.querySelector('button, a[class*="btn" i], a[class*="button" i]') || document.body;
         const h1El = document.querySelector('h1') || document.body;
         
-        // 1. Page Map
+        // BUG FIX 1: Color Extraction (Ignore transparent)
+        let primaryColor = 'transparent';
+        const buttons = Array.from(document.querySelectorAll('button, a[class*="btn" i], a[class*="button" i]'));
+        for (const btn of buttons) {
+          const bg = getStyle(btn).backgroundColor;
+          if (bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+            primaryColor = bg;
+            break;
+          }
+        }
+        
+        // Page Map
         const links = Array.from(document.querySelectorAll('a')).map(a => a.href);
         const internalPages = [...new Set(links.filter(l => l.startsWith(window.location.origin) && !l.includes('#') && !l.includes('mailto') && !l.includes('tel')))];
 
-        // 2. Tap Targets & Font Size (Mobile)
+        // Mobile Checks
         const interactiveEls = Array.from(document.querySelectorAll('a, button, input, select, textarea'));
         const smallTapTargets = interactiveEls.filter(el => {
           const rect = el.getBoundingClientRect();
@@ -83,22 +92,37 @@ async function runCrawler() {
         const textEls = Array.from(document.querySelectorAll('p, span, li'));
         const smallFonts = textEls.filter(el => parseFloat(getStyle(el).fontSize) < 16).length;
 
-        // 3. Forms & Friction
+        // Form Friction
         const form = document.querySelector('form');
         const formFields = form ? form.querySelectorAll('input, select, textarea').length : 0;
 
-        // 4. Schema Markup & NAP
+        // Schema
         const schemaScripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
         const hasLocalSchema = schemaScripts.some(s => s.textContent.includes('LocalBusiness') || s.textContent.includes('RoofingContractor') || s.textContent.includes('Dentist') || s.textContent.includes('HVACBusiness'));
-        
-        // 5. Performance Metrics (Lab Data)
+
+        // Performance (FCP Only)
         const paintEntries = performance.getEntriesByType('paint');
         const fcp = paintEntries.find(e => e.name === 'first-contentful-paint')?.startTime || 0;
-        const loadTime = performance.timing ? (performance.timing.loadEventEnd - performance.timing.navigationStart) : 0;
+
+        // BUG FIX 2: CTA Link Check (No physical clicking)
+        let ctaStatus = 'none'; // none, valid, broken
+        const ctaEl = buttons.find(b => /contact|quote|schedule|estimate|get started|call/i.test(b.innerText));
+        if (ctaEl) {
+          if (ctaEl.tagName === 'A') {
+            const href = ctaEl.getAttribute('href');
+            if (!href || href === '#' || href === 'javascript:void(0)') {
+              ctaStatus = 'broken';
+            } else {
+              ctaStatus = 'valid';
+            }
+          } else {
+            ctaStatus = 'valid'; // It's a button, probably has JS attached
+          }
+        }
 
         return {
           brand: {
-            primaryColor: getStyle(primaryBtn).backgroundColor,
+            primaryColor: primaryColor,
             headingFont: getStyle(h1El).fontFamily,
             bodyFont: getStyle(document.body).fontFamily,
             logoUrl: document.querySelector('img[class*="logo" i], img[id*="logo" i]')?.src || null,
@@ -118,15 +142,14 @@ async function runCrawler() {
             bodyText: document.body.innerText.toLowerCase().substring(0, 1500),
             internalPages: internalPages.slice(0, 15),
             fcp: Math.round(fcp),
-            loadTime: Math.round(loadTime)
+            ctaStatus: ctaStatus
           }
         };
       });
 
-      // --- LLM SEMANTIC CHECK ---
       const semantics = await analyzeSemantics(prospect.title, pageData.domChecks.h1, pageData.domChecks.bodyText);
 
-      // --- APPLY 100% RUBRIC GRADES ---
+      // Apply Grades
       const isHttps = prospect.url.startsWith('https://') && response.securityDetails();
       if (!isHttps) findings.push({ check_id: '11.1', issue: 'Missing/Invalid SSL', grade: 'A' });
       if (!pageData.domChecks.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag', grade: 'A' });
@@ -137,11 +160,9 @@ async function runCrawler() {
       if (!pageData.domChecks.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics', grade: 'B' });
       if (!pageData.domChecks.hasLocalSchema) findings.push({ check_id: '8.1', issue: 'No LocalBusiness Schema Markup', grade: 'C' });
       
-      // LLM Grades
       if (semantics.clarity_score <= 2) findings.push({ check_id: '1.1', issue: `Vague headline: "${pageData.domChecks.h1}"`, grade: 'B' });
       if (!semantics.trust_signals) findings.push({ check_id: '6.1', issue: 'No clear trust signals or guarantees', grade: 'B' });
       
-      // Forms & Friction
       if (!pageData.domChecks.hasForm && !pageData.brand.phone) {
          findings.push({ check_id: '2.4', issue: 'No conversion mechanism (form/phone)', grade: 'A' });
       } else if (!pageData.domChecks.hasForm) {
@@ -150,18 +171,14 @@ async function runCrawler() {
          findings.push({ check_id: '5.1', issue: `High form friction (${pageData.domChecks.formFields} fields)`, grade: 'B' });
       }
 
-      // Performance (Basic Lab Check)
       if (pageData.domChecks.fcp > 2500) findings.push({ check_id: '4.1', issue: `Slow First Contentful Paint (${pageData.domChecks.fcp}ms)`, grade: 'B' });
 
-      // CTA Check
-      try {
-        const ctaButton = page.locator('a, button').filter({ hasText: /contact|quote|schedule|estimate|get started|call/i }).first();
-        if (await ctaButton.count() > 0 && await ctaButton.isVisible()) {
-          await ctaButton.click({ timeout: 3000 });
-        } else {
-          findings.push({ check_id: '1.2', issue: 'No visible primary CTA', grade: 'B' });
-        }
-      } catch (e) { findings.push({ check_id: '2.1', issue: 'Primary CTA is broken', grade: 'A' }); }
+      // CTA Bug Fix Logic
+      if (pageData.domChecks.ctaStatus === 'none') {
+        findings.push({ check_id: '1.2', issue: 'No visible primary CTA', grade: 'B' });
+      } else if (pageData.domChecks.ctaStatus === 'broken') {
+        findings.push({ check_id: '2.1', issue: 'Primary CTA is a dead link (href="#")', grade: 'A' });
+      }
 
       const priorityScore = calculatePriority(findings);
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
@@ -180,7 +197,6 @@ async function runCrawler() {
         semantic_scores: semantics,
         technical_metrics: {
           fcp: pageData.domChecks.fcp,
-          loadTime: pageData.domChecks.loadTime,
           formFields: pageData.domChecks.formFields,
           hasSchema: pageData.domChecks.hasLocalSchema
         }
