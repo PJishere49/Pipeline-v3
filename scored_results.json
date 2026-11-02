@@ -2,8 +2,18 @@
   {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-    "priorityScore": 25,
+    "priorityScore": 0,
     "findings": [
+      {
+        "check_id": "3.2",
+        "issue": "Too many small tap targets (34 < 48px)",
+        "grade": "B"
+      },
+      {
+        "check_id": "3.2",
+        "issue": "Small text on mobile (38 elements < 16px)",
+        "grade": "B"
+      },
       {
         "check_id": "9.1",
         "issue": "No Google Analytics",
@@ -28,56 +38,51 @@
     "status": "scored",
     "brand_data": {
       "primaryColor": "rgba(0, 0, 0, 0)",
-      "textColor": "rgb(0, 0, 0)",
       "headingFont": "Play, \"Play Fallback\"",
       "bodyFont": "\"Source Sans Pro\"",
       "logoUrl": null,
-      "heroImageUrl": "https://irp.cdn-website.com/242851d0/dms3rep/multi/opt/mobile-132b15b8-284w.JPG",
       "phone": "813-839-7706",
       "email": null
     },
+    "existing_pages": [
+      "https://www.billshieldsroofing.com/",
+      "https://www.billshieldsroofing.com/about-our-roofing-company",
+      "https://www.billshieldsroofing.com/residential-roofing-installation",
+      "https://www.billshieldsroofing.com/commercial-roofing-installation",
+      "https://www.billshieldsroofing.com/custom-roof-material",
+      "https://www.billshieldsroofing.com/past-roofing-projects",
+      "https://www.billshieldsroofing.com/financing",
+      "https://www.billshieldsroofing.com/our-roofing-testimonials",
+      "https://www.billshieldsroofing.com/contact-our-roofing-team",
+      "https://www.billshieldsroofing.com/roofing-services-tampa-fl/",
+      "https://www.billshieldsroofing.com/roof-choices/"
+    ],
     "semantic_scores": {
       "clarity_score": 3,
       "trust_signals": false
+    },
+    "technical_metrics": {
+      "fcp": 264,
+      "loadTime": -1793639590867,
+      "formFields": 0,
+      "hasSchema": true
     }
   },
   {
     "url": "https://www.lifetimequalityroofing.com/locations/tampa-florida/",
     "title": "Tampa Roofing Company | Roof Repair & Installation",
-    "priorityScore": 70,
+    "priorityScore": 25,
     "findings": [
       {
-        "check_id": "6.1",
-        "issue": "No clear trust signals or guarantees",
+        "check_id": "3.2",
+        "issue": "Too many small tap targets (47 < 48px)",
         "grade": "B"
       },
       {
-        "check_id": "1.2",
-        "issue": "No visible primary CTA above fold",
+        "check_id": "3.2",
+        "issue": "Small text on mobile (8 elements < 16px)",
         "grade": "B"
-      }
-    ],
-    "status": "scored",
-    "brand_data": {
-      "primaryColor": "rgba(0, 0, 0, 0)",
-      "textColor": "rgb(23, 23, 23)",
-      "headingFont": "Montserrat, serif",
-      "bodyFont": "Montserrat, serif",
-      "logoUrl": "https://www.lifetimequalityroofing.com/wp-content/uploads/2025/01/logo.svg",
-      "heroImageUrl": "https://www.lifetimequalityroofing.com/wp-content/uploads/2025/01/logo.svg",
-      "phone": "13806003047",
-      "email": null
-    },
-    "semantic_scores": {
-      "clarity_score": 3,
-      "trust_signals": false
-    }
-  },
-  {
-    "url": "https://www.eliteroofingservices.com/",
-    "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-    "priorityScore": 55,
-    "findings": [
+      },
       {
         "check_id": "6.1",
         "issue": "No clear trust signals or guarantees",
@@ -91,18 +96,112 @@
     ],
     "status": "scored",
     "brand_data": {
-      "primaryColor": "rgb(239, 239, 239)",
-      "textColor": "rgb(22, 22, 22)",
-      "headingFont": "\"Crimson Text\", serif",
-      "bodyFont": "Roboto, sans-serif",
-      "logoUrl": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
-      "heroImageUrl": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
-      "phone": "8776300081",
+      "primaryColor": "rgba(0, 0, 0, 0)",
+      "headingFont": "Montserrat, serif",
+      "bodyFont": "Montserrat, serif",
+      "logoUrl": null,
+      "phone": "13806003047",
       "email": null
     },
+    "existing_pages": [
+      "https://www.lifetimequalityroofing.com/",
+      "https://www.lifetimequalityroofing.com/free-roof-inspection/",
+      "https://www.lifetimequalityroofing.com/residential-roofing/",
+      "https://www.lifetimequalityroofing.com/residential-roofing/residential-gutter/",
+      "https://www.lifetimequalityroofing.com/residential-roofing/replacement/",
+      "https://www.lifetimequalityroofing.com/residential-roofing/asphalt/",
+      "https://www.lifetimequalityroofing.com/residential-roofing/repair/",
+      "https://www.lifetimequalityroofing.com/commercial-roofing/",
+      "https://www.lifetimequalityroofing.com/commercial-roofing/commercial-roof-inspection/",
+      "https://www.lifetimequalityroofing.com/commercial-roofing/case-studies/",
+      "https://www.lifetimequalityroofing.com/storm-damage/",
+      "https://www.lifetimequalityroofing.com/storm-damage/hail-damage/",
+      "https://www.lifetimequalityroofing.com/storm-damage/wind-damage/",
+      "https://www.lifetimequalityroofing.com/storm-damage/ice-damage/",
+      "https://www.lifetimequalityroofing.com/locations/"
+    ],
     "semantic_scores": {
       "clarity_score": 3,
       "trust_signals": false
+    },
+    "technical_metrics": {
+      "fcp": 208,
+      "loadTime": -1793639599476,
+      "formFields": 3,
+      "hasSchema": true
+    }
+  },
+  {
+    "url": "https://www.eliteroofingservices.com/",
+    "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
+    "priorityScore": 0,
+    "findings": [
+      {
+        "check_id": "3.2",
+        "issue": "Too many small tap targets (50 < 48px)",
+        "grade": "B"
+      },
+      {
+        "check_id": "3.2",
+        "issue": "Small text on mobile (45 elements < 16px)",
+        "grade": "B"
+      },
+      {
+        "check_id": "8.1",
+        "issue": "No LocalBusiness Schema Markup",
+        "grade": "C"
+      },
+      {
+        "check_id": "6.1",
+        "issue": "No clear trust signals or guarantees",
+        "grade": "B"
+      },
+      {
+        "check_id": "5.1",
+        "issue": "High form friction (7 fields)",
+        "grade": "B"
+      },
+      {
+        "check_id": "2.1",
+        "issue": "Primary CTA is broken",
+        "grade": "A"
+      }
+    ],
+    "status": "scored",
+    "brand_data": {
+      "primaryColor": "rgb(239, 239, 239)",
+      "headingFont": "\"Crimson Text\", serif",
+      "bodyFont": "Roboto, sans-serif",
+      "logoUrl": null,
+      "phone": "8776300081",
+      "email": null
+    },
+    "existing_pages": [
+      "https://www.eliteroofingservices.com/commercial-roofing-services/",
+      "https://www.eliteroofingservices.com/residential-roofing-services/",
+      "https://www.eliteroofingservices.com/roof-replacements/",
+      "https://www.eliteroofingservices.com/repairs/",
+      "https://www.eliteroofingservices.com/roof-restoration/",
+      "https://www.eliteroofingservices.com/about-us/",
+      "https://www.eliteroofingservices.com/free-roof-inspection/",
+      "https://www.eliteroofingservices.com/financing/",
+      "https://www.eliteroofingservices.com/contact/",
+      "https://www.eliteroofingservices.com/roof-replacements/metal-roofing/",
+      "https://www.eliteroofingservices.com/roof-replacements/flat-roofing/",
+      "https://www.eliteroofingservices.com/roof-replacements/asphalt-shingle-roofing/",
+      "https://www.eliteroofingservices.com/service-area/",
+      "https://www.eliteroofingservices.com/testimonials/",
+      "https://www.eliteroofingservices.com/blog/"
+    ],
+    "semantic_scores": {
+      "clarity_score": 3,
+      "trust_signals": false
+    },
+    "technical_metrics": {
+      "fcp": 364,
+      "loadTime": 735,
+      "formFields": 7,
+      "hasSchema": false
     }
   }
 ]
