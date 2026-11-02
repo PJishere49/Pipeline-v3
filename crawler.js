@@ -23,7 +23,8 @@ async function analyzeSemantics(title, h1, bodyText) {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
+      // FIXED MODEL NAME HERE
+      body: JSON.stringify({ model: 'llama3-70b-8192', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
     });
     if (!res.ok) return { clarity_score: null, trust_signals: null };
     const data = await res.json();
@@ -86,7 +87,6 @@ async function runCrawler() {
         crawlDiagnostics.http_status = response.status();
         const pageText = await page.content();
         
-        // DEAD SITE CHECK
         if (response.status() >= 400) {
           crawlDiagnostics.dead_site = true;
           findings.push({ check_id: '7.1', issue: `Site Down (HTTP ${response.status()})`, grade: 'A', status: 'fail' });
@@ -95,7 +95,6 @@ async function runCrawler() {
           continue;
         }
 
-        // WAF CHECK
         if (pageText.includes('Access Denied') || pageText.includes('Cloudflare') || pageText.includes('Just a moment')) {
           crawlDiagnostics.waf_blocked = true;
           reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF / Bot Blocked', diagnostics: crawlDiagnostics });
@@ -106,12 +105,10 @@ async function runCrawler() {
 
       await page.waitForTimeout(3000);
 
-      // --- DOM EVALUATION ---
       pageData = await page.evaluate(() => {
         const getStyle = (el) => window.getComputedStyle(el);
         const h1El = document.querySelector('h1') || document.body;
         
-        // 1. Better Form Selection
         const forms = Array.from(document.querySelectorAll('form'));
         let bestForm = null;
         let maxInputs = 0;
@@ -130,7 +127,6 @@ async function runCrawler() {
           }).length;
         }
 
-        // 2. Primary CTA
         const primaryBtns = Array.from(document.querySelectorAll('button, a[class*="btn" i], a[class*="button" i], a[class*="cta" i]'));
         let primaryCta = primaryBtns.find(b => /contact|quote|schedule|estimate|get started|call/i.test(b.innerText));
         let ctaStatus = 'none';
@@ -144,11 +140,10 @@ async function runCrawler() {
           }
         }
 
-        // 3. Mobile Checks
         const interactiveEls = Array.from(document.querySelectorAll('a, button, input[type="submit"], input[type="button"]'));
         const smallTapTargets = interactiveEls.filter(el => {
           const rect = el.getBoundingClientRect();
-          if (rect.width > 100 && rect.height < 25) return false; // Exempt inline text links
+          if (rect.width > 100 && rect.height < 25) return false;
           return rect.width > 0 && rect.height > 0 && (rect.width < 48 || rect.height < 48);
         }).length;
 
@@ -158,7 +153,6 @@ async function runCrawler() {
           return rect.width > 0 && parseFloat(getStyle(el).fontSize) < 16;
         }).length;
 
-        // 4. Schema Parsing
         let hasLocalSchema = false;
         const schemaScripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
         for (const s of schemaScripts) {
@@ -175,11 +169,9 @@ async function runCrawler() {
           } catch(e) {}
         }
 
-        // 5. Analytics (Script Tags Only)
         const scripts = Array.from(document.querySelectorAll('script[src]')).map(s => s.src);
         const hasAnalytics = scripts.some(s => s.includes('googletagmanager') || s.includes('google-analytics') || s.includes('facebook.net') || s.includes('clarity.ms') || s.includes('plausible.io'));
 
-        // 6. Brand Color (Primary CTA only)
         let primaryColor = 'transparent';
         if (primaryCta) {
           primaryColor = getStyle(primaryCta).backgroundColor;
@@ -194,7 +186,6 @@ async function runCrawler() {
           }
         }
 
-        // 7. Page Map
         const links = Array.from(document.querySelectorAll('a')).map(a => a.href);
         const internalPages = [...new Set(links.filter(l => l.startsWith(window.location.origin) && !l.match(/^tel:/i) && !l.match(/^mailto:/i) && !l.includes('#')))];
 
@@ -227,7 +218,6 @@ async function runCrawler() {
 
       const semantics = await analyzeSemantics(prospect.title, pageData.domChecks.h1, pageData.domChecks.bodyText);
 
-      // --- APPLY RUBRIC GRADES ---
       if (semantics.clarity_score !== null && semantics.clarity_score <= 2) findings.push({ check_id: '1.1', issue: `Vague headline: "${pageData.domChecks.h1}"`, grade: 'B', status: 'fail' });
       else if (semantics.clarity_score === null) findings.push({ check_id: '1.1', issue: `Headline clarity inconclusive`, grade: 'C', status: 'inconclusive' });
       
