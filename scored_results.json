@@ -2,40 +2,45 @@
   {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-    "priorityScore": 10,
+    "priorityScore": 40,
     "findings": [
       {
+        "check_id": "1.2",
+        "issue": "No visible primary CTA above fold",
+        "grade": "B",
+        "status": "fail"
+      },
+      {
+        "check_id": "2.1",
+        "issue": "No contact form on page",
+        "grade": "B",
+        "status": "fail"
+      },
+      {
         "check_id": "3.2",
-        "issue": "Too many small tap targets (34 < 48px)",
-        "grade": "B"
+        "issue": "Too many small tap targets (15 < 48px)",
+        "grade": "B",
+        "status": "fail"
       },
       {
         "check_id": "3.2",
         "issue": "Small text on mobile (38 elements < 16px)",
-        "grade": "B"
-      },
-      {
-        "check_id": "9.1",
-        "issue": "No Google Analytics",
-        "grade": "B"
+        "grade": "B",
+        "status": "fail"
       },
       {
         "check_id": "6.1",
-        "issue": "No clear trust signals or guarantees",
-        "grade": "B"
-      },
-      {
-        "check_id": "5.3",
-        "issue": "No contact form",
-        "grade": "B"
-      },
-      {
-        "check_id": "1.2",
-        "issue": "No visible primary CTA",
-        "grade": "B"
+        "issue": "No tracking pixels found (GA4, GTM, Meta, etc.)",
+        "grade": "B",
+        "status": "fail"
       }
     ],
     "status": "scored",
+    "crawl_diagnostics": {
+      "http_status": 200,
+      "waf_blocked": false,
+      "ssl_error": false
+    },
     "brand_data": {
       "primaryColor": "rgb(0, 126, 14)",
       "headingFont": "Play, \"Play Fallback\"",
@@ -58,98 +63,33 @@
       "https://www.billshieldsroofing.com/roof-choices/"
     ],
     "semantic_scores": {
-      "clarity_score": 3,
-      "trust_signals": false
-    },
-    "technical_metrics": {
-      "fcp": 220,
-      "formFields": 0,
-      "hasSchema": true
-    }
-  },
-  {
-    "url": "https://www.rescueroofingoftampa.com/",
-    "title": "Roofing Company in Tampa, FL | Trusted 24/7 | Rescue Roofing",
-    "priorityScore": 0,
-    "findings": [
-      {
-        "check_id": "3.1",
-        "issue": "No mobile viewport tag",
-        "grade": "A"
-      },
-      {
-        "check_id": "9.1",
-        "issue": "No Google Analytics",
-        "grade": "B"
-      },
-      {
-        "check_id": "8.1",
-        "issue": "No LocalBusiness Schema Markup",
-        "grade": "C"
-      },
-      {
-        "check_id": "6.1",
-        "issue": "No clear trust signals or guarantees",
-        "grade": "B"
-      },
-      {
-        "check_id": "2.4",
-        "issue": "No conversion mechanism (form/phone)",
-        "grade": "A"
-      },
-      {
-        "check_id": "1.2",
-        "issue": "No visible primary CTA",
-        "grade": "B"
-      }
-    ],
-    "status": "scored",
-    "brand_data": {
-      "primaryColor": "transparent",
-      "headingFont": "\"Times New Roman\"",
-      "bodyFont": "\"Times New Roman\"",
-      "logoUrl": null,
-      "phone": null,
-      "email": null
-    },
-    "existing_pages": [],
-    "semantic_scores": {
-      "clarity_score": 3,
-      "trust_signals": false
-    },
-    "technical_metrics": {
-      "fcp": 0,
-      "formFields": 0,
-      "hasSchema": false
+      "clarity_score": null,
+      "trust_signals": null
     }
   },
   {
     "url": "https://www.lifetimequalityroofing.com/locations/tampa-florida/",
     "title": "Tampa Roofing Company | Roof Repair & Installation",
-    "priorityScore": 55,
+    "priorityScore": 85,
     "findings": [
       {
         "check_id": "3.2",
-        "issue": "Too many small tap targets (47 < 48px)",
-        "grade": "B"
-      },
-      {
-        "check_id": "3.2",
-        "issue": "Small text on mobile (8 elements < 16px)",
-        "grade": "B"
-      },
-      {
-        "check_id": "6.1",
-        "issue": "No clear trust signals or guarantees",
-        "grade": "B"
+        "issue": "Too many small tap targets (27 < 48px)",
+        "grade": "B",
+        "status": "fail"
       }
     ],
     "status": "scored",
+    "crawl_diagnostics": {
+      "http_status": 200,
+      "waf_blocked": false,
+      "ssl_error": false
+    },
     "brand_data": {
       "primaryColor": "rgb(0, 58, 112)",
       "headingFont": "Montserrat, serif",
       "bodyFont": "Montserrat, serif",
-      "logoUrl": null,
+      "logoUrl": "https://www.lifetimequalityroofing.com/wp-content/uploads/2025/01/logo.svg",
       "phone": "13806003047",
       "email": null
     },
@@ -171,52 +111,45 @@
       "https://www.lifetimequalityroofing.com/locations/"
     ],
     "semantic_scores": {
-      "clarity_score": 3,
-      "trust_signals": false
-    },
-    "technical_metrics": {
-      "fcp": 200,
-      "formFields": 3,
-      "hasSchema": true
+      "clarity_score": null,
+      "trust_signals": null
     }
   },
   {
     "url": "https://www.eliteroofingservices.com/",
     "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-    "priorityScore": 30,
+    "priorityScore": 75,
     "findings": [
       {
         "check_id": "3.2",
-        "issue": "Too many small tap targets (50 < 48px)",
-        "grade": "B"
+        "issue": "Too many small tap targets (49 < 48px)",
+        "grade": "B",
+        "status": "fail"
       },
       {
         "check_id": "3.2",
-        "issue": "Small text on mobile (45 elements < 16px)",
-        "grade": "B"
+        "issue": "Small text on mobile (39 elements < 16px)",
+        "grade": "B",
+        "status": "fail"
       },
       {
-        "check_id": "8.1",
+        "check_id": "5.2",
         "issue": "No LocalBusiness Schema Markup",
-        "grade": "C"
-      },
-      {
-        "check_id": "6.1",
-        "issue": "No clear trust signals or guarantees",
-        "grade": "B"
-      },
-      {
-        "check_id": "5.1",
-        "issue": "High form friction (7 fields)",
-        "grade": "B"
+        "grade": "C",
+        "status": "fail"
       }
     ],
     "status": "scored",
+    "crawl_diagnostics": {
+      "http_status": 200,
+      "waf_blocked": false,
+      "ssl_error": false
+    },
     "brand_data": {
-      "primaryColor": "rgb(239, 239, 239)",
+      "primaryColor": "rgb(0, 0, 0)",
       "headingFont": "\"Crimson Text\", serif",
       "bodyFont": "Roboto, sans-serif",
-      "logoUrl": null,
+      "logoUrl": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
       "phone": "8776300081",
       "email": null
     },
@@ -238,64 +171,8 @@
       "https://www.eliteroofingservices.com/blog/"
     ],
     "semantic_scores": {
-      "clarity_score": 3,
-      "trust_signals": false
-    },
-    "technical_metrics": {
-      "fcp": 300,
-      "formFields": 7,
-      "hasSchema": false
-    }
-  },
-  {
-    "url": "https://westroofingfl.com/",
-    "title": "Professional Roofing Services in Tampa, FL | West Florida",
-    "priorityScore": 15,
-    "findings": [
-      {
-        "check_id": "9.1",
-        "issue": "No Google Analytics",
-        "grade": "B"
-      },
-      {
-        "check_id": "8.1",
-        "issue": "No LocalBusiness Schema Markup",
-        "grade": "C"
-      },
-      {
-        "check_id": "6.1",
-        "issue": "No clear trust signals or guarantees",
-        "grade": "B"
-      },
-      {
-        "check_id": "2.4",
-        "issue": "No conversion mechanism (form/phone)",
-        "grade": "A"
-      },
-      {
-        "check_id": "1.2",
-        "issue": "No visible primary CTA",
-        "grade": "B"
-      }
-    ],
-    "status": "scored",
-    "brand_data": {
-      "primaryColor": "transparent",
-      "headingFont": "Arial, \"Helvetica sans-serif\"",
-      "bodyFont": "\"Times New Roman\"",
-      "logoUrl": null,
-      "phone": null,
-      "email": null
-    },
-    "existing_pages": [],
-    "semantic_scores": {
-      "clarity_score": 3,
-      "trust_signals": false
-    },
-    "technical_metrics": {
-      "fcp": 68,
-      "formFields": 0,
-      "hasSchema": false
+      "clarity_score": null,
+      "trust_signals": null
     }
   }
 ]
