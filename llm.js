@@ -17,15 +17,15 @@ async function generatePitch() {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.7 })
+        // CHANGED MODEL HERE
+        body: JSON.stringify({ model: 'llama3-70b-8192', messages: [{ role: 'user', content: prompt }], temperature: 0.7 })
       });
 
       const data = await response.json();
 
-      // NEW ERROR CHECKING
       if (!response.ok) {
         console.error(`❌ Groq API Error for ${lead.title}:`, data.error?.message || data);
-        continue; // Skip to the next lead
+        continue; 
       }
 
       if (!data.choices || data.choices.length === 0) {
