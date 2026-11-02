@@ -144,7 +144,7 @@
   {
     "url": "https://www.eliteroofingservices.com/",
     "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-    "priorityScore": 60,
+    "priorityScore": 75,
     "findings": [
       {
         "check_id": "1.1",
@@ -161,12 +161,6 @@
       {
         "check_id": "3.2",
         "issue": "Small text on mobile (39 elements < 16px)",
-        "grade": "B",
-        "status": "fail"
-      },
-      {
-        "check_id": "4.1",
-        "issue": "Slow First Contentful Paint (3212ms)",
         "grade": "B",
         "status": "fail"
       },
