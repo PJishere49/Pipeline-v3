@@ -13,8 +13,18 @@ async function sendTelegram(photoBuffer, caption) {
   await fetch(url, { method: 'POST', body: formData });
 }
 
-async function isSMBWithLLM(url, title) {
-  const prompt = `Analyze this business: "${title}" at ${url}. Is this a local small-to-medium business (SMB) like a family-owned contractor, or is it a large national enterprise, franchise, or directory? Answer with only one word: SMB or ENTERPRISE.`;
+async function analyzeSemantics(title, h1, bodyText) {
+  const prompt = `
+  You are a conversion rate optimization expert. Analyze this website content.
+  Business: "${title}"
+  Main Headline (H1): "${h1}"
+  Page Text: "${bodyText.substring(0, 1000)}"
+
+  Answer these two questions with ONLY a JSON object:
+  1. "clarity_score": Rate the headline 1-5 on how clear it is. (1 = Vague, 5 = Perfectly clear what they do and who it's for).
+  2. "trust_signals": Do they have clear guarantees, specific reviews, or credentials? (true or false).
+  `;
+
   try {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
@@ -22,12 +32,15 @@ async function isSMBWithLLM(url, title) {
       body: JSON.stringify({
         model: 'llama-3.3-70b-versatile',
         messages: [{ role: 'user', content: prompt }],
-        temperature: 0.1
+        temperature: 0.1,
+        response_format: { type: "json_object" }
       })
     });
     const data = await res.json();
-    return data.choices[0].message.content.trim().toUpperCase().includes('SMB');
-  } catch (e) { return false; }
+    return JSON.parse(data.choices[0].message.content);
+  } catch (e) {
+    return { clarity_score: 3, trust_signals: false }; // Default if LLM fails
+  }
 }
 
 function calculatePriority(findings) {
@@ -44,8 +57,9 @@ async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   const results = [];
   const reviewManually = [];
-  const limit = 20;
+  const limit = 5; // Kept at 5 to avoid rate limits while testing LLM
   const subset = prospects.slice(0, limit);
+  
   const browser = await chromium.launch({ args: ['--disable-http2'] });
   const context = await browser.newContext({ 
     viewport: { width: 390, height: 844 }, 
@@ -62,39 +76,75 @@ async function runCrawler() {
       const pageText = await page.content();
       
       if (status >= 400 || pageText.includes('Access Denied') || pageText.includes('Cloudflare')) {
-        const isSMB = await isSMBWithLLM(prospect.url, prospect.title);
-        if (isSMB) reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF Blocked but LLM says SMB' });
-        else results.push({ url: prospect.url, title: prospect.title, status: 'disqualified', reason: 'Enterprise WAF' });
+        const isSMB = true; // Default to saving it for manual review if blocked
+        reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF Blocked' });
         await page.close();
         continue;
       }
 
+      // --- BRAND EXTRACTION & DOM CHECKS ---
       const pageData = await page.evaluate(() => {
-        const text = document.body.innerText.toLowerCase();
-        const html = document.documentElement.innerHTML.toLowerCase();
-        const hasTel = !!document.querySelector('a[href^="tel:"]');
-        const hasMailto = !!document.querySelector('a[href^="mailto:"]');
-        const hasForm = !!document.querySelector('form');
-        const hasViewport = !!document.querySelector('meta[name="viewport"]');
-        const hasHorizontalScroll = document.documentElement.scrollWidth > window.innerWidth;
-        const hasAnalytics = html.includes('gtag(') || html.includes('googletagmanager');
-        const hasTrust = text.includes('review') || text.includes('testimonial') || text.includes('guarantee');
-        const yearMatch = text.match(/©\s*(20\d\d)/);
-        const copyrightYear = yearMatch ? parseInt(yearMatch[1], 10) : null;
-        return { hasTel, hasMailto, hasForm, hasViewport, hasHorizontalScroll, hasAnalytics, hasTrust, copyrightYear };
+        const getStyle = (el) => window.getComputedStyle(el);
+        
+        // 1. Extract Colors & Fonts
+        const primaryBtn = document.querySelector('button, a[class*="btn" i], a[class*="button" i]') || document.body;
+        const h1El = document.querySelector('h1') || document.body;
+        const bodyText = document.body.innerText.toLowerCase();
+        
+        // 2. Extract Logo & Images
+        const logoEl = document.querySelector('img[class*="logo" i], img[id*="logo" i], img[src*="logo" i]');
+        const logoUrl = logoEl ? logoEl.src : null;
+        const heroImage = document.querySelector('img');
+        
+        // 3. Contact Info
+        const phoneLink = document.querySelector('a[href^="tel:"]');
+        const emailLink = document.querySelector('a[href^="mailto:"]');
+
+        return {
+          brand: {
+            primaryColor: getStyle(primaryBtn).backgroundColor,
+            textColor: getStyle(bodyText ? document.body : h1El).color,
+            headingFont: getStyle(h1El).fontFamily,
+            bodyFont: getStyle(document.body).fontFamily,
+            logoUrl: logoUrl,
+            heroImageUrl: heroImage ? heroImage.src : null,
+            phone: phoneLink ? phoneLink.href.replace('tel:', '') : null,
+            email: emailLink ? emailLink.href.replace('mailto:', '') : null
+          },
+          domChecks: {
+            hasTel: !!document.querySelector('a[href^="tel:"]'),
+            hasMailto: !!document.querySelector('a[href^="mailto:"]'),
+            hasForm: !!document.querySelector('form'),
+            hasViewport: !!document.querySelector('meta[name="viewport"]'),
+            hasHorizontalScroll: document.documentElement.scrollWidth > window.innerWidth,
+            hasAnalytics: document.documentElement.innerHTML.toLowerCase().includes('gtag(') || document.documentElement.innerHTML.toLowerCase().includes('googletagmanager'),
+            h1: h1El.innerText.substring(0, 100),
+            bodyText: bodyText.substring(0, 1500)
+          }
+        };
       });
 
+      // --- LLM SEMANTIC CHECK ---
+      const semantics = await analyzeSemantics(prospect.title, pageData.domChecks.h1, pageData.domChecks.bodyText);
+
+      // --- APPLY RUBRIC GRADES ---
       const isHttps = prospect.url.startsWith('https://') && response.securityDetails();
       if (!isHttps) findings.push({ check_id: '11.1', issue: 'Missing/Invalid SSL', grade: 'A' });
-      if (!pageData.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag', grade: 'A' });
-      if (pageData.hasHorizontalScroll) findings.push({ check_id: '3.1', issue: 'Horizontal scroll on mobile', grade: 'A' });
-      if (!pageData.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics', grade: 'B' });
-      if (!pageData.hasTrust) findings.push({ check_id: '6.1', issue: 'No trust signals', grade: 'B' });
-      if (pageData.copyrightYear && pageData.copyrightYear < 2025) findings.push({ check_id: '11.6', issue: `Stale copyright (${pageData.copyrightYear})`, grade: 'C' });
+      if (!pageData.domChecks.hasViewport) findings.push({ check_id: '3.1', issue: 'No mobile viewport tag', grade: 'A' });
+      if (pageData.domChecks.hasHorizontalScroll) findings.push({ check_id: '3.1', issue: 'Horizontal scroll on mobile', grade: 'A' });
+      if (!pageData.domChecks.hasAnalytics) findings.push({ check_id: '9.1', issue: 'No Google Analytics', grade: 'B' });
       
-      if (!pageData.hasForm && !pageData.hasTel && !pageData.hasMailto) findings.push({ check_id: '2.4', issue: 'No conversion mechanism', grade: 'A' });
-      else if (!pageData.hasForm) findings.push({ check_id: '5.3', issue: 'No contact form', grade: 'B' });
+      // LLM Grades
+      if (semantics.clarity_score <= 2) findings.push({ check_id: '1.1', issue: `Vague headline: "${pageData.domChecks.h1}"`, grade: 'B' });
+      if (!semantics.trust_signals) findings.push({ check_id: '6.1', issue: 'No clear trust signals or guarantees', grade: 'B' });
+      
+      if (!pageData.domChecks.hasForm && !pageData.domChecks.hasTel && !pageData.domChecks.hasMailto) {
+         findings.push({ check_id: '2.4', issue: 'No conversion mechanism', grade: 'A' });
+      } else if (!pageData.domChecks.hasForm) {
+         findings.push({ check_id: '5.3', issue: 'No contact form', grade: 'B' });
+      }
 
+      // Try clicking CTA
       try {
         const ctaButton = page.locator('a, button').filter({ hasText: /contact|quote|schedule|estimate|get started/i }).first();
         if (await ctaButton.count() > 0 && await ctaButton.isVisible()) {
@@ -107,14 +157,23 @@ async function runCrawler() {
 
       const priorityScore = calculatePriority(findings);
       const screenshot = await page.screenshot({ fullPage: false, type: 'jpeg', quality: 60 });
-      const caption = `Audit: ${prospect.title || prospect.url}\nScore: ${priorityScore}/100\nFindings: ${findings.length}`;
+      
+      const caption = `Audit: ${prospect.title}\nScore: ${priorityScore}/100\nBrand: ${pageData.brand.primaryColor}`;
       await sendTelegram(screenshot, caption);
-      results.push({ url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored' });
+      
+      // SAVE EVERYTHING TO RESULTS
+      results.push({ 
+        url: prospect.url, 
+        title: prospect.title, 
+        priorityScore, 
+        findings, 
+        status: 'scored',
+        brand_data: pageData.brand,
+        semantic_scores: semantics
+      });
 
     } catch (error) {
-      const isSMB = await isSMBWithLLM(prospect.url, prospect.title);
-      if (isSMB) reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'Timeout but LLM says SMB' });
-      else results.push({ url: prospect.url, title: prospect.title, status: 'error', error: error.message });
+      reviewManually.push({ url: prospect.url, title: prospect.title, reason: error.message });
     } finally { await page.close(); }
   }
   await browser.close();
