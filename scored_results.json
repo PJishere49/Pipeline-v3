@@ -78,6 +78,46 @@
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
+    },
+    "redesign_blueprint": {
+      "url": "https://www.billshieldsroofing.com/",
+      "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
+      "priority_score": 40,
+      "brand_assets": {
+        "logo": "Extract from site",
+        "fonts": [
+          "Play, \"Play Fallback\"",
+          "\"Source Sans Pro\""
+        ],
+        "primary_color": "rgb(0, 126, 14)",
+        "phone": "813-839-7706",
+        "email": null
+      },
+      "site_architecture": {
+        "pages_to_keep": [
+          "Home",
+          "About Our Roofing Company",
+          "Residential Roofing Installation",
+          "Commercial Roofing Installation",
+          "Custom Roof Material",
+          "Past Roofing Projects",
+          "Financing",
+          "Our Roofing Testimonials",
+          "Contact Our Roofing Team",
+          "Roofing Services Tampa Fl",
+          "Roof Choices"
+        ],
+        "new_pages_to_add": []
+      },
+      "technical_fixes": [
+        "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
+        "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
+        "Install Google Tag Manager and Google Analytics 4 to track form submissions and click-to-calls."
+      ],
+      "conversion_strategy": [
+        "Add a high-contrast, prominent primary CTA button in the Hero section (e.g., \"Get a Free Estimate\").",
+        "Add a dedicated contact form. Do not rely solely on the phone number."
+      ]
     }
   },
   {
@@ -212,6 +252,47 @@
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
+    },
+    "redesign_blueprint": {
+      "url": "https://www.eliteroofingservices.com/",
+      "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
+      "priority_score": 75,
+      "brand_assets": {
+        "logo": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
+        "fonts": [
+          "\"Crimson Text\", serif",
+          "Roboto, sans-serif"
+        ],
+        "primary_color": "rgb(236, 41, 47)",
+        "phone": "8776300081",
+        "email": null
+      },
+      "site_architecture": {
+        "pages_to_keep": [
+          "Commercial Roofing Services",
+          "Residential Roofing Services",
+          "Roof Replacements",
+          "Repairs",
+          "Roof Restoration",
+          "About Us",
+          "Free Roof Inspection",
+          "Financing",
+          "Contact",
+          "Roof Replacementsmetal Roofing",
+          "Roof Replacementsflat Roofing",
+          "Roof Replacementsasphalt Shingle Roofing",
+          "Service Area",
+          "Testimonials",
+          "Blog"
+        ],
+        "new_pages_to_add": []
+      },
+      "technical_fixes": [
+        "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
+        "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
+        "Inject LocalBusiness JSON-LD Schema into the <head> (include Name, Address, Phone, and Services)."
+      ],
+      "conversion_strategy": []
     }
   }
 ]
