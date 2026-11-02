@@ -5,6 +5,12 @@
     "priorityScore": 40,
     "findings": [
       {
+        "check_id": "1.1",
+        "issue": "Headline clarity inconclusive",
+        "grade": "C",
+        "status": "inconclusive"
+      },
+      {
         "check_id": "1.2",
         "issue": "No visible primary CTA above fold",
         "grade": "B",
@@ -29,6 +35,12 @@
         "status": "fail"
       },
       {
+        "check_id": "5.1",
+        "issue": "Trust signals inconclusive",
+        "grade": "C",
+        "status": "inconclusive"
+      },
+      {
         "check_id": "6.1",
         "issue": "No tracking pixels found (GA4, GTM, Meta, etc.)",
         "grade": "B",
@@ -39,7 +51,8 @@
     "crawl_diagnostics": {
       "http_status": 200,
       "waf_blocked": false,
-      "ssl_error": false
+      "ssl_error": false,
+      "dead_site": false
     },
     "brand_data": {
       "primaryColor": "rgb(0, 126, 14)",
@@ -73,20 +86,33 @@
     "priorityScore": 85,
     "findings": [
       {
+        "check_id": "1.1",
+        "issue": "Headline clarity inconclusive",
+        "grade": "C",
+        "status": "inconclusive"
+      },
+      {
         "check_id": "3.2",
         "issue": "Too many small tap targets (27 < 48px)",
         "grade": "B",
         "status": "fail"
+      },
+      {
+        "check_id": "5.1",
+        "issue": "Trust signals inconclusive",
+        "grade": "C",
+        "status": "inconclusive"
       }
     ],
     "status": "scored",
     "crawl_diagnostics": {
       "http_status": 200,
       "waf_blocked": false,
-      "ssl_error": false
+      "ssl_error": false,
+      "dead_site": false
     },
     "brand_data": {
-      "primaryColor": "rgb(0, 58, 112)",
+      "primaryColor": "rgb(255, 255, 255)",
       "headingFont": "Montserrat, serif",
       "bodyFont": "Montserrat, serif",
       "logoUrl": "https://www.lifetimequalityroofing.com/wp-content/uploads/2025/01/logo.svg",
@@ -118,8 +144,14 @@
   {
     "url": "https://www.eliteroofingservices.com/",
     "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-    "priorityScore": 75,
+    "priorityScore": 60,
     "findings": [
+      {
+        "check_id": "1.1",
+        "issue": "Headline clarity inconclusive",
+        "grade": "C",
+        "status": "inconclusive"
+      },
       {
         "check_id": "3.2",
         "issue": "Too many small tap targets (49 < 48px)",
@@ -133,6 +165,18 @@
         "status": "fail"
       },
       {
+        "check_id": "4.1",
+        "issue": "Slow First Contentful Paint (3212ms)",
+        "grade": "B",
+        "status": "fail"
+      },
+      {
+        "check_id": "5.1",
+        "issue": "Trust signals inconclusive",
+        "grade": "C",
+        "status": "inconclusive"
+      },
+      {
         "check_id": "5.2",
         "issue": "No LocalBusiness Schema Markup",
         "grade": "C",
@@ -143,10 +187,11 @@
     "crawl_diagnostics": {
       "http_status": 200,
       "waf_blocked": false,
-      "ssl_error": false
+      "ssl_error": false,
+      "dead_site": false
     },
     "brand_data": {
-      "primaryColor": "rgb(0, 0, 0)",
+      "primaryColor": "rgb(236, 41, 47)",
       "headingFont": "\"Crimson Text\", serif",
       "bodyFont": "Roboto, sans-serif",
       "logoUrl": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
