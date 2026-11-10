@@ -2,19 +2,13 @@
   {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-    "priorityScore": 40,
+    "priorityScore": 55,
     "findings": [
       {
         "check_id": "1.1",
         "issue": "Headline clarity inconclusive",
         "grade": "C",
         "status": "inconclusive"
-      },
-      {
-        "check_id": "1.2",
-        "issue": "No visible primary CTA above fold",
-        "grade": "B",
-        "status": "fail"
       },
       {
         "check_id": "2.1",
@@ -24,7 +18,7 @@
       },
       {
         "check_id": "3.2",
-        "issue": "Too many small tap targets (15 < 48px)",
+        "issue": "Too many small tap targets (16 < 48px)",
         "grade": "B",
         "status": "fail"
       },
@@ -82,7 +76,7 @@
     "redesign_blueprint": {
       "url": "https://www.billshieldsroofing.com/",
       "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-      "priority_score": 40,
+      "priority_score": 55,
       "brand_assets": {
         "logo": "Extract from site",
         "fonts": [
@@ -115,7 +109,6 @@
         "Install Google Tag Manager and Google Analytics 4 to track form submissions and click-to-calls."
       ],
       "conversion_strategy": [
-        "Add a high-contrast, prominent primary CTA button in the Hero section (e.g., \"Get a Free Estimate\").",
         "Add a dedicated contact form. Do not rely solely on the phone number."
       ]
     }
@@ -133,7 +126,7 @@
       },
       {
         "check_id": "3.2",
-        "issue": "Too many small tap targets (27 < 48px)",
+        "issue": "Too many small tap targets (35 < 48px)",
         "grade": "B",
         "status": "fail"
       },
