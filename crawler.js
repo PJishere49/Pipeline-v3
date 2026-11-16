@@ -5,7 +5,6 @@ const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
-// Helper to send evidence to Telegram
 async function sendTelegram(photoBuffer, caption) {
   if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) return;
   try {
@@ -20,22 +19,21 @@ async function sendTelegram(photoBuffer, caption) {
   }
 }
 
-// Helper to create standard finding object
-function createFinding(check_id, status, grade, observation, impact, fix) {
+function createFinding(check_id, status, grade, observation, impact, fix, test_method = 'Playwright 390x844') {
   return {
-    finding_id: `hash_${check_id}_${Date.now()}`, // In production, use a stable hash
+    finding_id: `hash_${check_id}_${Date.now()}`,
     check_id,
     status,
     scope: 'page',
-    url: '', // Populated later
+    url: '', 
     page_role: 'homepage',
     observation,
-    test_method: 'Playwright 390x844, networkidle + 3s',
+    test_method,
     evidence_grade: grade,
     fix_category: 'maintenance',
     effort_hours: 1,
     customer_impact: impact,
-    blocked_action: 'User cannot easily complete conversion',
+    blocked_action: 'User cannot complete conversion goal',
     recommended_fix: fix,
     verification_method: 'Re-run audit',
     financial_tier: 'none'
@@ -72,6 +70,54 @@ function calculatePriority(findings) {
   return Math.max(0, score);
 }
 
+async function measurePerformance(browser, url) {
+  const runs = [];
+  for (let i = 0; i < 3; i++) {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const page = await context.newPage();
+    const client = await context.newCDPSession(page);
+    
+    await client.send('Network.emulateNetworkConditions', {
+      offline: false, latency: 150, downloadThroughput: 1.6 * 1024 * 1024 / 8, uploadThroughput: 750 * 1024 / 8
+    });
+    await client.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+
+    await page.addInitScript(() => {
+      window.lcp = 0;
+      window.cls = 0;
+      new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        window.lcp = lastEntry.startTime;
+        window.lcpElement = lastEntry.element;
+      }).observe({ type: 'largest-contentful-paint', buffered: true });
+      
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) window.cls += entry.value;
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+    });
+
+    try {
+      await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
+      await page.waitForTimeout(1000);
+
+      const metrics = await page.evaluate(() => {
+        const fcp = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')?.startTime || 0;
+        return { lcp: window.lcp || 0, cls: window.cls || 0, fcp: fcp };
+      });
+      runs.push(metrics);
+    } catch (e) {}
+    await context.close();
+  }
+
+  if (runs.length === 0) return { lcp: 0, cls: 0, fcp: 0 };
+  
+  runs.sort((a, b) => a.lcp - b.lcp);
+  return runs[Math.floor(runs.length / 2)];
+}
+
 async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   const results = [];
@@ -94,7 +140,6 @@ async function runCrawler() {
     let siteMap = [];
     let analyticsDetected = false;
 
-    // Network listener for analytics and form interception
     page.on('request', req => {
       const url = req.url();
       if (url.includes('google-analytics.com') || url.includes('googletagmanager.com') || url.includes('facebook.net')) {
@@ -119,7 +164,7 @@ async function runCrawler() {
       } catch (err) {
         if (err.message.includes('ERR_CERT_') || err.message.includes('ERR_SSL_')) {
           findings.push(createFinding('7.1', 'fail', 'A', 'Invalid or Expired SSL Certificate', 'Users are blocked by browser security warnings.', 'Install a valid SSL certificate.'));
-          results.push({ url: prospect.url, title: prospect.title, priorityScore: 70, findings, status: 'scored' });
+          results.push({ url: prospect.url, title: prospect.title, priorityScore: 70, findings, status: 'scored', existing_pages: [] });
           await context.close();
           continue;
         } else {
@@ -134,7 +179,7 @@ async function runCrawler() {
         if (response.status() >= 400) {
           crawlDiagnostics.dead_site = true;
           findings.push(createFinding('7.1', 'fail', 'A', `Site Down (HTTP ${response.status()})`, 'The site is unreachable.', 'Fix server configuration.'));
-          results.push({ url: prospect.url, title: prospect.title, priorityScore: 0, findings, status: 'scored' });
+          results.push({ url: prospect.url, title: prospect.title, priorityScore: 0, findings, status: 'scored', existing_pages: [] });
           await context.close();
           continue;
         }
@@ -154,7 +199,6 @@ async function runCrawler() {
         const getStyle = (el) => window.getComputedStyle(el);
         const h1El = document.querySelector('h1') || document.body;
         
-        // Find Form
         const forms = Array.from(document.querySelectorAll('form'));
         let bestForm = null;
         let maxInputs = 0;
@@ -173,7 +217,6 @@ async function runCrawler() {
           }).length;
         }
 
-        // CTA Check
         const primaryBtns = Array.from(document.querySelectorAll('button, a[class*="btn" i], a[class*="button" i], a[class*="cta" i]'));
         let primaryCta = primaryBtns.find(b => /contact|quote|schedule|estimate|get started|call/i.test(b.innerText));
         let ctaStatus = 'none';
@@ -191,14 +234,12 @@ async function runCrawler() {
           }
         }
 
-        // Tap Targets (Only checking visible elements, highlighting failures)
         const interactiveEls = Array.from(document.querySelectorAll('a, button, input[type="submit"], input[type="button"]'));
         let smallTapTargets = 0;
         interactiveEls.forEach(el => {
           const rect = el.getBoundingClientRect();
           if (rect.width > 0 && rect.height > 0 && el.offsetParent !== null) {
             if (rect.width < 48 || rect.height < 48) {
-              // Exclude inline text links (like within a paragraph)
               if (el.tagName === 'A' && getStyle(el).display === 'inline') return;
               smallTapTargets++;
               el.setAttribute('data-audit-fail', 'true');
@@ -206,7 +247,6 @@ async function runCrawler() {
           }
         });
 
-        // Small Fonts (highlighting failures)
         const textEls = Array.from(document.querySelectorAll('p, span, li'));
         let smallFonts = 0;
         textEls.forEach(el => {
@@ -217,12 +257,10 @@ async function runCrawler() {
           }
         });
 
-        // Inject CSS for Red Boxes
         const style = document.createElement('style');
         style.textContent = `[data-audit-fail="true"] { outline: 4px solid red !important; outline-offset: 2px !important; background-color: rgba(255, 0, 0, 0.1) !important; }`;
         document.head.appendChild(style);
 
-        // Schema Check
         let hasLocalSchema = false;
         const schemaScripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
         for (const s of schemaScripts) {
@@ -257,13 +295,12 @@ async function runCrawler() {
             smallFonts: smallFonts,
             h1: h1El.innerText.substring(0, 100),
             bodyText: document.body.innerText.toLowerCase().substring(0, 2000),
-            fcp: Math.round(performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')?.startTime || 0),
             ctaStatus: ctaStatus
           }
         };
       });
 
-      // 4. Safe Form Test (Interception)
+      // 4. Safe Form Test
       let formTestResult = 'not_applicable';
       if (pageData.domChecks.hasForm) {
         try {
@@ -275,14 +312,12 @@ async function runCrawler() {
             }
           });
           
-          // Fill and submit
           await page.fill('input[type="text"]', 'Playwright Audit');
           await page.fill('input[type="tel"]', '555-000-0000');
           await page.fill('input[type="email"]', 'audit@example.com');
           await page.click('button[type="submit"]');
-          await page.waitForTimeout(2000); // Wait for UI to react
+          await page.waitForTimeout(2000);
           
-          // Check if DOM changed (e.g., form disappeared or success message appeared)
           const bodyText = await page.evaluate(() => document.body.innerText.toLowerCase());
           if (bodyText.includes('thank') || bodyText.includes('success') || bodyText.includes('received')) {
             formTestResult = 'pass';
@@ -294,13 +329,16 @@ async function runCrawler() {
         }
       }
 
-      // 5. Take Screenshot (with Red Boxes if failures exist)
+      // 5. Take Screenshot (with Red Boxes)
       const screenshot = await page.screenshot({ fullPage: true, type: 'jpeg', quality: 60 });
 
-      // 6. Semantic Analysis
+      // 6. Performance Timing Checks (Throttled)
+      const perf = await measurePerformance(browser, prospect.url);
+
+      // 7. Semantic Analysis
       const semantics = await analyzeSemantics(prospect.title, pageData.domChecks.h1, pageData.domChecks.bodyText);
 
-      // 7. Build Findings
+      // 8. Build Findings
       if (semantics.clarity_score !== null && semantics.clarity_score <= 2) {
         findings.push(createFinding('1.1', 'fail', 'B', `Vague headline: "${pageData.domChecks.h1}"`, 'Users do not understand what you do.', 'Rewrite the H1 to clearly state service and location.'));
       }
@@ -333,8 +371,8 @@ async function runCrawler() {
         findings.push(createFinding('3.2', 'fail', 'B', `Small text on mobile (${pageData.domChecks.smallFonts} elements)`, 'Text is unreadable on phones.', 'Increase base font size to 16px.'));
       }
 
-      if (pageData.domChecks.fcp > 2500) {
-        findings.push(createFinding('4.1', 'fail', 'B', `Slow First Contentful Paint (${pageData.domChecks.fcp}ms)`, 'Users leave before the page loads.', 'Optimize images and server response.'));
+      if (perf.lcp > 2500 || perf.cls > 0.1) {
+        findings.push(createFinding('4.1', 'fail', 'B', `Slow Performance (LCP: ${Math.round(perf.lcp)}ms, CLS: ${perf.cls.toFixed(2)})`, 'Users leave before the page loads.', 'Optimize images, reduce JavaScript, and improve server response.'));
       }
 
       if (semantics.trust_signals === false) {
@@ -349,9 +387,9 @@ async function runCrawler() {
         findings.push(createFinding('6.1', 'fail', 'B', 'No tracking pixels found (GA4, GTM, Meta)', 'Business is flying blind on conversions.', 'Install Google Analytics.'));
       }
 
-      // 8. Finalize and Save
+      // 9. Finalize and Save
       const priorityScore = calculatePriority(findings);
-      const caption = `Audit: ${prospect.title}\nScore: ${priorityScore}/100\nFindings: ${findings.length}\nRed boxes indicate visual failures.`;
+      const caption = `Audit: ${prospect.title}\nScore: ${priorityScore}/100\nLCP: ${Math.round(perf.lcp)}ms | CLS: ${perf.cls.toFixed(2)}\nFindings: ${findings.length}\nRed boxes indicate visual failures.`;
       
       await sendTelegram(screenshot, caption);
       
@@ -364,7 +402,8 @@ async function runCrawler() {
         crawl_diagnostics: crawlDiagnostics,
         brand_data: pageData.brand,
         existing_pages: siteMap.length > 0 ? siteMap : [], 
-        semantic_scores: semantics
+        semantic_scores: semantics,
+        technical_metrics: perf
       });
 
     } catch (error) {
