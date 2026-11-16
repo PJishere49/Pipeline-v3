@@ -2,43 +2,43 @@
   {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-    "priorityScore": 55,
+    "priorityScore": 85,
     "findings": [
       {
-        "check_id": "1.1",
-        "issue": "Headline clarity inconclusive",
-        "grade": "C",
-        "status": "inconclusive"
-      },
-      {
-        "check_id": "2.1",
-        "issue": "No contact form on page",
-        "grade": "B",
-        "status": "fail"
-      },
-      {
+        "finding_id": "hash_3.2_1794870540629",
         "check_id": "3.2",
-        "issue": "Too many small tap targets (16 < 48px)",
-        "grade": "B",
-        "status": "fail"
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Too many small tap targets (11)",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Buttons are too small to tap easily.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Increase padding and font size.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       },
       {
+        "finding_id": "hash_3.2_1794870540629",
         "check_id": "3.2",
-        "issue": "Small text on mobile (38 elements < 16px)",
-        "grade": "B",
-        "status": "fail"
-      },
-      {
-        "check_id": "5.1",
-        "issue": "Trust signals inconclusive",
-        "grade": "C",
-        "status": "inconclusive"
-      },
-      {
-        "check_id": "6.1",
-        "issue": "No tracking pixels found (GA4, GTM, Meta, etc.)",
-        "grade": "B",
-        "status": "fail"
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Small text on mobile (38 elements)",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Text is unreadable on phones.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Increase base font size to 16px.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       }
     ],
     "status": "scored",
@@ -52,65 +52,28 @@
       "primaryColor": "rgb(0, 126, 14)",
       "headingFont": "Play, \"Play Fallback\"",
       "bodyFont": "\"Source Sans Pro\"",
-      "logoUrl": null,
       "phone": "813-839-7706",
       "email": null
     },
     "existing_pages": [
-      "https://www.billshieldsroofing.com/",
-      "https://www.billshieldsroofing.com/about-our-roofing-company",
-      "https://www.billshieldsroofing.com/residential-roofing-installation",
       "https://www.billshieldsroofing.com/commercial-roofing-installation",
-      "https://www.billshieldsroofing.com/custom-roof-material",
+      "https://www.billshieldsroofing.com/residential-roofing-installation",
       "https://www.billshieldsroofing.com/past-roofing-projects",
-      "https://www.billshieldsroofing.com/financing",
+      "https://www.billshieldsroofing.com/about-our-roofing-company",
       "https://www.billshieldsroofing.com/our-roofing-testimonials",
+      "https://www.billshieldsroofing.com",
       "https://www.billshieldsroofing.com/contact-our-roofing-team",
-      "https://www.billshieldsroofing.com/roofing-services-tampa-fl/",
-      "https://www.billshieldsroofing.com/roof-choices/"
+      "https://www.billshieldsroofing.com/custom-roof-material",
+      "https://www.billshieldsroofing.com/financing"
     ],
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
     },
-    "redesign_blueprint": {
-      "url": "https://www.billshieldsroofing.com/",
-      "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-      "priority_score": 55,
-      "brand_assets": {
-        "logo": "Extract from site",
-        "fonts": [
-          "Play, \"Play Fallback\"",
-          "\"Source Sans Pro\""
-        ],
-        "primary_color": "rgb(0, 126, 14)",
-        "phone": "813-839-7706",
-        "email": null
-      },
-      "site_architecture": {
-        "pages_to_keep": [
-          "Home",
-          "About Our Roofing Company",
-          "Residential Roofing Installation",
-          "Commercial Roofing Installation",
-          "Custom Roof Material",
-          "Past Roofing Projects",
-          "Financing",
-          "Our Roofing Testimonials",
-          "Contact Our Roofing Team",
-          "Roofing Services Tampa Fl",
-          "Roof Choices"
-        ],
-        "new_pages_to_add": []
-      },
-      "technical_fixes": [
-        "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
-        "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
-        "Install Google Tag Manager and Google Analytics 4 to track form submissions and click-to-calls."
-      ],
-      "conversion_strategy": [
-        "Add a dedicated contact form. Do not rely solely on the phone number."
-      ]
+    "technical_metrics": {
+      "lcp": 0,
+      "cls": 0,
+      "fcp": 0
     }
   },
   {
@@ -119,22 +82,22 @@
     "priorityScore": 85,
     "findings": [
       {
-        "check_id": "1.1",
-        "issue": "Headline clarity inconclusive",
-        "grade": "C",
-        "status": "inconclusive"
-      },
-      {
+        "finding_id": "hash_3.2_1794870694614",
         "check_id": "3.2",
-        "issue": "Too many small tap targets (35 < 48px)",
-        "grade": "B",
-        "status": "fail"
-      },
-      {
-        "check_id": "5.1",
-        "issue": "Trust signals inconclusive",
-        "grade": "C",
-        "status": "inconclusive"
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Too many small tap targets (33)",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Buttons are too small to tap easily.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Increase padding and font size.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       }
     ],
     "status": "scored",
@@ -148,66 +111,109 @@
       "primaryColor": "rgb(255, 255, 255)",
       "headingFont": "Montserrat, serif",
       "bodyFont": "Montserrat, serif",
-      "logoUrl": "https://www.lifetimequalityroofing.com/wp-content/uploads/2025/01/logo.svg",
       "phone": "13806003047",
       "email": null
     },
     "existing_pages": [
-      "https://www.lifetimequalityroofing.com/",
-      "https://www.lifetimequalityroofing.com/free-roof-inspection/",
-      "https://www.lifetimequalityroofing.com/residential-roofing/",
-      "https://www.lifetimequalityroofing.com/residential-roofing/residential-gutter/",
-      "https://www.lifetimequalityroofing.com/residential-roofing/replacement/",
-      "https://www.lifetimequalityroofing.com/residential-roofing/asphalt/",
-      "https://www.lifetimequalityroofing.com/residential-roofing/repair/",
-      "https://www.lifetimequalityroofing.com/commercial-roofing/",
-      "https://www.lifetimequalityroofing.com/commercial-roofing/commercial-roof-inspection/",
-      "https://www.lifetimequalityroofing.com/commercial-roofing/case-studies/",
-      "https://www.lifetimequalityroofing.com/storm-damage/",
-      "https://www.lifetimequalityroofing.com/storm-damage/hail-damage/",
-      "https://www.lifetimequalityroofing.com/storm-damage/wind-damage/",
-      "https://www.lifetimequalityroofing.com/storm-damage/ice-damage/",
-      "https://www.lifetimequalityroofing.com/locations/"
+      "https://www.lifetimequalityroofing.com/post-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/page-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/teams-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/project-gallery-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/case-study-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/location-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/department-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/project-category-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/project-location-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/webfx_rafx_location-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/metro-area-sitemap.xml",
+      "https://www.lifetimequalityroofing.com/author-sitemap.xml"
     ],
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
+    },
+    "technical_metrics": {
+      "lcp": 1404,
+      "cls": 0.002971518934686685,
+      "fcp": 1336
     }
   },
   {
     "url": "https://www.eliteroofingservices.com/",
     "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-    "priorityScore": 75,
+    "priorityScore": 60,
     "findings": [
       {
-        "check_id": "1.1",
-        "issue": "Headline clarity inconclusive",
-        "grade": "C",
-        "status": "inconclusive"
-      },
-      {
+        "finding_id": "hash_3.2_1794870780346",
         "check_id": "3.2",
-        "issue": "Too many small tap targets (49 < 48px)",
-        "grade": "B",
-        "status": "fail"
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Too many small tap targets (47)",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Buttons are too small to tap easily.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Increase padding and font size.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       },
       {
+        "finding_id": "hash_3.2_1794870780346",
         "check_id": "3.2",
-        "issue": "Small text on mobile (39 elements < 16px)",
-        "grade": "B",
-        "status": "fail"
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Small text on mobile (39 elements)",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Text is unreadable on phones.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Increase base font size to 16px.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       },
       {
-        "check_id": "5.1",
-        "issue": "Trust signals inconclusive",
-        "grade": "C",
-        "status": "inconclusive"
+        "finding_id": "hash_4.1_1794870780346",
+        "check_id": "4.1",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Slow Performance (LCP: 3980ms, CLS: 0.00)",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Users leave before the page loads.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Optimize images, reduce JavaScript, and improve server response.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       },
       {
+        "finding_id": "hash_5.2_1794870780346",
         "check_id": "5.2",
-        "issue": "No LocalBusiness Schema Markup",
-        "grade": "C",
-        "status": "fail"
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "No LocalBusiness Schema Markup",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "C",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Search engines struggle to index the business.",
+        "blocked_action": "User cannot complete conversion goal",
+        "recommended_fix": "Add JSON-LD schema.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
       }
     ],
     "status": "scored",
@@ -221,37 +227,30 @@
       "primaryColor": "rgb(236, 41, 47)",
       "headingFont": "\"Crimson Text\", serif",
       "bodyFont": "Roboto, sans-serif",
-      "logoUrl": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
       "phone": "8776300081",
       "email": null
     },
     "existing_pages": [
-      "https://www.eliteroofingservices.com/commercial-roofing-services/",
-      "https://www.eliteroofingservices.com/residential-roofing-services/",
-      "https://www.eliteroofingservices.com/roof-replacements/",
-      "https://www.eliteroofingservices.com/repairs/",
-      "https://www.eliteroofingservices.com/roof-restoration/",
-      "https://www.eliteroofingservices.com/about-us/",
-      "https://www.eliteroofingservices.com/free-roof-inspection/",
-      "https://www.eliteroofingservices.com/financing/",
-      "https://www.eliteroofingservices.com/contact/",
-      "https://www.eliteroofingservices.com/roof-replacements/metal-roofing/",
-      "https://www.eliteroofingservices.com/roof-replacements/flat-roofing/",
-      "https://www.eliteroofingservices.com/roof-replacements/asphalt-shingle-roofing/",
-      "https://www.eliteroofingservices.com/service-area/",
-      "https://www.eliteroofingservices.com/testimonials/",
-      "https://www.eliteroofingservices.com/blog/"
+      "https://www.eliteroofingservices.com/post-sitemap.xml",
+      "https://www.eliteroofingservices.com/page-sitemap.xml",
+      "https://www.eliteroofingservices.com/category-sitemap.xml",
+      "https://www.eliteroofingservices.com/smct_areas-sitemap.xml"
     ],
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
     },
+    "technical_metrics": {
+      "lcp": 3980,
+      "cls": 0.004912848765837383,
+      "fcp": 1196
+    },
     "redesign_blueprint": {
       "url": "https://www.eliteroofingservices.com/",
       "title": "Commercial & Residential Roofing Company Tampa FL | Elite Roofing Services",
-      "priority_score": 75,
+      "priority_score": 60,
       "brand_assets": {
-        "logo": "https://www.eliteroofingservices.com/wp-content/uploads/2020/11/logo.jpg",
+        "logo": "Extract from site",
         "fonts": [
           "\"Crimson Text\", serif",
           "Roboto, sans-serif"
@@ -262,27 +261,20 @@
       },
       "site_architecture": {
         "pages_to_keep": [
-          "Commercial Roofing Services",
-          "Residential Roofing Services",
-          "Roof Replacements",
-          "Repairs",
-          "Roof Restoration",
-          "About Us",
-          "Free Roof Inspection",
-          "Financing",
-          "Contact",
-          "Roof Replacementsmetal Roofing",
-          "Roof Replacementsflat Roofing",
-          "Roof Replacementsasphalt Shingle Roofing",
-          "Service Area",
-          "Testimonials",
-          "Blog"
+          "Post Sitemap.Xml",
+          "Page Sitemap.Xml",
+          "Category Sitemap.Xml",
+          "Smct_areas Sitemap.Xml"
         ],
-        "new_pages_to_add": []
+        "new_pages_to_add": [
+          "Contact (Dedicated Page)",
+          "Services (Hub Page)"
+        ]
       },
       "technical_fixes": [
         "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
         "Increase font sizes to minimum 16px. Increase tap targets (buttons/links) to minimum 48x48px.",
+        "Optimize page speed. Compress images, defer JavaScript, and ensure FCP is under 2.5s.",
         "Inject LocalBusiness JSON-LD Schema into the <head> (include Name, Address, Phone, and Services)."
       ],
       "conversion_strategy": []
