@@ -20,8 +20,9 @@ async function sendTelegram(photoBuffer, caption) {
 }
 
 function createFinding(check_id, status, grade, observation, impact, fix, test_method = 'Playwright 390x844') {
+  const randomSuffix = Math.random().toString(36).substring(2, 7);
   return {
-    finding_id: `hash_${check_id}_${Date.now()}`,
+    finding_id: `hash_${check_id}_${Date.now()}_${randomSuffix}`,
     check_id,
     status,
     scope: 'page',
@@ -48,10 +49,14 @@ async function analyzeSemantics(title, h1, bodyText) {
       headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
     });
-    if (!res.ok) return { clarity_score: null, trust_signals: null };
+    if (!res.ok) {
+      console.log("Groq API Error:", await res.text());
+      return { clarity_score: null, trust_signals: null };
+    }
     const data = await res.json();
     return JSON.parse(data.choices[0].message.content);
   } catch (e) { 
+    console.error("Groq Fetch Exception:", e.message);
     return { clarity_score: null, trust_signals: null }; 
   }
 }
@@ -68,6 +73,29 @@ function calculatePriority(findings) {
     }
   }
   return Math.max(0, score);
+}
+
+async function fetchSitemapUrls(context, url) {
+  try {
+    const res = await context.request.get(url);
+    if (!res.ok()) return [];
+    const xml = await res.text();
+    
+    if (xml.includes('<sitemapindex')) {
+      let allUrls = [];
+      const sitemaps = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
+      for (const subMap of sitemaps) {
+        const subRes = await context.request.get(subMap);
+        if (subRes.ok()) {
+          const subXml = await subRes.text();
+          allUrls.push(...[...subXml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]));
+        }
+      }
+      return allUrls;
+    } else {
+      return [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
+    }
+  } catch (e) { return []; }
 }
 
 async function measurePerformance(browser, url) {
@@ -100,12 +128,17 @@ async function measurePerformance(browser, url) {
     });
 
     try {
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
+      await page.goto(url, { waitUntil: 'load', timeout: 45000 });
       await page.waitForTimeout(1000);
 
       const metrics = await page.evaluate(() => {
-        const fcp = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')?.startTime || 0;
-        return { lcp: window.lcp || 0, cls: window.cls || 0, fcp: fcp };
+        const fcpValue = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')?.startTime || 0;
+        const lcpValue = window.lcp || 0;
+        return { 
+            lcp: lcpValue > 0 ? lcpValue : fcpValue, 
+            cls: window.cls || 0, 
+            fcp: fcpValue 
+        };
       });
       runs.push(metrics);
     } catch (e) {}
@@ -148,13 +181,9 @@ async function runCrawler() {
     });
 
     try {
-      // 1. Fetch Sitemap
+      // 1. Fetch Sitemap (with recursion)
       try {
-        const sitemapRes = await context.request.get(new URL('/sitemap.xml', prospect.url).href);
-        if (sitemapRes.ok()) {
-          const xml = await sitemapRes.text();
-          siteMap = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
-        }
+        siteMap = await fetchSitemapUrls(context, new URL('/sitemap.xml', prospect.url).href);
       } catch(e) {}
 
       // 2. Go to page
