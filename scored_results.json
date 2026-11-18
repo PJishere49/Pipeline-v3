@@ -5,7 +5,7 @@
     "priorityScore": 85,
     "findings": [
       {
-        "finding_id": "hash_3.2_1794905833362",
+        "finding_id": "hash_3.2_1794992376499",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -23,7 +23,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1794905833362",
+        "finding_id": "hash_3.2_1794992376499",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -82,7 +82,7 @@
     "priorityScore": 85,
     "findings": [
       {
-        "finding_id": "hash_3.2_1794905956444",
+        "finding_id": "hash_3.2_1794992505682",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -133,9 +133,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1416,
+      "lcp": 1368,
       "cls": 0.002971518934686685,
-      "fcp": 1348
+      "fcp": 1316
     }
   },
   {
@@ -144,7 +144,7 @@
     "priorityScore": 60,
     "findings": [
       {
-        "finding_id": "hash_3.2_1794906035578",
+        "finding_id": "hash_3.2_1794992587070",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -162,7 +162,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1794906035578",
+        "finding_id": "hash_3.2_1794992587070",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -180,13 +180,13 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1794906035578",
+        "finding_id": "hash_4.1_1794992587070",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
         "url": "",
         "page_role": "homepage",
-        "observation": "Slow Performance (LCP: 3908ms, CLS: 0.00)",
+        "observation": "Slow Performance (LCP: 3888ms, CLS: 0.00)",
         "test_method": "Playwright 390x844",
         "evidence_grade": "B",
         "fix_category": "maintenance",
@@ -198,7 +198,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1794906035578",
+        "finding_id": "hash_5.2_1794992587070",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -241,9 +241,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3908,
+      "lcp": 3888,
       "cls": 0.004912848765837383,
-      "fcp": 1180
+      "fcp": 1188
     },
     "redesign_blueprint": {
       "url": "https://www.eliteroofingservices.com/",
