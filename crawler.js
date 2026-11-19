@@ -414,7 +414,7 @@ async function runCrawler() {
         } catch(e) {}
         await costPage.close();
       } else {
-        findings.push(createFinding('10.4', 'fail', 'B', 'No cost, pricing, or financing page found', 'Homeowners want to know the price. If you don\'t tell them, they leave to find a competitor who does.', 'Add a dedicated pricing or financing page.'));
+        findings.push(createFinding('10.4', 'fail', 'B', 'No cost, pricing, or financing page found', "Homeowners want to know the price. If they cannot find it, they leave to find a competitor who does.", 'Add a dedicated pricing or financing page.'));
       }
 
       // Find Contact Page
@@ -456,4 +456,4 @@ async function runCrawler() {
       if (!pageData.domChecks.hasForm && !pageData.brand.phone) {
         findings.push(createFinding('2.1', 'fail', 'A', 'No conversion mechanism (form/phone)', 'Users have no way to contact you.', 'Add a phone number and contact form.'));
       } else if (!pageData.domChecks.hasForm) {
-        findings.push(createFinding('10.1', 'fail', 'A', 'No contact form on page', 'You lose leads after hou
+        findings.push(createFinding('10.1', 'fail', 'A', 'No contact form on page', "You lose leads after hour
