@@ -19,6 +19,20 @@ async function sendTelegram(photoBuffer, caption) {
   }
 }
 
+async function sendTelegramMessage(text) {
+  if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) return;
+  try {
+    const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+    await fetch(url, { 
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text }) 
+    });
+  } catch (e) {
+    console.error("Telegram message failed:", e.message);
+  }
+}
+
 function createFinding(check_id, status, grade, observation, impact, fix, test_method = 'Playwright 390x844') {
   const randomSuffix = Math.random().toString(36).substring(2, 7);
   return {
@@ -34,7 +48,7 @@ function createFinding(check_id, status, grade, observation, impact, fix, test_m
     fix_category: 'maintenance',
     effort_hours: 1,
     customer_impact: impact,
-    blocked_action: 'User cannot complete conversion goal',
+    blocked_action: 'User cannot convert',
     recommended_fix: fix,
     verification_method: 'Re-run audit',
     financial_tier: 'none'
@@ -42,21 +56,17 @@ function createFinding(check_id, status, grade, observation, impact, fix, test_m
 }
 
 async function analyzeSemantics(title, h1, bodyText) {
-  const prompt = `You are a CRO expert. Business: "${title}". H1: "${h1}". Text: "${bodyText.substring(0, 1500)}". Answer ONLY with a JSON object: 1. "clarity_score": 1-5 (1=vague, 5=perfect). 2. "trust_signals": true/false (are there real reviews, guarantees, or credentials?).`;
+  const prompt = `You are a CRO expert. Business: "${title}". H1: "${h1}". Text: "${bodyText.substring(0, 1500)}". Answer ONLY with a JSON object: 1. "clarity_score": 1-5 (1=vague, 5=perfect). 2. "trust_signals": true/false.`;
   try {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
     });
-    if (!res.ok) {
-      console.log("Groq API Error:", await res.text());
-      return { clarity_score: null, trust_signals: null };
-    }
+    if (!res.ok) return { clarity_score: null, trust_signals: null };
     const data = await res.json();
     return JSON.parse(data.choices[0].message.content);
   } catch (e) { 
-    console.error("Groq Fetch Exception:", e.message);
     return { clarity_score: null, trust_signals: null }; 
   }
 }
@@ -117,7 +127,6 @@ async function measurePerformance(browser, url) {
         const entries = entryList.getEntries();
         const lastEntry = entries[entries.length - 1];
         window.lcp = lastEntry.startTime;
-        window.lcpElement = lastEntry.element;
       }).observe({ type: 'largest-contentful-paint', buffered: true });
       
       new PerformanceObserver((entryList) => {
@@ -130,15 +139,10 @@ async function measurePerformance(browser, url) {
     try {
       await page.goto(url, { waitUntil: 'load', timeout: 45000 });
       await page.waitForTimeout(1000);
-
       const metrics = await page.evaluate(() => {
         const fcpValue = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')?.startTime || 0;
         const lcpValue = window.lcp || 0;
-        return { 
-            lcp: lcpValue > 0 ? lcpValue : fcpValue, 
-            cls: window.cls || 0, 
-            fcp: fcpValue 
-        };
+        return { lcp: lcpValue > 0 ? lcpValue : fcpValue, cls: window.cls || 0, fcp: fcpValue };
       });
       runs.push(metrics);
     } catch (e) {}
@@ -148,7 +152,6 @@ async function measurePerformance(browser, url) {
   }
 
   if (runs.length === 0) return { lcp: 0, cls: 0, fcp: 0 };
-  
   runs.sort((a, b) => a.lcp - b.lcp);
   return runs[Math.floor(runs.length / 2)];
 }
@@ -163,11 +166,7 @@ async function runCrawler() {
   const browser = await chromium.launch({ args: ['--disable-http2'] });
   
   for (const prospect of subset) {
-    const context = await browser.newContext({ 
-      viewport: { width: 390, height: 844 }, 
-      userAgent: 'Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
-      ignoreHTTPSErrors: false 
-    });
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, userAgent: 'Mozilla/5.0 (Linux; Android 15)', ignoreHTTPSErrors: false });
     const page = await context.newPage();
     const findings = [];
     let crawlDiagnostics = { http_status: 200, waf_blocked: false, ssl_error: false, dead_site: false };
@@ -179,86 +178,59 @@ async function runCrawler() {
 
     page.on('request', req => {
       const url = req.url();
-      if (url.includes('google-analytics.com') || url.includes('googletagmanager.com') || url.includes('facebook.net')) {
-        analyticsDetected = true;
-      }
+      if (url.includes('google-analytics.com') || url.includes('googletagmanager.com') || url.includes('facebook.net')) analyticsDetected = true;
     });
 
     try {
-      // 1. Fetch Sitemap (with recursion)
       try {
         siteMap = await fetchSitemapUrls(context, new URL('/sitemap.xml', prospect.url).href);
         totalUrlsFound = siteMap.length;
-        
-        if (totalUrlsFound > 50) {
-            siteManagementStatus = 'actively_managed';
-        } else if (totalUrlsFound < 10 && totalUrlsFound > 0) {
-            siteManagementStatus = 'abandoned';
-        }
+        if (totalUrlsFound > 50) siteManagementStatus = 'actively_managed';
+        else if (totalUrlsFound < 10 && totalUrlsFound > 0) siteManagementStatus = 'abandoned';
       } catch(e) {}
 
-      // 2. Go to homepage
       let response;
       try {
         response = await page.goto(prospect.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       } catch (err) {
         if (err.message.includes('ERR_CERT_') || err.message.includes('ERR_SSL_')) {
-          findings.push(createFinding(
-            '7.1', 'fail', 'A', 
-            'Invalid or Expired SSL', 
-            'Users are blocked by security warnings.', 
-            'Install a valid SSL certificate.'
-          ));
-          results.push({ url: prospect.url, title: prospect.title, priorityScore: 70, findings, status: 'scored', existing_pages: [], site_management_status: 'unknown', total_urls_found: 0 });
-          fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
-          await page.close();
-          await context.close();
-          continue;
-        } else {
-          throw err; 
+          crawlDiagnostics.ssl_error = true;
+          reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'Invalid/Expired SSL', action: 'Investigate if business is active' });
+          fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
+          await page.close(); await context.close(); continue;
+        } else { 
+            crawlDiagnostics.dead_site = true;
+            reviewManually.push({ url: prospect.url, title: prospect.title, reason: err.message, action: 'Investigate if business is active' });
+            fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
+            await page.close(); await context.close(); continue;
         }
       }
 
       if (response) {
         crawlDiagnostics.http_status = response.status();
         const pageText = await page.content();
-        
         if (response.status() >= 400) {
           crawlDiagnostics.dead_site = true;
-          findings.push(createFinding(
-            '7.1', 'fail', 'A', 
-            `Site Down (HTTP ${response.status()})`, 
-            'The site is unreachable.', 
-            'Fix server configuration.'
-          ));
-          results.push({ url: prospect.url, title: prospect.title, priorityScore: 0, findings, status: 'scored', existing_pages: [], site_management_status: 'abandoned', total_urls_found: 0 });
-          fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
-          await page.close();
-          await context.close();
-          continue;
+          reviewManually.push({ url: prospect.url, title: prospect.title, reason: `Site Down (HTTP ${response.status()})`, action: 'Investigate if business is active' });
+          fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
+          await page.close(); await context.close(); continue;
         }
-
         if (pageText.includes('Access Denied') || pageText.includes('Just a moment')) {
           crawlDiagnostics.waf_blocked = true;
-          reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF / Bot Blocked', diagnostics: crawlDiagnostics });
+          reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF / Bot Blocked', action: 'Manual check in browser' });
           fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
-          await page.close();
-          await context.close();
-          continue;
+          await page.close(); await context.close(); continue;
         }
       }
 
       await page.waitForTimeout(3000);
 
-      // 3. DOM Checks and Highlighting
       pageData = await page.evaluate(() => {
         const getStyle = (el) => window.getComputedStyle(el);
         const h1El = document.querySelector('h1') || document.body;
         
         const forms = Array.from(document.querySelectorAll('form'));
-        let bestForm = null;
-        let maxInputs = 0;
-        let formAction = '';
+        let bestForm = null, maxInputs = 0, formAction = '';
         for (const f of forms) {
           const inputs = f.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').length;
           if (inputs > maxInputs) { maxInputs = inputs; bestForm = f; formAction = f.getAttribute('action') || ''; }
@@ -280,15 +252,9 @@ async function runCrawler() {
         if (primaryCta) {
           if (primaryCta.tagName === 'A') {
             const href = primaryCta.getAttribute('href');
-            if (!href || href === '#' || href === 'javascript:void(0)') {
-                ctaStatus = 'broken';
-                primaryCta.setAttribute('data-audit-fail', 'true');
-            } else {
-                ctaStatus = 'valid';
-            }
-          } else {
-            ctaStatus = 'valid'; 
-          }
+            if (!href || href === '#' || href === 'javascript:void(0)') { ctaStatus = 'broken'; primaryCta.setAttribute('data-audit-fail', 'true'); }
+            else { ctaStatus = 'valid'; }
+          } else { ctaStatus = 'valid'; }
         }
 
         const interactiveEls = Array.from(document.querySelectorAll('a, button, input[type="submit"], input[type="button"]'));
@@ -314,15 +280,11 @@ async function runCrawler() {
           }
         });
 
-        // Check if phone number is visible in first viewport (844px)
         let phoneVisible = false;
         const telLinks = Array.from(document.querySelectorAll('a[href^="tel:"]'));
         for (const link of telLinks) {
             const rect = link.getBoundingClientRect();
-            if (rect.top >= 0 && rect.bottom <= 844 && rect.width > 0 && rect.height > 0) {
-                phoneVisible = true;
-                break;
-            }
+            if (rect.top >= 0 && rect.bottom <= 844 && rect.width > 0 && rect.height > 0) { phoneVisible = true; break; }
         }
 
         const style = document.createElement('style');
@@ -338,8 +300,7 @@ async function runCrawler() {
             for (const node of nodes) {
               const type = node['@type'];
               if (type && (Array.isArray(type) ? type.some(t => t.includes('LocalBusiness') || t.includes('RoofingContractor')) : type.includes('LocalBusiness') || type.includes('RoofingContractor'))) {
-                hasLocalSchema = true;
-                break;
+                hasLocalSchema = true; break;
               }
             }
           } catch(e) {}
@@ -355,69 +316,41 @@ async function runCrawler() {
             email: document.querySelector('a[href^="mailto:"]')?.href.replace('mailto:', '') || null
           },
           domChecks: {
-            hasForm: !!bestForm,
-            formAction: formAction,
-            visibleFields: visibleFields,
+            hasForm: !!bestForm, formAction: formAction, visibleFields: visibleFields,
             hasViewport: !!document.querySelector('meta[name="viewport"]'),
             hasHorizontalScroll: document.documentElement.scrollWidth > window.innerWidth,
-            hasLocalSchema: hasLocalSchema,
-            smallTapTargets: smallTapTargets,
-            smallFonts: smallFonts,
-            phoneVisible: phoneVisible,
-            h1: h1El.innerText.substring(0, 100),
-            bodyText: document.body.innerText.toLowerCase().substring(0, 2000),
-            ctaStatus: ctaStatus
+            hasLocalSchema: hasLocalSchema, smallTapTargets: smallTapTargets, smallFonts: smallFonts,
+            phoneVisible: phoneVisible, h1: h1El.innerText.substring(0, 100),
+            bodyText: document.body.innerText.toLowerCase().substring(0, 2000), ctaStatus: ctaStatus
           }
         };
       });
 
-      // 4. Safe Form Test
       let formTestResult = 'not_applicable';
       if (pageData.domChecks.hasForm) {
         if (pageData.domChecks.formAction.startsWith('mailto:')) {
-          findings.push(createFinding(
-            '10.5', 'fail', 'A', 
-            'Form uses mailto: action', 
-            'Form fails silently on mobile.', 
-            'Use a real form handler.'
-          ));
+          findings.push(createFinding('10.5', 'fail', 'A', 'Form uses mailto', 'Fails on mobile.', 'Use a real handler.'));
         } else {
           try {
             await page.route('**/*', route => {
-              if (route.request().method() === 'POST') {
-                route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ success: true }) });
-              } else {
-                route.continue();
-              }
+              if (route.request().method() === 'POST') route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ success: true }) });
+              else route.continue();
             });
-            
-            await page.fill('input[type="text"]', 'Playwright Audit');
+            await page.fill('input[type="text"]', 'Audit');
             await page.fill('input[type="tel"]', '555-000-0000');
-            await page.fill('input[type="email"]', 'audit@example.com');
+            await page.fill('input[type="email"]', 'audit@test.com');
             await page.click('button[type="submit"]');
             await page.waitForTimeout(2000);
-            
             const bodyText = await page.evaluate(() => document.body.innerText.toLowerCase());
-            if (bodyText.includes('thank') || bodyText.includes('success') || bodyText.includes('received')) {
-              formTestResult = 'pass';
-            } else {
-              formTestResult = 'fail_ui';
-            }
-          } catch (e) {
-            formTestResult = 'inconclusive';
-          }
+            if (bodyText.includes('thank') || bodyText.includes('success') || bodyText.includes('received')) formTestResult = 'pass';
+            else formTestResult = 'fail_ui';
+          } catch (e) { formTestResult = 'inconclusive'; }
         }
       }
 
-      // 5. Take Homepage Screenshot (with Red Boxes)
       const screenshot = await page.screenshot({ fullPage: true, type: 'jpeg', quality: 60 });
 
-      // 6. Visit Cost/Financing Page & Contact Page
-      let costPageScreenshot = null;
-      let costPageFound = false;
-      let contactPageTrustFound = false;
-      
-      // Find Cost Page
+      let costPageScreenshot = null, costPageFound = false, contactPageTrustFound = false;
       const costUrl = siteMap.find(u => /cost|price|financing|estimate/i.test(u));
       if (costUrl) {
         costPageFound = true;
@@ -429,15 +362,9 @@ async function runCrawler() {
         } catch(e) {}
         await costPage.close();
       } else {
-        findings.push(createFinding(
-          '10.4', 'fail', 'B', 
-          'No cost page found', 
-          'Homeowners will leave to find a competitor.', 
-          'Add a dedicated pricing page.'
-        ));
+        findings.push(createFinding('10.4', 'fail', 'B', 'No cost page', 'Users leave to find pricing.', 'Add a pricing page.'));
       }
 
-      // Find Contact Page
       const contactUrl = siteMap.find(u => /contact/i.test(u));
       if (contactUrl) {
         const contactPage = await context.newPage();
@@ -445,207 +372,73 @@ async function runCrawler() {
             await contactPage.goto(contactUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
             await contactPage.waitForTimeout(2000);
             const contactText = await contactPage.evaluate(() => document.body.innerText.toLowerCase());
-            if (contactText.includes('license') || contactText.includes('insured') || contactText.includes('guarantee') || contactText.includes('review')) {
-                contactPageTrustFound = true;
-            }
+            if (contactText.includes('license') || contactText.includes('insured') || contactText.includes('guarantee') || contactText.includes('review')) contactPageTrustFound = true;
         } catch(e) {}
         await contactPage.close();
       }
-      
-      if (contactUrl && !contactPageTrustFound) {
-          findings.push(createFinding(
-            '10.8', 'fail', 'B', 
-            'No trust signals on contact page', 
-            'Users hesitate to share personal info.', 
-            'Add a license number, review stars, or a guarantee.'
-          ));
-      }
+      if (contactUrl && !contactPageTrustFound) findings.push(createFinding('10.8', 'fail', 'B', 'No trust on contact', 'Users hesitate.', 'Add trust signals.'));
 
-      // 7. Performance Timing Checks (Throttled)
       const perf = await measurePerformance(browser, prospect.url);
-
-      // 8. Semantic Analysis
       const semantics = await analyzeSemantics(prospect.title, pageData.domChecks.h1, pageData.domChecks.bodyText);
 
-      // 9. Build Findings
-      if (semantics.clarity_score !== null && semantics.clarity_score <= 2) {
-        findings.push(createFinding(
-          '1.1', 'fail', 'B', 
-          `Vague headline: "${pageData.domChecks.h1}"`, 
-          'Users do not understand what you do.', 
-          'Rewrite the H1 to clearly state service and location.'
-        ));
-      }
+      if (semantics.clarity_score !== null && semantics.clarity_score <= 2) findings.push(createFinding('1.1', 'fail', 'B', 'Vague headline', 'Users confused.', 'Rewrite H1.'));
+      if (pageData.domChecks.ctaStatus === 'none') findings.push(createFinding('1.2', 'fail', 'B', 'No primary CTA', 'Users do not know what to click.', 'Add CTA.'));
+      else if (pageData.domChecks.ctaStatus === 'broken') findings.push(createFinding('1.3', 'fail', 'A', 'Dead CTA link', 'Button does not work.', 'Fix href.'));
       
-      if (pageData.domChecks.ctaStatus === 'none') {
-        findings.push(createFinding(
-          '1.2', 'fail', 'B', 
-          'No visible primary CTA', 
-          'Users do not know what to click.', 
-          'Add a prominent CTA above the fold.'
-        ));
-      } else if (pageData.domChecks.ctaStatus === 'broken') {
-        findings.push(createFinding(
-          '1.3', 'fail', 'A', 
-          'Primary CTA is a dead link', 
-          'The main action button does not work.', 
-          'Fix the href attribute.'
-        ));
-      }
-
-      if (!pageData.domChecks.hasForm && !pageData.brand.phone) {
-        findings.push(createFinding(
-          '2.1', 'fail', 'A', 
-          'No conversion mechanism', 
-          'Users have no way to contact you.', 
-          'Add a phone number and contact form.'
-        ));
-      } else if (!pageData.domChecks.hasForm) {
-        findings.push(createFinding(
-          '10.1', 'fail', 'A', 
-          'No contact form on page', 
-          'You lose after-hours leads.', 
-          'Add a contact form above the fold.'
-        ));
-      } else if (pageData.domChecks.hasForm && pageData.domChecks.visibleFields > 5) {
-        findings.push(createFinding(
-          '2.2', 'fail', 'B', 
-          `High form friction (${pageData.domChecks.visibleFields} fields)`, 
-          'Form is too long and users abandon it.', 
-          'Reduce to 3-4 fields.'
-        ));
-      }
-
-      if (formTestResult === 'fail_ui') {
-        findings.push(createFinding(
-          '2.1', 'fail', 'A', 
-          'Form does not show success message', 
-          'Users think the form failed and leave.', 
-          'Fix the form submission handler.'
-        ));
-      }
-
-      if (!pageData.domChecks.hasViewport || pageData.domChecks.hasHorizontalScroll) {
-        findings.push(createFinding(
-          '3.1', 'fail', 'A', 
-          'Mobile layout broken', 
-          'Site requires horizontal scrolling.', 
-          'Fix responsive CSS.'
-        ));
-      }
+      if (!pageData.domChecks.hasForm && !pageData.brand.phone) findings.push(createFinding('2.1', 'fail', 'A', 'No contact method', 'No way to contact you.', 'Add phone and form.'));
+      else if (!pageData.domChecks.hasForm) findings.push(createFinding('10.1', 'fail', 'A', 'No contact form', 'Lose after-hours leads.', 'Add form.'));
+      else if (pageData.domChecks.hasForm && pageData.domChecks.visibleFields > 5) findings.push(createFinding('2.2', 'fail', 'B', 'High form friction', 'Users abandon form.', 'Reduce fields.'));
       
-      if (pageData.domChecks.smallTapTargets > 3) {
-        findings.push(createFinding(
-          '3.2', 'fail', 'B', 
-          `Too many small tap targets (${pageData.domChecks.smallTapTargets})`, 
-          'Buttons are too small to tap easily.', 
-          'Increase padding and font size.'
-        ));
-      }
+      if (formTestResult === 'fail_ui') findings.push(createFinding('2.1', 'fail', 'A', 'Form UI fails', 'Users think form failed.', 'Fix handler.'));
+      if (!pageData.domChecks.hasViewport || pageData.domChecks.hasHorizontalScroll) findings.push(createFinding('3.1', 'fail', 'A', 'Mobile layout broken', 'Requires horizontal scroll.', 'Fix CSS.'));
+      if (pageData.domChecks.smallTapTargets > 3) findings.push(createFinding('3.2', 'fail', 'B', 'Small tap targets', 'Hard to tap.', 'Increase padding.'));
+      if (pageData.domChecks.smallFonts > 5) findings.push(createFinding('3.2', 'fail', 'B', 'Small fonts', 'Unreadable on phone.', 'Increase to 16px.'));
+      if (perf.lcp > 2500 || perf.cls > 0.1) findings.push(createFinding('4.1', 'fail', 'B', 'Slow performance', 'Users leave.', 'Optimize assets.'));
       
-      if (pageData.domChecks.smallFonts > 5) {
-        findings.push(createFinding(
-          '3.2', 'fail', 'B', 
-          `Small text on mobile (${pageData.domChecks.smallFonts} elements)`, 
-          'Text is unreadable on phones.', 
-          'Increase base font size to 16px.'
-        ));
-      }
-
-      if (perf.lcp > 2500 || perf.cls > 0.1) {
-        findings.push(createFinding(
-          '4.1', 'fail', 'B', 
-          `Slow Performance (LCP: ${Math.round(perf.lcp)}ms, CLS: ${perf.cls.toFixed(2)})`, 
-          'Users leave before the page loads.', 
-          'Optimize images, reduce JavaScript.'
-        ));
-      }
-
-      if (semantics.trust_signals === false) {
-        findings.push(createFinding(
-          '5.1', 'fail', 'B', 
-          'No clear trust signals', 
-          'Users do not trust the business.', 
-          'Add reviews, license numbers, and guarantees.'
-        ));
-      }
+      if (semantics.trust_signals === false) findings.push(createFinding('5.1', 'fail', 'B', 'No trust signals', 'Users do not trust.', 'Add reviews/license.'));
+      if (!pageData.domChecks.hasLocalSchema) findings.push(createFinding('5.2', 'fail', 'C', 'No schema', 'Search engines struggle.', 'Add JSON-LD.'));
+      if (!analyticsDetected) findings.push(createFinding('6.1', 'fail', 'B', 'No analytics', 'Flying blind.', 'Install GA4.'));
       
-      if (!pageData.domChecks.hasLocalSchema) {
-        findings.push(createFinding(
-          '5.2', 'fail', 'C', 
-          'No LocalBusiness Schema Markup', 
-          'Search engines struggle to index.', 
-          'Add JSON-LD schema.'
-        ));
-      }
+      if (!pageData.brand.phone) findings.push(createFinding('10.3', 'fail', 'A', 'No click-to-call', 'Cannot tap to call.', 'Add tel: link.'));
+      else if (!pageData.domChecks.phoneVisible) findings.push(createFinding('10.6', 'fail', 'B', 'Phone hidden', 'Hard to find in emergency.', 'Put in header.'));
 
-      if (!analyticsDetected) {
-        findings.push(createFinding(
-          '6.1', 'fail', 'B', 
-          'No tracking pixels found', 
-          'Business is flying blind on conversions.', 
-          'Install Google Analytics.'
-        ));
-      }
-
-      if (!pageData.brand.phone) {
-        findings.push(createFinding(
-          '10.3', 'fail', 'A', 
-          'No click-to-call phone number', 
-          'Mobile users cannot tap to call you directly.', 
-          'Add a tel: link to the header.'
-        ));
-      } else if (!pageData.domChecks.phoneVisible) {
-        findings.push(createFinding(
-          '10.6', 'fail', 'B', 
-          'Phone number not visible above the fold', 
-          'Users have to hunt for your number.', 
-          'Put the phone number in the header.'
-        ));
-      }
-
-      // 10. Finalize and Save
       const priorityScore = calculatePriority(findings);
       let caption = `Audit: ${prospect.title}\nScore: ${priorityScore}/100\nLCP: ${Math.round(perf.lcp)}ms | CLS: ${perf.cls.toFixed(2)}\nFindings: ${findings.length}\nStatus: ${siteManagementStatus}`;
       
-      await sendTelegram(screenshot, caption + `\n\nHomepage (Red boxes indicate visual failures)`);
-      
-      if (costPageScreenshot) {
-        await sendTelegram(costPageScreenshot, `Cost Page Found: ${costUrl}`);
-      } else if (costPageFound === false) {
-        await sendTelegram(screenshot, `MISSING: No cost page found.`);
-      }
+      await sendTelegram(screenshot, caption + `\n\nHomepage`);
+      if (costPageScreenshot) await sendTelegram(costPageScreenshot, `Cost Page: ${costUrl}`);
+      else if (costPageFound === false) await sendTelegram(screenshot, `MISSING: No cost page.`);
       
       results.push({ 
-        url: prospect.url, 
-        title: prospect.title, 
-        priorityScore, 
-        findings, 
-        status: 'scored',
-        crawl_diagnostics: crawlDiagnostics,
-        brand_data: pageData.brand,
-        site_management_status: siteManagementStatus,
-        total_urls_found: totalUrlsFound,
-        existing_pages: siteMap.length > 0 ? siteMap.slice(0, 50) : [], 
-        semantic_scores: semantics,
-        technical_metrics: perf
+        url: prospect.url, title: prospect.title, priorityScore, findings, status: 'scored',
+        crawl_diagnostics: crawlDiagnostics, brand_data: pageData.brand,
+        site_management_status: siteManagementStatus, total_urls_found: totalUrlsFound,
+        existing_pages: siteMap.length > 0 ? siteMap.slice(0, 50) : [], semantic_scores: semantics, technical_metrics: perf
       });
 
-      // Save incrementally so we don't run out of memory
       fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
 
     } catch (error) {
-      reviewManually.push({ url: prospect.url, title: prospect.title, reason: error.message, diagnostics: crawlDiagnostics });
+      reviewManually.push({ url: prospect.url, title: prospect.title, reason: error.message, action: 'Manual check needed' });
       fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
     } finally { 
-      await page.close();
-      await context.close(); 
+      await page.close(); await context.close(); 
     }
   }
   await browser.close();
   
-  // Final write just in case the loop didn't trigger it
   fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
   fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
+
+  // Send the final batch report to Telegram
+  if (reviewManually.length > 0) {
+    let summary = `Batch Complete.\n\n${reviewManually.length} sites need investigation:\n`;
+    for (const item of reviewManually) {
+      summary += `\n🔴 ${item.title}\nReason: ${item.reason}\nURL: ${item.url}\n`;
+    }
+    await sendTelegramMessage(summary);
+  } else {
+    await sendTelegramMessage("Batch Complete. All sites loaded successfully.");
+  }
 }
 runCrawler();
