@@ -155,7 +155,7 @@ async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   const results = [];
   const reviewManually = [];
-  const limit = 5; 
+  const limit = 20; 
   const subset = prospects.slice(0, limit);
   
   const browser = await chromium.launch({ args: ['--disable-http2'] });
@@ -311,6 +311,7 @@ async function runCrawler() {
             primaryColor: primaryCta ? getStyle(primaryCta).backgroundColor : 'transparent',
             headingFont: getStyle(h1El).fontFamily,
             bodyFont: getStyle(document.body).fontFamily,
+            logoUrl: document.querySelector('img[class*="logo" i], img[id*="logo" i], img[src*="logo" i]')?.src || null,
             phone: document.querySelector('a[href^="tel:"]')?.href.replace('tel:', '') || null,
             email: document.querySelector('a[href^="mailto:"]')?.href.replace('mailto:', '') || null
           },
@@ -445,4 +446,4 @@ async function runCrawler() {
   fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
   fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
 }
-runCrawler();p
+runCrawler();
