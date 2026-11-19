@@ -47,7 +47,7 @@ async function analyzeSemantics(title, h1, bodyText) {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
+      body: JSON.stringify({ model: 'llama3-70b-8192', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
     });
     if (!res.ok) {
       console.log("Groq API Error:", await res.text());
@@ -63,10 +63,10 @@ async function analyzeSemantics(title, h1, bodyText) {
 
 function calculatePriority(findings) {
   let score = 100;
-  const seenChecks = new Set();
+  const seenFindings = new Set();
   for (const f of findings) {
-    if (f.status === 'fail' && !seenChecks.has(f.check_id)) {
-      seenChecks.add(f.check_id);
+    if (f.status === 'fail' && !seenFindings.has(f.finding_id)) {
+      seenFindings.add(f.finding_id);
       if (f.evidence_grade === 'A') score -= 30;
       if (f.evidence_grade === 'B') score -= 15;
       if (f.evidence_grade === 'C') score -= 10;
@@ -445,4 +445,4 @@ async function runCrawler() {
   fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
   fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
 }
-runCrawler();
+runCrawler();p
