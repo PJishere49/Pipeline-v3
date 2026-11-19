@@ -47,7 +47,7 @@ async function analyzeSemantics(title, h1, bodyText) {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'llama3-70b-8192', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
+      body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
     });
     if (!res.ok) {
       console.log("Groq API Error:", await res.text());
@@ -142,6 +142,8 @@ async function measurePerformance(browser, url) {
       });
       runs.push(metrics);
     } catch (e) {}
+    
+    await page.close();
     await context.close();
   }
 
@@ -153,8 +155,8 @@ async function measurePerformance(browser, url) {
 
 async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
-  const results = [];
-  const reviewManually = [];
+  let results = [];
+  let reviewManually = [];
   const limit = 20; 
   const subset = prospects.slice(0, limit);
   
@@ -172,6 +174,8 @@ async function runCrawler() {
     let pageData = null;
     let siteMap = [];
     let analyticsDetected = false;
+    let siteManagementStatus = 'unknown';
+    let totalUrlsFound = 0;
 
     page.on('request', req => {
       const url = req.url();
@@ -184,6 +188,13 @@ async function runCrawler() {
       // 1. Fetch Sitemap (with recursion)
       try {
         siteMap = await fetchSitemapUrls(context, new URL('/sitemap.xml', prospect.url).href);
+        totalUrlsFound = siteMap.length;
+        
+        if (totalUrlsFound > 50) {
+            siteManagementStatus = 'actively_managed';
+        } else if (totalUrlsFound < 10 && totalUrlsFound > 0) {
+            siteManagementStatus = 'abandoned';
+        }
       } catch(e) {}
 
       // 2. Go to homepage
@@ -193,7 +204,9 @@ async function runCrawler() {
       } catch (err) {
         if (err.message.includes('ERR_CERT_') || err.message.includes('ERR_SSL_')) {
           findings.push(createFinding('7.1', 'fail', 'A', 'Invalid or Expired SSL Certificate', 'Users are blocked by browser security warnings.', 'Install a valid SSL certificate.'));
-          results.push({ url: prospect.url, title: prospect.title, priorityScore: 70, findings, status: 'scored', existing_pages: [] });
+          results.push({ url: prospect.url, title: prospect.title, priorityScore: 70, findings, status: 'scored', existing_pages: [], site_management_status: 'unknown', total_urls_found: 0 });
+          fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
+          await page.close();
           await context.close();
           continue;
         } else {
@@ -208,7 +221,9 @@ async function runCrawler() {
         if (response.status() >= 400) {
           crawlDiagnostics.dead_site = true;
           findings.push(createFinding('7.1', 'fail', 'A', `Site Down (HTTP ${response.status()})`, 'The site is unreachable.', 'Fix server configuration.'));
-          results.push({ url: prospect.url, title: prospect.title, priorityScore: 0, findings, status: 'scored', existing_pages: [] });
+          results.push({ url: prospect.url, title: prospect.title, priorityScore: 0, findings, status: 'scored', existing_pages: [], site_management_status: 'abandoned', total_urls_found: 0 });
+          fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
+          await page.close();
           await context.close();
           continue;
         }
@@ -216,6 +231,8 @@ async function runCrawler() {
         if (pageText.includes('Access Denied') || pageText.includes('Just a moment')) {
           crawlDiagnostics.waf_blocked = true;
           reviewManually.push({ url: prospect.url, title: prospect.title, reason: 'WAF / Bot Blocked', diagnostics: crawlDiagnostics });
+          fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
+          await page.close();
           await context.close();
           continue;
         }
@@ -439,14 +456,4 @@ async function runCrawler() {
       if (!pageData.domChecks.hasForm && !pageData.brand.phone) {
         findings.push(createFinding('2.1', 'fail', 'A', 'No conversion mechanism (form/phone)', 'Users have no way to contact you.', 'Add a phone number and contact form.'));
       } else if (!pageData.domChecks.hasForm) {
-        findings.push(createFinding('10.1', 'fail', 'A', 'No contact form on page', 'You lose leads after hours when people prefer to type instead of call.', 'Add a contact form above the fold.'));
-      } else if (pageData.domChecks.hasForm && pageData.domChecks.visibleFields > 5) {
-        findings.push(createFinding('2.2', 'fail', 'B', `High form friction (${pageData.domChecks.visibleFields} fields)`, 'Form is too long and users abandon it.', 'Reduce to 3-4 fields.'));
-      }
-
-      if (formTestResult === 'fail_ui') {
-        findings.push(createFinding('2.1', 'fail', 'A', 'Form does not show success message', 'Users think the form failed and leave.', 'Fix the form submission handler.'));
-      }
-
-      if (!pageData.domChecks.hasViewport || pageData.domChecks.hasHorizontalScroll) {
-        findings.push(createFinding('3.1', 'fail', 'A', 'Mobile layout broken', 'Site requires horizontal scrolling on phones.', 'Fix responsiv
+        findings.push(createFinding('10.1', 'fail', 'A', 'No contact form on page', 'You lose leads after hou
