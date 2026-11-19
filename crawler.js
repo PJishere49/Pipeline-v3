@@ -203,7 +203,12 @@ async function runCrawler() {
         response = await page.goto(prospect.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
       } catch (err) {
         if (err.message.includes('ERR_CERT_') || err.message.includes('ERR_SSL_')) {
-          findings.push(createFinding('7.1', 'fail', 'A', 'Invalid or Expired SSL Certificate', 'Users are blocked by browser security warnings.', 'Install a valid SSL certificate.'));
+          findings.push(createFinding(
+            '7.1', 'fail', 'A', 
+            'Invalid or Expired SSL', 
+            'Users are blocked by security warnings.', 
+            'Install a valid SSL certificate.'
+          ));
           results.push({ url: prospect.url, title: prospect.title, priorityScore: 70, findings, status: 'scored', existing_pages: [], site_management_status: 'unknown', total_urls_found: 0 });
           fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
           await page.close();
@@ -220,7 +225,12 @@ async function runCrawler() {
         
         if (response.status() >= 400) {
           crawlDiagnostics.dead_site = true;
-          findings.push(createFinding('7.1', 'fail', 'A', `Site Down (HTTP ${response.status()})`, 'The site is unreachable.', 'Fix server configuration.'));
+          findings.push(createFinding(
+            '7.1', 'fail', 'A', 
+            `Site Down (HTTP ${response.status()})`, 
+            'The site is unreachable.', 
+            'Fix server configuration.'
+          ));
           results.push({ url: prospect.url, title: prospect.title, priorityScore: 0, findings, status: 'scored', existing_pages: [], site_management_status: 'abandoned', total_urls_found: 0 });
           fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
           await page.close();
@@ -365,7 +375,12 @@ async function runCrawler() {
       let formTestResult = 'not_applicable';
       if (pageData.domChecks.hasForm) {
         if (pageData.domChecks.formAction.startsWith('mailto:')) {
-          findings.push(createFinding('10.5', 'fail', 'A', 'Form uses mailto: action', 'Most users do not have an email client set up on mobile, so the form fails silently.', 'Use a real form handler (e.g., Web3Forms).'));
+          findings.push(createFinding(
+            '10.5', 'fail', 'A', 
+            'Form uses mailto: action', 
+            'Form fails silently on mobile.', 
+            'Use a real form handler.'
+          ));
         } else {
           try {
             await page.route('**/*', route => {
@@ -414,7 +429,12 @@ async function runCrawler() {
         } catch(e) {}
         await costPage.close();
       } else {
-        findings.push(createFinding('10.4', 'fail', 'B', 'No cost, pricing, or financing page found', "Homeowners want to know the price. If they cannot find it, they leave to find a competitor who does.", 'Add a dedicated pricing or financing page.'));
+        findings.push(createFinding(
+          '10.4', 'fail', 'B', 
+          'No cost page found', 
+          'Homeowners will leave to find a competitor.', 
+          'Add a dedicated pricing page.'
+        ));
       }
 
       // Find Contact Page
@@ -433,7 +453,12 @@ async function runCrawler() {
       }
       
       if (contactUrl && !contactPageTrustFound) {
-          findings.push(createFinding('10.8', 'fail', 'B', 'No trust signals on contact page', 'Users hesitate to give personal info without seeing proof of trust.', 'Add a license number, review stars, or a guarantee near the form.'));
+          findings.push(createFinding(
+            '10.8', 'fail', 'B', 
+            'No trust signals on contact page', 
+            'Users hesitate to share personal info.', 
+            'Add a license number, review stars, or a guarantee.'
+          ));
       }
 
       // 7. Performance Timing Checks (Throttled)
@@ -444,16 +469,31 @@ async function runCrawler() {
 
       // 9. Build Findings
       if (semantics.clarity_score !== null && semantics.clarity_score <= 2) {
-        findings.push(createFinding('1.1', 'fail', 'B', `Vague headline: "${pageData.domChecks.h1}"`, 'Users do not understand what you do.', 'Rewrite the H1 to clearly state service and location.'));
+        findings.push(createFinding(
+          '1.1', 'fail', 'B', 
+          `Vague headline: "${pageData.domChecks.h1}"`, 
+          'Users do not understand what you do.', 
+          'Rewrite the H1 to clearly state service and location.'
+        ));
       }
       
       if (pageData.domChecks.ctaStatus === 'none') {
-        findings.push(createFinding('1.2', 'fail', 'B', 'No visible primary CTA', 'Users do not know what to click.', 'Add a prominent CTA above the fold.'));
+        findings.push(createFinding(
+          '1.2', 'fail', 'B', 
+          'No visible primary CTA', 
+          'Users do not know what to click.', 
+          'Add a prominent CTA above the fold.'
+        ));
       } else if (pageData.domChecks.ctaStatus === 'broken') {
-        findings.push(createFinding('1.3', 'fail', 'A', 'Primary CTA is a dead link', 'The main action button does not work.', 'Fix the href attribute.'));
+        findings.push(createFinding(
+          '1.3', 'fail', 'A', 
+          'Primary CTA is a dead link', 
+          'The main action button does not work.', 
+          'Fix the href attribute.'
+        ));
       }
 
       if (!pageData.domChecks.hasForm && !pageData.brand.phone) {
-        findings.push(createFinding('2.1', 'fail', 'A', 'No conversion mechanism (form/phone)', 'Users have no way to contact you.', 'Add a phone number and contact form.'));
-      } else if (!pageData.domChecks.hasForm) {
-        findings.push(createFinding('10.1', 'fail', 'A', 'No contact form on page', "You lose leads after hour
+        findings.push(createFinding(
+          '2.1', 'fail', 'A', 
+          'No conversion mech
