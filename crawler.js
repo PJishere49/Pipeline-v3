@@ -186,7 +186,7 @@ async function runCrawler() {
         siteMap = await fetchSitemapUrls(context, new URL('/sitemap.xml', prospect.url).href);
       } catch(e) {}
 
-      // 2. Go to page
+      // 2. Go to homepage
       let response;
       try {
         response = await page.goto(prospect.url, { waitUntil: 'domcontentloaded', timeout: 30000 });
@@ -231,9 +231,10 @@ async function runCrawler() {
         const forms = Array.from(document.querySelectorAll('form'));
         let bestForm = null;
         let maxInputs = 0;
+        let formAction = '';
         for (const f of forms) {
           const inputs = f.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').length;
-          if (inputs > maxInputs) { maxInputs = inputs; bestForm = f; }
+          if (inputs > maxInputs) { maxInputs = inputs; bestForm = f; formAction = f.getAttribute('action') || ''; }
         }
         
         let visibleFields = 0;
@@ -286,6 +287,17 @@ async function runCrawler() {
           }
         });
 
+        // Check if phone number is visible in first viewport (844px)
+        let phoneVisible = false;
+        const telLinks = Array.from(document.querySelectorAll('a[href^="tel:"]'));
+        for (const link of telLinks) {
+            const rect = link.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= 844 && rect.width > 0 && rect.height > 0) {
+                phoneVisible = true;
+                break;
+            }
+        }
+
         const style = document.createElement('style');
         style.textContent = `[data-audit-fail="true"] { outline: 4px solid red !important; outline-offset: 2px !important; background-color: rgba(255, 0, 0, 0.1) !important; }`;
         document.head.appendChild(style);
@@ -317,12 +329,14 @@ async function runCrawler() {
           },
           domChecks: {
             hasForm: !!bestForm,
+            formAction: formAction,
             visibleFields: visibleFields,
             hasViewport: !!document.querySelector('meta[name="viewport"]'),
             hasHorizontalScroll: document.documentElement.scrollWidth > window.innerWidth,
             hasLocalSchema: hasLocalSchema,
             smallTapTargets: smallTapTargets,
             smallFonts: smallFonts,
+            phoneVisible: phoneVisible,
             h1: h1El.innerText.substring(0, 100),
             bodyText: document.body.innerText.toLowerCase().substring(0, 2000),
             ctaStatus: ctaStatus
@@ -333,42 +347,85 @@ async function runCrawler() {
       // 4. Safe Form Test
       let formTestResult = 'not_applicable';
       if (pageData.domChecks.hasForm) {
-        try {
-          await page.route('**/*', route => {
-            if (route.request().method() === 'POST') {
-              route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ success: true }) });
+        if (pageData.domChecks.formAction.startsWith('mailto:')) {
+          findings.push(createFinding('10.5', 'fail', 'A', 'Form uses mailto: action', 'Most users do not have an email client set up on mobile, so the form fails silently.', 'Use a real form handler (e.g., Web3Forms).'));
+        } else {
+          try {
+            await page.route('**/*', route => {
+              if (route.request().method() === 'POST') {
+                route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ success: true }) });
+              } else {
+                route.continue();
+              }
+            });
+            
+            await page.fill('input[type="text"]', 'Playwright Audit');
+            await page.fill('input[type="tel"]', '555-000-0000');
+            await page.fill('input[type="email"]', 'audit@example.com');
+            await page.click('button[type="submit"]');
+            await page.waitForTimeout(2000);
+            
+            const bodyText = await page.evaluate(() => document.body.innerText.toLowerCase());
+            if (bodyText.includes('thank') || bodyText.includes('success') || bodyText.includes('received')) {
+              formTestResult = 'pass';
             } else {
-              route.continue();
+              formTestResult = 'fail_ui';
             }
-          });
-          
-          await page.fill('input[type="text"]', 'Playwright Audit');
-          await page.fill('input[type="tel"]', '555-000-0000');
-          await page.fill('input[type="email"]', 'audit@example.com');
-          await page.click('button[type="submit"]');
-          await page.waitForTimeout(2000);
-          
-          const bodyText = await page.evaluate(() => document.body.innerText.toLowerCase());
-          if (bodyText.includes('thank') || bodyText.includes('success') || bodyText.includes('received')) {
-            formTestResult = 'pass';
-          } else {
-            formTestResult = 'fail_ui';
+          } catch (e) {
+            formTestResult = 'inconclusive';
           }
-        } catch (e) {
-          formTestResult = 'inconclusive';
         }
       }
 
-      // 5. Take Screenshot (with Red Boxes)
+      // 5. Take Homepage Screenshot (with Red Boxes)
       const screenshot = await page.screenshot({ fullPage: true, type: 'jpeg', quality: 60 });
 
-      // 6. Performance Timing Checks (Throttled)
+      // 6. Visit Cost/Financing Page & Contact Page
+      let costPageScreenshot = null;
+      let costPageFound = false;
+      let contactPageTrustFound = false;
+      
+      // Find Cost Page
+      const costUrl = siteMap.find(u => /cost|price|financing|estimate/i.test(u));
+      if (costUrl) {
+        costPageFound = true;
+        const costPage = await context.newPage();
+        try {
+            await costPage.goto(costUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+            await costPage.waitForTimeout(2000);
+            costPageScreenshot = await costPage.screenshot({ fullPage: true, type: 'jpeg', quality: 60 });
+        } catch(e) {}
+        await costPage.close();
+      } else {
+        findings.push(createFinding('10.4', 'fail', 'B', 'No cost, pricing, or financing page found', 'Homeowners want to know the price. If you don\'t tell them, they leave to find a competitor who does.', 'Add a dedicated pricing or financing page.'));
+      }
+
+      // Find Contact Page
+      const contactUrl = siteMap.find(u => /contact/i.test(u));
+      if (contactUrl) {
+        const contactPage = await context.newPage();
+        try {
+            await contactPage.goto(contactUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+            await contactPage.waitForTimeout(2000);
+            const contactText = await contactPage.evaluate(() => document.body.innerText.toLowerCase());
+            if (contactText.includes('license') || contactText.includes('insured') || contactText.includes('guarantee') || contactText.includes('review')) {
+                contactPageTrustFound = true;
+            }
+        } catch(e) {}
+        await contactPage.close();
+      }
+      
+      if (contactUrl && !contactPageTrustFound) {
+          findings.push(createFinding('10.8', 'fail', 'B', 'No trust signals on contact page', 'Users hesitate to give personal info without seeing proof of trust.', 'Add a license number, review stars, or a guarantee near the form.'));
+      }
+
+      // 7. Performance Timing Checks (Throttled)
       const perf = await measurePerformance(browser, prospect.url);
 
-      // 7. Semantic Analysis
+      // 8. Semantic Analysis
       const semantics = await analyzeSemantics(prospect.title, pageData.domChecks.h1, pageData.domChecks.bodyText);
 
-      // 8. Build Findings
+      // 9. Build Findings
       if (semantics.clarity_score !== null && semantics.clarity_score <= 2) {
         findings.push(createFinding('1.1', 'fail', 'B', `Vague headline: "${pageData.domChecks.h1}"`, 'Users do not understand what you do.', 'Rewrite the H1 to clearly state service and location.'));
       }
@@ -381,6 +438,8 @@ async function runCrawler() {
 
       if (!pageData.domChecks.hasForm && !pageData.brand.phone) {
         findings.push(createFinding('2.1', 'fail', 'A', 'No conversion mechanism (form/phone)', 'Users have no way to contact you.', 'Add a phone number and contact form.'));
+      } else if (!pageData.domChecks.hasForm) {
+        findings.push(createFinding('10.1', 'fail', 'A', 'No contact form on page', 'You lose leads after hours when people prefer to type instead of call.', 'Add a contact form above the fold.'));
       } else if (pageData.domChecks.hasForm && pageData.domChecks.visibleFields > 5) {
         findings.push(createFinding('2.2', 'fail', 'B', `High form friction (${pageData.domChecks.visibleFields} fields)`, 'Form is too long and users abandon it.', 'Reduce to 3-4 fields.'));
       }
@@ -390,60 +449,4 @@ async function runCrawler() {
       }
 
       if (!pageData.domChecks.hasViewport || pageData.domChecks.hasHorizontalScroll) {
-        findings.push(createFinding('3.1', 'fail', 'A', 'Mobile layout broken', 'Site requires horizontal scrolling on phones.', 'Fix responsive CSS.'));
-      }
-      
-      if (pageData.domChecks.smallTapTargets > 3) {
-        findings.push(createFinding('3.2', 'fail', 'B', `Too many small tap targets (${pageData.domChecks.smallTapTargets})`, 'Buttons are too small to tap easily.', 'Increase padding and font size.'));
-      }
-      
-      if (pageData.domChecks.smallFonts > 5) {
-        findings.push(createFinding('3.2', 'fail', 'B', `Small text on mobile (${pageData.domChecks.smallFonts} elements)`, 'Text is unreadable on phones.', 'Increase base font size to 16px.'));
-      }
-
-      if (perf.lcp > 2500 || perf.cls > 0.1) {
-        findings.push(createFinding('4.1', 'fail', 'B', `Slow Performance (LCP: ${Math.round(perf.lcp)}ms, CLS: ${perf.cls.toFixed(2)})`, 'Users leave before the page loads.', 'Optimize images, reduce JavaScript, and improve server response.'));
-      }
-
-      if (semantics.trust_signals === false) {
-        findings.push(createFinding('5.1', 'fail', 'B', 'No clear trust signals or guarantees', 'Users do not trust the business.', 'Add reviews, license numbers, and guarantees.'));
-      }
-      
-      if (!pageData.domChecks.hasLocalSchema) {
-        findings.push(createFinding('5.2', 'fail', 'C', 'No LocalBusiness Schema Markup', 'Search engines struggle to index the business.', 'Add JSON-LD schema.'));
-      }
-
-      if (!analyticsDetected) {
-        findings.push(createFinding('6.1', 'fail', 'B', 'No tracking pixels found (GA4, GTM, Meta)', 'Business is flying blind on conversions.', 'Install Google Analytics.'));
-      }
-
-      // 9. Finalize and Save
-      const priorityScore = calculatePriority(findings);
-      const caption = `Audit: ${prospect.title}\nScore: ${priorityScore}/100\nLCP: ${Math.round(perf.lcp)}ms | CLS: ${perf.cls.toFixed(2)}\nFindings: ${findings.length}\nRed boxes indicate visual failures.`;
-      
-      await sendTelegram(screenshot, caption);
-      
-      results.push({ 
-        url: prospect.url, 
-        title: prospect.title, 
-        priorityScore, 
-        findings, 
-        status: 'scored',
-        crawl_diagnostics: crawlDiagnostics,
-        brand_data: pageData.brand,
-        existing_pages: siteMap.length > 0 ? siteMap : [], 
-        semantic_scores: semantics,
-        technical_metrics: perf
-      });
-
-    } catch (error) {
-      reviewManually.push({ url: prospect.url, title: prospect.title, reason: error.message, diagnostics: crawlDiagnostics });
-    } finally { 
-      await context.close(); 
-    }
-  }
-  await browser.close();
-  fs.writeFileSync('scored_results.json', JSON.stringify(results, null, 2));
-  fs.writeFileSync('review_manually.json', JSON.stringify(reviewManually, null, 2));
-}
-runCrawler();
+        findings.push(createFinding('3.1', 'fail', 'A', 'Mobile layout broken', 'Site requires horizontal scrolling on phones.', 'Fix responsiv
