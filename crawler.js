@@ -61,12 +61,16 @@ async function analyzeSemantics(title, h1, bodyText) {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
+      body: JSON.stringify({ model: 'llama-3.1-8b-instant', messages: [{ role: 'user', content: prompt }], temperature: 0.1, response_format: { type: "json_object" } })
     });
-    if (!res.ok) return { clarity_score: null, trust_signals: null };
+    if (!res.ok) {
+      console.log("Groq API Error:", await res.text());
+      return { clarity_score: null, trust_signals: null };
+    }
     const data = await res.json();
     return JSON.parse(data.choices[0].message.content);
   } catch (e) { 
+    console.error("Groq Fetch Exception:", e.message);
     return { clarity_score: null, trust_signals: null }; 
   }
 }
@@ -137,7 +141,7 @@ async function measurePerformance(browser, url) {
     });
 
     try {
-      await page.goto(url, { waitUntil: 'load', timeout: 45000 });
+      await page.goto(url, { waitUntil: 'load', timeout: 60000 });
       await page.waitForTimeout(1000);
       const metrics = await page.evaluate(() => {
         const fcpValue = performance.getEntriesByType('paint').find(e => e.name === 'first-contentful-paint')?.startTime || 0;
@@ -145,13 +149,15 @@ async function measurePerformance(browser, url) {
         return { lcp: lcpValue > 0 ? lcpValue : fcpValue, cls: window.cls || 0, fcp: fcpValue };
       });
       runs.push(metrics);
-    } catch (e) {}
+    } catch (e) { 
+      // If it fails to load, record it as a catastrophic failure (9999ms)
+      runs.push({ lcp: 9999, cls: 0, fcp: 9999 }); 
+    }
     
     await page.close();
     await context.close();
   }
 
-  if (runs.length === 0) return { lcp: 0, cls: 0, fcp: 0 };
   runs.sort((a, b) => a.lcp - b.lcp);
   return runs[Math.floor(runs.length / 2)];
 }
@@ -160,8 +166,13 @@ async function runCrawler() {
   const prospects = JSON.parse(fs.readFileSync('prospects.json', 'utf8'));
   let results = [];
   let reviewManually = [];
-  const limit = 20; 
-  const subset = prospects.slice(0, limit);
+  
+  // Directory Filter
+  const directoryBlocklist = ['yahoo', 'reddit', 'yelp', 'angi', 'bbb.org', 'homeadvisor', 'thumbtack', 'facebook.com'];
+  const validProspects = prospects.filter(p => !directoryBlocklist.some(b => p.url.toLowerCase().includes(b)));
+  
+  const limit = 50; 
+  const subset = validProspects.slice(0, limit);
   
   const browser = await chromium.launch({ args: ['--disable-http2'] });
   
@@ -249,12 +260,49 @@ async function runCrawler() {
         const primaryBtns = Array.from(document.querySelectorAll('button, a[class*="btn" i], a[class*="button" i], a[class*="cta" i]'));
         let primaryCta = primaryBtns.find(b => /contact|quote|schedule|estimate|get started|call/i.test(b.innerText));
         let ctaStatus = 'none';
+        let primaryColor = 'transparent';
+        
         if (primaryCta) {
+          const ctaStyle = getStyle(primaryCta).backgroundColor;
+          if (ctaStyle !== 'rgba(0, 0, 0, 0)' && ctaStyle !== 'transparent' && !ctaStyle.includes('255, 255, 255')) {
+             primaryColor = ctaStyle;
+          }
+          
           if (primaryCta.tagName === 'A') {
             const href = primaryCta.getAttribute('href');
             if (!href || href === '#' || href === 'javascript:void(0)') { ctaStatus = 'broken'; primaryCta.setAttribute('data-audit-fail', 'true'); }
             else { ctaStatus = 'valid'; }
           } else { ctaStatus = 'valid'; }
+        }
+
+        // Fallback for primary color (check header, then body)
+        if (primaryColor === 'transparent' || primaryColor === 'rgba(0, 0, 0, 0)') {
+            const headerBg = getStyle(document.querySelector('header') || document.body).backgroundColor;
+            if (headerBg !== 'rgba(0, 0, 0, 0)' && headerBg !== 'transparent' && !headerBg.includes('255, 255, 255')) {
+                primaryColor = headerBg;
+            }
+        }
+
+        // Logo Extraction (Filtering base64 and small pixels)
+        let logoUrl = null;
+        const imgs = Array.from(document.querySelectorAll('img'));
+        const logoImg = imgs.find(img => {
+            const src = img.src || '';
+            if (src.startsWith('data:') || img.naturalWidth < 50) return false; 
+            const cls = img.className || '';
+            const id = img.id || '';
+            return /logo/i.test(src) || /logo/i.test(cls) || /logo/i.test(id) || (img.closest('header') && img.naturalWidth > 50);
+        });
+        if (logoImg) logoUrl = logoImg.src;
+
+        // Phone Number Cleaning
+        let rawPhone = document.querySelector('a[href^="tel:"]')?.href.replace('tel:', '') || null;
+        let phone = null;
+        if (rawPhone) {
+            let digits = rawPhone.replace(/\D/g, '');
+            if (digits.length === 11 && digits.startsWith('1')) digits = digits.substring(1);
+            if (digits.length === 10) phone = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+            else phone = rawPhone;
         }
 
         const interactiveEls = Array.from(document.querySelectorAll('a, button, input[type="submit"], input[type="button"]'));
@@ -308,11 +356,11 @@ async function runCrawler() {
 
         return {
           brand: {
-            primaryColor: primaryCta ? getStyle(primaryCta).backgroundColor : 'transparent',
+            primaryColor: primaryColor,
             headingFont: getStyle(h1El).fontFamily,
             bodyFont: getStyle(document.body).fontFamily,
-            logoUrl: document.querySelector('img[class*="logo" i], img[id*="logo" i], img[src*="logo" i]')?.src || null,
-            phone: document.querySelector('a[href^="tel:"]')?.href.replace('tel:', '') || null,
+            logoUrl: logoUrl,
+            phone: phone,
             email: document.querySelector('a[href^="mailto:"]')?.href.replace('mailto:', '') || null
           },
           domChecks: {
@@ -393,6 +441,7 @@ async function runCrawler() {
       if (!pageData.domChecks.hasViewport || pageData.domChecks.hasHorizontalScroll) findings.push(createFinding('3.1', 'fail', 'A', 'Mobile layout broken', 'Requires horizontal scroll.', 'Fix CSS.'));
       if (pageData.domChecks.smallTapTargets > 3) findings.push(createFinding('3.2', 'fail', 'B', 'Small tap targets', 'Hard to tap.', 'Increase padding.'));
       if (pageData.domChecks.smallFonts > 5) findings.push(createFinding('3.2', 'fail', 'B', 'Small fonts', 'Unreadable on phone.', 'Increase to 16px.'));
+      
       if (perf.lcp > 2500 || perf.cls > 0.1) findings.push(createFinding('4.1', 'fail', 'B', 'Slow performance', 'Users leave.', 'Optimize assets.'));
       
       if (semantics.trust_signals === false) findings.push(createFinding('5.1', 'fail', 'B', 'No trust signals', 'Users do not trust.', 'Add reviews/license.'));
