@@ -2,10 +2,10 @@
   {
     "url": "https://www.billshieldsroofing.com/",
     "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-    "priorityScore": 25,
+    "priorityScore": 40,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795597357321_c22bn",
+        "finding_id": "hash_10.1_1795683762672_07zl0",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -23,7 +23,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597357321_10f4c",
+        "finding_id": "hash_3.2_1795683762672_xh7if",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -41,25 +41,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597357321_s4txl",
-        "check_id": "3.2",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "Small fonts",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "B",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Unreadable on phone.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Increase to 16px.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      },
-      {
-        "finding_id": "hash_4.1_1795597357321_rcxli",
+        "finding_id": "hash_4.1_1795683762672_lgxmi",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -110,14 +92,14 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 22112,
+      "lcp": 18352,
       "cls": 0.05575422680961491,
-      "fcp": 460
+      "fcp": 348
     },
     "redesign_blueprint": {
       "url": "https://www.billshieldsroofing.com/",
       "title": "Roofing Experts – Tampa, FL – Bill Shields Roofing",
-      "priority_score": 25,
+      "priority_score": 40,
       "brand_assets": {
         "logo": "Extract from site",
         "fonts": [
@@ -148,7 +130,6 @@
       "technical_fixes": [
         "Add form.",
         "Increase padding.",
-        "Increase to 16px.",
         "Optimize assets."
       ],
       "conversion_strategy": [
@@ -162,7 +143,7 @@
     "priorityScore": 25,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795597451405_mgsi5",
+        "finding_id": "hash_10.1_1795683861768_nhjci",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -180,7 +161,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597451405_lr786",
+        "finding_id": "hash_3.2_1795683861768_khc3x",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -198,7 +179,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597451405_qhec5",
+        "finding_id": "hash_3.2_1795683861768_1t3m7",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -216,7 +197,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795597451405_ytdln",
+        "finding_id": "hash_4.1_1795683861768_4oi7g",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -308,9 +289,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 23884,
-      "cls": 0.01409151410073552,
-      "fcp": 2156
+      "lcp": 24112,
+      "cls": 0.014085294045549809,
+      "fcp": 2424
     },
     "redesign_blueprint": {
       "url": "https://www.rescueroofingoftampa.com/",
@@ -401,7 +382,7 @@
     "priorityScore": 85,
     "findings": [
       {
-        "finding_id": "hash_3.2_1795597549121_9v1yl",
+        "finding_id": "hash_3.2_1795683955915_d3qfm",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -493,9 +474,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1440,
+      "lcp": 1288,
       "cls": 0.002971518934686685,
-      "fcp": 1380
+      "fcp": 1236
     }
   },
   {
@@ -504,7 +485,7 @@
     "priorityScore": 45,
     "findings": [
       {
-        "finding_id": "hash_3.2_1795597615564_8ikaf",
+        "finding_id": "hash_3.2_1795684020967_4vv6c",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -522,7 +503,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597615564_j6snq",
+        "finding_id": "hash_3.2_1795684020967_ueyu2",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -540,7 +521,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795597615564_o3uve",
+        "finding_id": "hash_4.1_1795684020967_sq0e3",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -558,7 +539,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795597615564_uyl5f",
+        "finding_id": "hash_5.2_1795684020967_v3fwh",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -650,9 +631,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3924,
+      "lcp": 3836,
       "cls": 0.004912848765837383,
-      "fcp": 1168
+      "fcp": 1196
     },
     "redesign_blueprint": {
       "url": "https://www.eliteroofingservices.com/",
@@ -741,7 +722,7 @@
     "priorityScore": 55,
     "findings": [
       {
-        "finding_id": "hash_2.2_1795597669066_z26i9",
+        "finding_id": "hash_2.2_1795684072276_kbfk2",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -759,7 +740,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597669066_3xoec",
+        "finding_id": "hash_3.2_1795684072276_6uc1d",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -777,7 +758,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597669066_y6jjb",
+        "finding_id": "hash_3.2_1795684072276_fw8zf",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -869,9 +850,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1484,
-      "cls": 0.003964245017944571,
-      "fcp": 820
+      "lcp": 1304,
+      "cls": 0.003981987405900067,
+      "fcp": 676
     },
     "redesign_blueprint": {
       "url": "https://westroofingfl.com/",
@@ -959,7 +940,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795597715642_1qul8",
+        "finding_id": "hash_10.8_1795684116962_4rf9u",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -977,7 +958,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795597769722_h4vne",
+        "finding_id": "hash_1.2_1795684171076_bl8i3",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -995,7 +976,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795597769722_w5126",
+        "finding_id": "hash_2.2_1795684171076_qfeh1",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -1013,7 +994,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597769722_ixd7e",
+        "finding_id": "hash_3.2_1795684171076_s7ix8",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1031,7 +1012,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597769722_8i2h9",
+        "finding_id": "hash_3.2_1795684171076_wyvmm",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1049,7 +1030,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795597769722_r6yx3",
+        "finding_id": "hash_4.1_1795684171076_m0boi",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -1067,7 +1048,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795597769722_6g0b3",
+        "finding_id": "hash_5.2_1795684171076_461tt",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -1085,7 +1066,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795597769722_932nm",
+        "finding_id": "hash_6.1_1795684171076_wuyb1",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -1103,7 +1084,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795597769722_xsmuw",
+        "finding_id": "hash_10.6_1795684171076_wkgjt",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -1195,9 +1176,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 16968,
-      "cls": 0.26319563008997054,
-      "fcp": 3796
+      "lcp": 16980,
+      "cls": 0.26112680875641225,
+      "fcp": 3820
     },
     "redesign_blueprint": {
       "url": "https://latite.com/tampa-roofer/",
@@ -1294,7 +1275,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795597792095_qh3h6",
+        "finding_id": "hash_10.1_1795684193662_m82az",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -1312,7 +1293,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597792095_1isqj",
+        "finding_id": "hash_3.2_1795684193662_11l2u",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1330,7 +1311,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597792095_pbdte",
+        "finding_id": "hash_3.2_1795684193662_xo8p2",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1348,7 +1329,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795597792095_uy31r",
+        "finding_id": "hash_4.1_1795684193662_cf24m",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -1366,7 +1347,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795597792095_5j0dy",
+        "finding_id": "hash_5.2_1795684193662_br2ns",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -1384,7 +1365,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795597792095_yf3zn",
+        "finding_id": "hash_6.1_1795684193662_x4ixq",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -1476,9 +1457,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 2776,
+      "lcp": 2788,
       "cls": 0.08151403918289209,
-      "fcp": 528
+      "fcp": 516
     },
     "redesign_blueprint": {
       "url": "https://actionroofing.com/tampa-roofing/",
@@ -1571,7 +1552,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795597842738_7l2p5",
+        "finding_id": "hash_10.8_1795684241325_2xam8",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -1589,7 +1570,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597864697_3sovr",
+        "finding_id": "hash_3.2_1795684266479_mckbx",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1607,7 +1588,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597864697_oxzoj",
+        "finding_id": "hash_3.2_1795684266479_an1u9",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1625,7 +1606,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795597864697_jjyzu",
+        "finding_id": "hash_4.1_1795684266479_3z9gr",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -1643,7 +1624,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795597864697_n2kne",
+        "finding_id": "hash_5.2_1795684266479_p6hqt",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -1661,7 +1642,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795597864697_u46g6",
+        "finding_id": "hash_6.1_1795684266479_nc5sa",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -1695,8 +1676,12 @@
       "email": "info@steadfastroofingfl.com"
     },
     "site_management_status": "actively_managed",
-    "total_urls_found": 637,
+    "total_urls_found": 646,
     "existing_pages": [
+      "https://steadfastroofingfl.com/blog/roof-cleaning-methods-that-actually-work-expert-guide-for-homeowners/",
+      "https://steadfastroofingfl.com/blog/insights-into-roofing-companies-insurance-partnerships/",
+      "https://steadfastroofingfl.com/blog/expected-lifespan-of-modified-bitumen-roofing-systems/",
+      "https://steadfastroofingfl.com/blog/when-to-replace-roof-decking-guidelines-and-frequency/",
       "https://steadfastroofingfl.com/blog/what-to-know-about-roofing-permits-and-codes-in-florida/",
       "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
       "https://steadfastroofingfl.com/blog/techadores-en-espanol-tampa-bay/",
@@ -1742,20 +1727,16 @@
       "https://steadfastroofingfl.com/blog/is-a-flat-roof-the-best-choice-for-your-property/",
       "https://steadfastroofingfl.com/blog/best-roof-colors-for-optimal-home-cooling-in-florida/",
       "https://steadfastroofingfl.com/blog/choosing-the-best-roof-type-for-your-beach-or-coastal-home/",
-      "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/",
-      "https://steadfastroofingfl.com/blog/comprehensive-guide-to-the-roofing-construction-process/",
-      "https://steadfastroofingfl.com/blog/why-butterfly-roofs-are-ideal-for-floridas-rainy-seasons/",
-      "https://steadfastroofingfl.com/blog/tpo-vs-epdm-comparing-commercial-roofing-materials/",
-      "https://steadfastroofingfl.com/blog/assessing-the-value-of-spanish-tile-roofs-in-florida/"
+      "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/"
     ],
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3252,
+      "lcp": 3236,
       "cls": 0.00036168379053618606,
-      "fcp": 1444
+      "fcp": 1448
     },
     "redesign_blueprint": {
       "url": "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
@@ -1773,6 +1754,10 @@
       },
       "site_architecture": {
         "pages_to_keep": [
+          "https://steadfastroofingfl.com/blog/roof-cleaning-methods-that-actually-work-expert-guide-for-homeowners/",
+          "https://steadfastroofingfl.com/blog/insights-into-roofing-companies-insurance-partnerships/",
+          "https://steadfastroofingfl.com/blog/expected-lifespan-of-modified-bitumen-roofing-systems/",
+          "https://steadfastroofingfl.com/blog/when-to-replace-roof-decking-guidelines-and-frequency/",
           "https://steadfastroofingfl.com/blog/what-to-know-about-roofing-permits-and-codes-in-florida/",
           "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
           "https://steadfastroofingfl.com/blog/techadores-en-espanol-tampa-bay/",
@@ -1818,11 +1803,7 @@
           "https://steadfastroofingfl.com/blog/is-a-flat-roof-the-best-choice-for-your-property/",
           "https://steadfastroofingfl.com/blog/best-roof-colors-for-optimal-home-cooling-in-florida/",
           "https://steadfastroofingfl.com/blog/choosing-the-best-roof-type-for-your-beach-or-coastal-home/",
-          "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/",
-          "https://steadfastroofingfl.com/blog/comprehensive-guide-to-the-roofing-construction-process/",
-          "https://steadfastroofingfl.com/blog/why-butterfly-roofs-are-ideal-for-floridas-rainy-seasons/",
-          "https://steadfastroofingfl.com/blog/tpo-vs-epdm-comparing-commercial-roofing-materials/",
-          "https://steadfastroofingfl.com/blog/assessing-the-value-of-spanish-tile-roofs-in-florida/"
+          "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/"
         ],
         "new_pages_to_add": [
           "Contact (Dedicated Page)",
@@ -1845,10 +1826,10 @@
   {
     "url": "https://roofxincfl.com/",
     "title": "Roofers Tampa FL | Roofing Company & Contractor | RoofX",
-    "priorityScore": 25,
+    "priorityScore": 10,
     "findings": [
       {
-        "finding_id": "hash_2.2_1795597925605_t07e3",
+        "finding_id": "hash_2.2_1795684325844_3jqhq",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -1866,7 +1847,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.1_1795597925605_apg0o",
+        "finding_id": "hash_2.1_1795684325844_7e9tb",
         "check_id": "2.1",
         "status": "fail",
         "scope": "page",
@@ -1884,7 +1865,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597925605_ih4u8",
+        "finding_id": "hash_3.2_1795684325844_uwwf5",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1902,7 +1883,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795597925605_5y1i1",
+        "finding_id": "hash_3.2_1795684325844_sb4aa",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -1916,6 +1897,24 @@
         "customer_impact": "Unreadable on phone.",
         "blocked_action": "User cannot convert",
         "recommended_fix": "Increase to 16px.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      },
+      {
+        "finding_id": "hash_4.1_1795684325844_h627x",
+        "check_id": "4.1",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Slow performance",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Users leave.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Optimize assets.",
         "verification_method": "Re-run audit",
         "financial_tier": "none"
       }
@@ -1936,7 +1935,7 @@
       "email": null
     },
     "site_management_status": "actively_managed",
-    "total_urls_found": 357,
+    "total_urls_found": 358,
     "existing_pages": [
       "https://roofxincfl.com/blog/tampa-roofing-storm-season-2026/",
       "https://roofxincfl.com/blog/how-to-file-roof-insurance-claim-florida/",
@@ -1971,8 +1970,8 @@
       "https://roofxincfl.com/blog/shingles-vs-metal-roofing-which-is-the-right-roofing-option/",
       "https://roofxincfl.com/blog/how-to-prepare-a-florida-home-for-a-hurricane/",
       "https://roofxincfl.com/blog/how-to-maintain-a-flat-roof/",
-      "https://roofxincfl.com/blog/warning-signs-a-roof-needs-immediate-repair/",
       "https://roofxincfl.com/blog/common-causes-for-a-leaking-roof/",
+      "https://roofxincfl.com/blog/warning-signs-a-roof-needs-immediate-repair/",
       "https://roofxincfl.com/blog/how-long-does-roof-replacement-take-tampa/",
       "https://roofxincfl.com/blog/repair-or-replace-roof-orlando/",
       "https://roofxincfl.com/blog/how-long-does-a-roof-last-orlando/",
@@ -1982,26 +1981,26 @@
       "https://roofxincfl.com/blog/what-should-a-roof-replacement-quote-include-tampa/",
       "https://roofxincfl.com/blog/is-silicone-roof-coating-right-for-my-roof-tampa/",
       "https://roofxincfl.com/blog/is-a-standing-seam-metal-roof-worth-it-tampa/",
+      "https://roofxincfl.com/blog/what-does-a-roof-wind-rating-mean-tampa/",
       "https://roofxincfl.com/",
       "https://roofxincfl.com/areas-we-serve/kissimmee/",
       "https://roofxincfl.com/areas-we-serve/sanford/",
       "https://roofxincfl.com/areas-we-serve/oviedo/",
-      "https://roofxincfl.com/areas-we-serve/celebration/",
-      "https://roofxincfl.com/areas-we-serve/dr-phillips/"
+      "https://roofxincfl.com/areas-we-serve/celebration/"
     ],
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1836,
-      "cls": 0.013128074391860022,
-      "fcp": 348
+      "lcp": 3728,
+      "cls": 0.02967658295725037,
+      "fcp": 360
     },
     "redesign_blueprint": {
       "url": "https://roofxincfl.com/",
       "title": "Roofers Tampa FL | Roofing Company & Contractor | RoofX",
-      "priority_score": 25,
+      "priority_score": 10,
       "brand_assets": {
         "logo": "https://roofxincfl.com/wp-content/uploads/2026/10/roof-x-logo-tampa-roofing.png",
         "fonts": [
@@ -2047,8 +2046,8 @@
           "https://roofxincfl.com/blog/shingles-vs-metal-roofing-which-is-the-right-roofing-option/",
           "https://roofxincfl.com/blog/how-to-prepare-a-florida-home-for-a-hurricane/",
           "https://roofxincfl.com/blog/how-to-maintain-a-flat-roof/",
-          "https://roofxincfl.com/blog/warning-signs-a-roof-needs-immediate-repair/",
           "https://roofxincfl.com/blog/common-causes-for-a-leaking-roof/",
+          "https://roofxincfl.com/blog/warning-signs-a-roof-needs-immediate-repair/",
           "https://roofxincfl.com/blog/how-long-does-roof-replacement-take-tampa/",
           "https://roofxincfl.com/blog/repair-or-replace-roof-orlando/",
           "https://roofxincfl.com/blog/how-long-does-a-roof-last-orlando/",
@@ -2058,12 +2057,12 @@
           "https://roofxincfl.com/blog/what-should-a-roof-replacement-quote-include-tampa/",
           "https://roofxincfl.com/blog/is-silicone-roof-coating-right-for-my-roof-tampa/",
           "https://roofxincfl.com/blog/is-a-standing-seam-metal-roof-worth-it-tampa/",
+          "https://roofxincfl.com/blog/what-does-a-roof-wind-rating-mean-tampa/",
           "https://roofxincfl.com/",
           "https://roofxincfl.com/areas-we-serve/kissimmee/",
           "https://roofxincfl.com/areas-we-serve/sanford/",
           "https://roofxincfl.com/areas-we-serve/oviedo/",
-          "https://roofxincfl.com/areas-we-serve/celebration/",
-          "https://roofxincfl.com/areas-we-serve/dr-phillips/"
+          "https://roofxincfl.com/areas-we-serve/celebration/"
         ],
         "new_pages_to_add": [
           "Contact (Dedicated Page)",
@@ -2074,7 +2073,8 @@
         "Reduce fields.",
         "Fix handler.",
         "Increase padding.",
-        "Increase to 16px."
+        "Increase to 16px.",
+        "Optimize assets."
       ],
       "conversion_strategy": []
     }
@@ -2085,7 +2085,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795597967460_8r61t",
+        "finding_id": "hash_10.4_1795684366469_0amav",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -2103,7 +2103,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.8_1795597970516_3xfd5",
+        "finding_id": "hash_10.8_1795684369502_0nkyd",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -2121,7 +2121,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598130483_0604l",
+        "finding_id": "hash_3.2_1795684529036_9hnig",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2139,7 +2139,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598130483_lpl8z",
+        "finding_id": "hash_3.2_1795684529036_wiad6",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2157,7 +2157,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598130483_6r9y4",
+        "finding_id": "hash_4.1_1795684529036_34uqw",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -2175,7 +2175,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795598130483_sc9l1",
+        "finding_id": "hash_5.2_1795684529036_53zux",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -2193,7 +2193,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795598130483_wvjw1",
+        "finding_id": "hash_6.1_1795684529036_fjxm5",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -2211,7 +2211,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795598130483_uv91y",
+        "finding_id": "hash_10.6_1795684529036_nmgrc",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -2272,9 +2272,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 15272,
+      "lcp": 15152,
       "cls": 0.00723111505485887,
-      "fcp": 2892
+      "fcp": 2792
     },
     "redesign_blueprint": {
       "url": "https://jenkinsroofingtampa.com/",
@@ -2340,7 +2340,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795598166779_p5lyn",
+        "finding_id": "hash_1.2_1795684563386_bbmpk",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -2358,7 +2358,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795598166779_krtu4",
+        "finding_id": "hash_2.2_1795684563386_gxytb",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -2376,7 +2376,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.1_1795598166779_iiybm",
+        "finding_id": "hash_2.1_1795684563386_p9thm",
         "check_id": "2.1",
         "status": "fail",
         "scope": "page",
@@ -2394,7 +2394,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598166779_j751s",
+        "finding_id": "hash_3.2_1795684563386_rlpp5",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2412,7 +2412,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598166779_ya2gg",
+        "finding_id": "hash_3.2_1795684563386_xjgo3",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2430,7 +2430,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795598166779_wwjqx",
+        "finding_id": "hash_5.2_1795684563386_nrxp1",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -2522,7 +2522,7 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1848,
+      "lcp": 2408,
       "cls": 0.0006265597044847461,
       "fcp": 800
     },
@@ -2615,7 +2615,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795598227977_6a9gk",
+        "finding_id": "hash_10.8_1795684608189_oafyh",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -2633,7 +2633,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795598298238_ok3r7",
+        "finding_id": "hash_1.2_1795684680564_4uy0r",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -2651,7 +2651,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598298238_7sffg",
+        "finding_id": "hash_3.2_1795684680564_9rw7x",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2669,7 +2669,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598298238_wbpap",
+        "finding_id": "hash_3.2_1795684680564_a3zj2",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2687,7 +2687,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598298238_z8ml7",
+        "finding_id": "hash_4.1_1795684680564_59g7r",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -2705,7 +2705,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795598298238_08jy4",
+        "finding_id": "hash_5.2_1795684680564_67cdb",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -2797,9 +2797,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 11268,
+      "lcp": 11280,
       "cls": 0.010467078630136512,
-      "fcp": 4224
+      "fcp": 4324
     },
     "redesign_blueprint": {
       "url": "https://flsroof.com/residential-roofing/tampa-fl/",
@@ -2892,7 +2892,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795598313534_3fvgu",
+        "finding_id": "hash_10.4_1795684694443_w77su",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -2910,7 +2910,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.3_1795598353376_y10p8",
+        "finding_id": "hash_1.3_1795684734441_ph6dy",
         "check_id": "1.3",
         "status": "fail",
         "scope": "page",
@@ -2928,7 +2928,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795598353376_012l5",
+        "finding_id": "hash_2.2_1795684734441_z1on6",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -2946,7 +2946,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.1_1795598353376_wp5la",
+        "finding_id": "hash_2.1_1795684734441_9p8oa",
         "check_id": "2.1",
         "status": "fail",
         "scope": "page",
@@ -2964,7 +2964,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598353376_rwj1s",
+        "finding_id": "hash_3.2_1795684734441_prwjr",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -2982,7 +2982,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598353376_nhh9r",
+        "finding_id": "hash_3.2_1795684734441_zyvvs",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3000,7 +3000,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598353376_bhzwz",
+        "finding_id": "hash_4.1_1795684734441_oimhx",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -3018,7 +3018,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795598353376_9b2lq",
+        "finding_id": "hash_5.2_1795684734441_3ihd5",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -3059,9 +3059,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 8632,
+      "lcp": 6884,
       "cls": 0.0010346581371460256,
-      "fcp": 8556
+      "fcp": 6808
     },
     "redesign_blueprint": {
       "url": "https://www.guildquality.com/find/roofers/tampa-fl",
@@ -3105,7 +3105,7 @@
     "priorityScore": 25,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795598394819_xgixa",
+        "finding_id": "hash_10.8_1795684776247_i28si",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -3123,7 +3123,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598417250_n1ytz",
+        "finding_id": "hash_3.2_1795684801845_p21cd",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3141,7 +3141,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598417250_w07dj",
+        "finding_id": "hash_3.2_1795684801845_nj9sl",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3159,7 +3159,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598417250_7em8t",
+        "finding_id": "hash_4.1_1795684801845_4utmd",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -3177,7 +3177,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795598417250_x1jct",
+        "finding_id": "hash_6.1_1795684801845_qkf82",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -3211,8 +3211,12 @@
       "email": "info@steadfastroofingfl.com"
     },
     "site_management_status": "actively_managed",
-    "total_urls_found": 637,
+    "total_urls_found": 646,
     "existing_pages": [
+      "https://steadfastroofingfl.com/blog/roof-cleaning-methods-that-actually-work-expert-guide-for-homeowners/",
+      "https://steadfastroofingfl.com/blog/insights-into-roofing-companies-insurance-partnerships/",
+      "https://steadfastroofingfl.com/blog/expected-lifespan-of-modified-bitumen-roofing-systems/",
+      "https://steadfastroofingfl.com/blog/when-to-replace-roof-decking-guidelines-and-frequency/",
       "https://steadfastroofingfl.com/blog/what-to-know-about-roofing-permits-and-codes-in-florida/",
       "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
       "https://steadfastroofingfl.com/blog/techadores-en-espanol-tampa-bay/",
@@ -3258,20 +3262,16 @@
       "https://steadfastroofingfl.com/blog/is-a-flat-roof-the-best-choice-for-your-property/",
       "https://steadfastroofingfl.com/blog/best-roof-colors-for-optimal-home-cooling-in-florida/",
       "https://steadfastroofingfl.com/blog/choosing-the-best-roof-type-for-your-beach-or-coastal-home/",
-      "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/",
-      "https://steadfastroofingfl.com/blog/comprehensive-guide-to-the-roofing-construction-process/",
-      "https://steadfastroofingfl.com/blog/why-butterfly-roofs-are-ideal-for-floridas-rainy-seasons/",
-      "https://steadfastroofingfl.com/blog/tpo-vs-epdm-comparing-commercial-roofing-materials/",
-      "https://steadfastroofingfl.com/blog/assessing-the-value-of-spanish-tile-roofs-in-florida/"
+      "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/"
     ],
     "semantic_scores": {
       "clarity_score": null,
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3588,
-      "cls": 0.009247970311043073,
-      "fcp": 912
+      "lcp": 3580,
+      "cls": 0.012951969079414554,
+      "fcp": 916
     },
     "redesign_blueprint": {
       "url": "https://steadfastroofingfl.com/roofing/tampa/",
@@ -3289,6 +3289,10 @@
       },
       "site_architecture": {
         "pages_to_keep": [
+          "https://steadfastroofingfl.com/blog/roof-cleaning-methods-that-actually-work-expert-guide-for-homeowners/",
+          "https://steadfastroofingfl.com/blog/insights-into-roofing-companies-insurance-partnerships/",
+          "https://steadfastroofingfl.com/blog/expected-lifespan-of-modified-bitumen-roofing-systems/",
+          "https://steadfastroofingfl.com/blog/when-to-replace-roof-decking-guidelines-and-frequency/",
           "https://steadfastroofingfl.com/blog/what-to-know-about-roofing-permits-and-codes-in-florida/",
           "https://steadfastroofingfl.com/blog/top-5-best-rated-roofers-in-tampa-fl/",
           "https://steadfastroofingfl.com/blog/techadores-en-espanol-tampa-bay/",
@@ -3334,11 +3338,7 @@
           "https://steadfastroofingfl.com/blog/is-a-flat-roof-the-best-choice-for-your-property/",
           "https://steadfastroofingfl.com/blog/best-roof-colors-for-optimal-home-cooling-in-florida/",
           "https://steadfastroofingfl.com/blog/choosing-the-best-roof-type-for-your-beach-or-coastal-home/",
-          "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/",
-          "https://steadfastroofingfl.com/blog/comprehensive-guide-to-the-roofing-construction-process/",
-          "https://steadfastroofingfl.com/blog/why-butterfly-roofs-are-ideal-for-floridas-rainy-seasons/",
-          "https://steadfastroofingfl.com/blog/tpo-vs-epdm-comparing-commercial-roofing-materials/",
-          "https://steadfastroofingfl.com/blog/assessing-the-value-of-spanish-tile-roofs-in-florida/"
+          "https://steadfastroofingfl.com/blog/strategies-to-prevent-moss-on-roofs-in-ruskin/"
         ],
         "new_pages_to_add": [
           "Contact (Dedicated Page)",
@@ -3363,7 +3363,7 @@
     "priorityScore": 40,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795598435698_31iku",
+        "finding_id": "hash_1.2_1795684819538_vvtzi",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -3381,7 +3381,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795598435698_qjjt7",
+        "finding_id": "hash_10.1_1795684819538_ll5bq",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -3399,7 +3399,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598435698_5nq0h",
+        "finding_id": "hash_3.2_1795684819538_o6y6g",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3491,9 +3491,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 340,
-      "cls": 0.04376459985175535,
-      "fcp": 296
+      "lcp": 356,
+      "cls": 0.04418212105609626,
+      "fcp": 320
     },
     "redesign_blueprint": {
       "url": "https://tacticalroofingcompany.com/",
@@ -3583,7 +3583,7 @@
     "priorityScore": 10,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795598559496_b99py",
+        "finding_id": "hash_1.2_1795684944306_dimg6",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -3601,7 +3601,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.1_1795598559496_u5pej",
+        "finding_id": "hash_3.1_1795684944306_pyxlw",
         "check_id": "3.1",
         "status": "fail",
         "scope": "page",
@@ -3619,7 +3619,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598559496_kforl",
+        "finding_id": "hash_3.2_1795684944306_o5l97",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3637,7 +3637,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598559496_qq3fi",
+        "finding_id": "hash_3.2_1795684944306_mpyck",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3655,7 +3655,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598559496_qjfgo",
+        "finding_id": "hash_4.1_1795684944306_u4bjr",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -3747,9 +3747,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 11768,
+      "lcp": 11628,
       "cls": 0.1180931902490268,
-      "fcp": 1728
+      "fcp": 1636
     },
     "redesign_blueprint": {
       "url": "https://janneyroofing.com/tampa/roofing-company/",
@@ -3839,7 +3839,7 @@
     "priorityScore": 10,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795598603902_my6t6",
+        "finding_id": "hash_10.8_1795684986963_znwk0",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -3857,7 +3857,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795598679899_et527",
+        "finding_id": "hash_1.2_1795685062478_thj09",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -3875,7 +3875,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795598679899_s6cvx",
+        "finding_id": "hash_2.2_1795685062478_fkivs",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -3893,7 +3893,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598679899_djfng",
+        "finding_id": "hash_3.2_1795685062478_bkoa9",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3911,7 +3911,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598679899_ltx31",
+        "finding_id": "hash_3.2_1795685062478_o0bgp",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -3929,7 +3929,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598679899_m9t7w",
+        "finding_id": "hash_4.1_1795685062478_pcvun",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -4021,9 +4021,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 12984,
-      "cls": 0.08455462231630537,
-      "fcp": 6320
+      "lcp": 12996,
+      "cls": 0.08291884499082543,
+      "fcp": 6172
     },
     "redesign_blueprint": {
       "url": "https://rigroofing.com/service-area/hillsborough-county/tampa",
@@ -4116,7 +4116,7 @@
     "priorityScore": 10,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795598717578_v7qzz",
+        "finding_id": "hash_10.4_1795685099159_b2icd",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -4134,7 +4134,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795598800848_b000g",
+        "finding_id": "hash_2.2_1795685182033_vf4a7",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -4152,7 +4152,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598800848_lkeb3",
+        "finding_id": "hash_3.2_1795685182033_6ysgi",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4170,7 +4170,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598800848_khoc4",
+        "finding_id": "hash_3.2_1795685182033_c7sv7",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4188,7 +4188,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598800848_b9tto",
+        "finding_id": "hash_4.1_1795685182033_vidtv",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -4206,7 +4206,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795598800848_px5vb",
+        "finding_id": "hash_10.6_1795685182033_57y61",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -4298,9 +4298,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3060,
+      "lcp": 2980,
       "cls": 0.022832915495366923,
-      "fcp": 2964
+      "fcp": 2868
     },
     "redesign_blueprint": {
       "url": "https://www.tcrfg.com/tampa",
@@ -4389,12 +4389,12 @@
     }
   },
   {
-    "url": "https://www.varsityzone.com/tampa-fl/",
-    "title": "Heating & Cooling Services in Tampa, FL | Varsity Zone HVAC of Tampa",
-    "priorityScore": 10,
+    "url": "https://www.airmasters.net/",
+    "title": "AC Services in Tampa | 24/7 HVAC Repairs | Air Masters of Tampa Bay",
+    "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795598810196_4ijc5",
+        "finding_id": "hash_10.4_1795685218468_yzpml",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -4412,25 +4412,43 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795598873296_tafaj",
-        "check_id": "10.1",
+        "finding_id": "hash_2.2_1795685228790_q8wc2",
+        "check_id": "2.2",
         "status": "fail",
         "scope": "page",
         "url": "",
         "page_role": "homepage",
-        "observation": "No contact form",
+        "observation": "High form friction",
         "test_method": "Playwright 390x844",
-        "evidence_grade": "A",
+        "evidence_grade": "B",
         "fix_category": "maintenance",
         "effort_hours": 1,
-        "customer_impact": "Lose after-hours leads.",
+        "customer_impact": "Users abandon form.",
         "blocked_action": "User cannot convert",
-        "recommended_fix": "Add form.",
+        "recommended_fix": "Reduce fields.",
         "verification_method": "Re-run audit",
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598873296_3augi",
+        "finding_id": "hash_3.1_1795685228790_gxo20",
+        "check_id": "3.1",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Mobile layout broken",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "A",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Requires horizontal scroll.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Fix CSS.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      },
+      {
+        "finding_id": "hash_3.2_1795685228790_6wmt0",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4448,7 +4466,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598873296_ysha8",
+        "finding_id": "hash_3.2_1795685228790_796wv",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4466,7 +4484,164 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598873296_8cujq",
+        "finding_id": "hash_5.2_1795685228790_cm4jh",
+        "check_id": "5.2",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "No schema",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "C",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Search engines struggle.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Add JSON-LD.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      }
+    ],
+    "status": "scored",
+    "crawl_diagnostics": {
+      "http_status": 200,
+      "waf_blocked": false,
+      "ssl_error": false,
+      "dead_site": false
+    },
+    "brand_data": {
+      "primaryColor": "rgb(237, 28, 36)",
+      "headingFont": "Rubik, sans-serif",
+      "bodyFont": "Ubuntu, sans-serif",
+      "logoUrl": "https://www.airmasters.net/images/logos/logo-lg.png.2511040859582.webp",
+      "phone": "(813) 670-8860",
+      "email": null
+    },
+    "site_management_status": "unknown",
+    "total_urls_found": 0,
+    "existing_pages": [],
+    "semantic_scores": {
+      "clarity_score": null,
+      "trust_signals": null
+    },
+    "technical_metrics": {
+      "lcp": 2048.875,
+      "cls": 0.0011353490487635049,
+      "fcp": 2048.875
+    },
+    "redesign_blueprint": {
+      "url": "https://www.airmasters.net/",
+      "title": "AC Services in Tampa | 24/7 HVAC Repairs | Air Masters of Tampa Bay",
+      "priority_score": 0,
+      "brand_assets": {
+        "logo": "https://www.airmasters.net/images/logos/logo-lg.png.2511040859582.webp",
+        "fonts": [
+          "Rubik, sans-serif",
+          "Ubuntu, sans-serif"
+        ],
+        "primary_color": "rgb(237, 28, 36)",
+        "phone": "(813) 670-8860",
+        "email": "Add email"
+      },
+      "site_architecture": {
+        "pages_to_keep": [],
+        "new_pages_to_add": [
+          "Contact (Dedicated Page)",
+          "Services (Hub Page)"
+        ]
+      },
+      "technical_fixes": [
+        "Add a pricing page.",
+        "Reduce fields.",
+        "Fix CSS.",
+        "Increase padding.",
+        "Increase to 16px.",
+        "Add JSON-LD."
+      ],
+      "conversion_strategy": [
+        "Users leave to find pricing."
+      ]
+    }
+  },
+  {
+    "url": "https://www.varsityzone.com/tampa-fl/",
+    "title": "Heating & Cooling Services in Tampa, FL | Varsity Zone HVAC of Tampa",
+    "priorityScore": 10,
+    "findings": [
+      {
+        "finding_id": "hash_10.4_1795685236578_ll44i",
+        "check_id": "10.4",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "No cost page",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Users leave to find pricing.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Add a pricing page.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      },
+      {
+        "finding_id": "hash_10.1_1795685299772_6xt3c",
+        "check_id": "10.1",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "No contact form",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "A",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Lose after-hours leads.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Add form.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      },
+      {
+        "finding_id": "hash_3.2_1795685299772_h8eb7",
+        "check_id": "3.2",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Small tap targets",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Hard to tap.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Increase padding.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      },
+      {
+        "finding_id": "hash_3.2_1795685299772_bd80s",
+        "check_id": "3.2",
+        "status": "fail",
+        "scope": "page",
+        "url": "",
+        "page_role": "homepage",
+        "observation": "Small fonts",
+        "test_method": "Playwright 390x844",
+        "evidence_grade": "B",
+        "fix_category": "maintenance",
+        "effort_hours": 1,
+        "customer_impact": "Unreadable on phone.",
+        "blocked_action": "User cannot convert",
+        "recommended_fix": "Increase to 16px.",
+        "verification_method": "Re-run audit",
+        "financial_tier": "none"
+      },
+      {
+        "finding_id": "hash_4.1_1795685299772_pui89",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -4507,9 +4682,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 2720,
+      "lcp": 2696,
       "cls": 0.08208035936944767,
-      "fcp": 2720
+      "fcp": 2696
     },
     "redesign_blueprint": {
       "url": "https://www.varsityzone.com/tampa-fl/",
@@ -4551,7 +4726,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795598915356_nuit0",
+        "finding_id": "hash_10.8_1795685341792_6tsaf",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -4569,7 +4744,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795598930873_nnou6",
+        "finding_id": "hash_1.2_1795685357583_q1ayb",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -4587,7 +4762,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598930873_awgjq",
+        "finding_id": "hash_3.2_1795685357583_8nqc0",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4605,7 +4780,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795598930873_6rlzn",
+        "finding_id": "hash_3.2_1795685357583_21dnr",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4623,7 +4798,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795598930873_9ocg1",
+        "finding_id": "hash_4.1_1795685357583_p0143",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -4641,7 +4816,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795598930873_dq71s",
+        "finding_id": "hash_5.2_1795685357583_4j2ua",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -4659,7 +4834,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.3_1795598930873_f20lc",
+        "finding_id": "hash_10.3_1795685357583_mmnwn",
         "check_id": "10.3",
         "status": "fail",
         "scope": "page",
@@ -4693,7 +4868,7 @@
       "email": null
     },
     "site_management_status": "actively_managed",
-    "total_urls_found": 11297,
+    "total_urls_found": 11312,
     "existing_pages": [
       "https://www.consumeraffairs.com/awards/",
       "https://www.consumeraffairs.com/awards/extended-car-warranties/",
@@ -4751,9 +4926,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 2892,
+      "lcp": 3052,
       "cls": 0,
-      "fcp": 2892
+      "fcp": 3052
     },
     "redesign_blueprint": {
       "url": "https://www.consumeraffairs.com/homeowners/hvac-companies-tampa.html",
@@ -4848,7 +5023,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795598979692_dgo6b",
+        "finding_id": "hash_10.8_1795685402085_vzx69",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -4866,7 +5041,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795599007324_ciji9",
+        "finding_id": "hash_1.2_1795685429637_yu3ja",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -4884,7 +5059,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599007324_vv29v",
+        "finding_id": "hash_3.2_1795685429637_mjpbt",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4902,7 +5077,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599007324_2624f",
+        "finding_id": "hash_3.2_1795685429637_dqb5e",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -4920,7 +5095,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599007324_qi5dr",
+        "finding_id": "hash_4.1_1795685429637_hkbvu",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -4938,7 +5113,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599007324_sucyp",
+        "finding_id": "hash_5.2_1795685429637_vwzlp",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -4967,7 +5142,7 @@
       "primaryColor": "transparent",
       "headingFont": "Goldman",
       "bodyFont": "Inter, Arial, sans-serif",
-      "logoUrl": "https://mechanicalone.com/wp-content/uploads/2024/06/mechanicalone_logo.svg",
+      "logoUrl": "https://mechanicalone.com/nitropack_static/rMQZBAyKTOdsFNmWEBzHLjOsnWZQRUpE/assets/images/optimized/rev-3cad892/mechanicalone.com/wp-content/uploads/2024/06/M1-favicon-100x100.png",
       "phone": "(407) 404-4000",
       "email": "info@mechanicalone.com"
     },
@@ -5030,16 +5205,16 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3616,
+      "lcp": 3372,
       "cls": 0.24120138255664716,
-      "fcp": 1164
+      "fcp": 1144
     },
     "redesign_blueprint": {
       "url": "https://mechanicalone.com/locations/tampa-fl/",
       "title": "Tampa HVAC Company: AC, Plumbing, Gas, Electric",
       "priority_score": 15,
       "brand_assets": {
-        "logo": "https://mechanicalone.com/wp-content/uploads/2024/06/mechanicalone_logo.svg",
+        "logo": "https://mechanicalone.com/nitropack_static/rMQZBAyKTOdsFNmWEBzHLjOsnWZQRUpE/assets/images/optimized/rev-3cad892/mechanicalone.com/wp-content/uploads/2024/06/M1-favicon-100x100.png",
         "fonts": [
           "Goldman",
           "Inter, Arial, sans-serif"
@@ -5125,7 +5300,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795599068292_i094r",
+        "finding_id": "hash_10.1_1795685488986_moet2",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -5143,7 +5318,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.1_1795599068292_tjzhk",
+        "finding_id": "hash_3.1_1795685488986_9br36",
         "check_id": "3.1",
         "status": "fail",
         "scope": "page",
@@ -5161,7 +5336,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599068292_gcn6g",
+        "finding_id": "hash_3.2_1795685488986_cwe85",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5179,7 +5354,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599068292_zzvva",
+        "finding_id": "hash_3.2_1795685488986_3z3sz",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5197,7 +5372,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599068292_9j0wr",
+        "finding_id": "hash_4.1_1795685488986_fljfu",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -5215,7 +5390,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599068292_vyl9i",
+        "finding_id": "hash_5.2_1795685488986_izmn2",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -5307,9 +5482,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 14048,
+      "lcp": 13968,
       "cls": 0.0073500318777828255,
-      "fcp": 2416
+      "fcp": 2308
     },
     "redesign_blueprint": {
       "url": "https://koolgatorhvac.com/blog/7-best-hvac-companies-in-tampa-fl/",
@@ -5402,7 +5577,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795599140699_9rst0",
+        "finding_id": "hash_10.1_1795685559119_n27al",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -5420,7 +5595,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599140699_0g4bb",
+        "finding_id": "hash_3.2_1795685559119_5sxx0",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5438,7 +5613,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599140699_1br1g",
+        "finding_id": "hash_3.2_1795685559119_dt3m0",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5456,7 +5631,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599140699_f43y7",
+        "finding_id": "hash_4.1_1795685559119_ww4n7",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -5474,7 +5649,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599140699_1gh6s",
+        "finding_id": "hash_5.2_1795685559119_q3h6a",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -5566,9 +5741,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 2920,
+      "lcp": 2924,
       "cls": 0,
-      "fcp": 1636
+      "fcp": 1608
     },
     "redesign_blueprint": {
       "url": "https://www.flairhvac.com/",
@@ -5660,7 +5835,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795599180169_4izsp",
+        "finding_id": "hash_10.4_1795685596176_adrdc",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -5678,7 +5853,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599201129_g9945",
+        "finding_id": "hash_3.2_1795685611238_g0tso",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5696,7 +5871,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599201129_3jesh",
+        "finding_id": "hash_3.2_1795685611238_5dq80",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5714,7 +5889,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599201129_xlywr",
+        "finding_id": "hash_4.1_1795685611238_m0x1e",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -5732,7 +5907,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599201129_7ndzh",
+        "finding_id": "hash_5.2_1795685611238_yw2ko",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -5750,7 +5925,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795599201129_yuof1",
+        "finding_id": "hash_6.1_1795685611238_96e7d",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -5791,9 +5966,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 5920,
+      "lcp": 3948,
       "cls": 0.06709140770647559,
-      "fcp": 2160
+      "fcp": 2120
     },
     "redesign_blueprint": {
       "url": "https://www.hawkinsserviceco.com/hvac/",
@@ -5835,7 +6010,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795599208466_ww4ch",
+        "finding_id": "hash_10.4_1795685618606_thhgo",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -5853,7 +6028,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795599253304_ykkvm",
+        "finding_id": "hash_10.1_1795685662479_76jkg",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -5871,7 +6046,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599253304_xkxjb",
+        "finding_id": "hash_3.2_1795685662479_ncspv",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5889,7 +6064,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599253304_0w874",
+        "finding_id": "hash_3.2_1795685662479_beac2",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -5907,7 +6082,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599253304_21q15",
+        "finding_id": "hash_4.1_1795685662479_38nra",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -5925,7 +6100,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599253304_2ixaq",
+        "finding_id": "hash_5.2_1795685662479_hp1l8",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -5966,9 +6141,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 4960,
+      "lcp": 4420,
       "cls": 0.0001814807062743079,
-      "fcp": 2440
+      "fcp": 1988
     },
     "redesign_blueprint": {
       "url": "https://ackenny.com/",
@@ -6011,7 +6186,7 @@
     "priorityScore": 30,
     "findings": [
       {
-        "finding_id": "hash_2.2_1795599342779_z94np",
+        "finding_id": "hash_2.2_1795685750325_27eoj",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -6029,7 +6204,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599342779_6tpl4",
+        "finding_id": "hash_3.2_1795685750325_lu8u2",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -6047,7 +6222,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599342779_wubg2",
+        "finding_id": "hash_3.2_1795685750325_pg3mw",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -6065,7 +6240,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599342779_2z04y",
+        "finding_id": "hash_4.1_1795685750325_0fkxt",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -6083,7 +6258,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599342779_azhi8",
+        "finding_id": "hash_5.2_1795685750325_eaw2l",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -6175,9 +6350,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 14172,
+      "lcp": 13596,
       "cls": 0,
-      "fcp": 2128
+      "fcp": 2032
     },
     "redesign_blueprint": {
       "url": "https://3hac.com/",
@@ -6262,168 +6437,12 @@
     }
   },
   {
-    "url": "https://www.delair.com/tampa/",
-    "title": "Tampa HVAC, Plumbing & Electrical | Del-Air",
-    "priorityScore": 10,
-    "findings": [
-      {
-        "finding_id": "hash_10.4_1795599353095_hw3ab",
-        "check_id": "10.4",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "No cost page",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "B",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Users leave to find pricing.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Add a pricing page.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      },
-      {
-        "finding_id": "hash_2.2_1795599363424_kqdaw",
-        "check_id": "2.2",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "High form friction",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "B",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Users abandon form.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Reduce fields.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      },
-      {
-        "finding_id": "hash_3.1_1795599363424_pyb0k",
-        "check_id": "3.1",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "Mobile layout broken",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "A",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Requires horizontal scroll.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Fix CSS.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      },
-      {
-        "finding_id": "hash_3.2_1795599363424_iprrt",
-        "check_id": "3.2",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "Small tap targets",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "B",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Hard to tap.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Increase padding.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      },
-      {
-        "finding_id": "hash_3.2_1795599363424_j9rtg",
-        "check_id": "3.2",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "Small fonts",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "B",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Unreadable on phone.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Increase to 16px.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      }
-    ],
-    "status": "scored",
-    "crawl_diagnostics": {
-      "http_status": 200,
-      "waf_blocked": false,
-      "ssl_error": false,
-      "dead_site": false
-    },
-    "brand_data": {
-      "primaryColor": "rgb(95, 199, 245)",
-      "headingFont": "Prompt, sans-serif",
-      "bodyFont": "\"Open Sans\", sans-serif",
-      "logoUrl": "https://www.delair.com/images/brand/logo-dark.2511061515446.png",
-      "phone": "(656) 218-4606",
-      "email": null
-    },
-    "site_management_status": "unknown",
-    "total_urls_found": 0,
-    "existing_pages": [],
-    "semantic_scores": {
-      "clarity_score": null,
-      "trust_signals": null
-    },
-    "technical_metrics": {
-      "lcp": 2025.5400000000373,
-      "cls": 0.0004887764719501427,
-      "fcp": 2025.5400000000373
-    },
-    "redesign_blueprint": {
-      "url": "https://www.delair.com/tampa/",
-      "title": "Tampa HVAC, Plumbing & Electrical | Del-Air",
-      "priority_score": 10,
-      "brand_assets": {
-        "logo": "https://www.delair.com/images/brand/logo-dark.2511061515446.png",
-        "fonts": [
-          "Prompt, sans-serif",
-          "\"Open Sans\", sans-serif"
-        ],
-        "primary_color": "rgb(95, 199, 245)",
-        "phone": "(656) 218-4606",
-        "email": "Add email"
-      },
-      "site_architecture": {
-        "pages_to_keep": [],
-        "new_pages_to_add": [
-          "Contact (Dedicated Page)",
-          "Services (Hub Page)"
-        ]
-      },
-      "technical_fixes": [
-        "Add a pricing page.",
-        "Reduce fields.",
-        "Fix CSS.",
-        "Increase padding.",
-        "Increase to 16px."
-      ],
-      "conversion_strategy": [
-        "Users leave to find pricing."
-      ]
-    }
-  },
-  {
     "url": "https://www.onehourheatandair.com/tampa/",
     "title": "HVAC Repair Near Me | AC Repair in Tampa, FL | One Hour® of Tampa",
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_3.1_1795599447068_kibax",
+        "finding_id": "hash_3.1_1795685832591_v06o3",
         "check_id": "3.1",
         "status": "fail",
         "scope": "page",
@@ -6441,7 +6460,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599447068_g6u38",
+        "finding_id": "hash_3.2_1795685832591_2dkkt",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -6459,7 +6478,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599447068_o9tdc",
+        "finding_id": "hash_3.2_1795685832591_utlny",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -6477,7 +6496,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599447068_dclsm",
+        "finding_id": "hash_4.1_1795685832591_8sr7l",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -6495,7 +6514,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599447068_to5qz",
+        "finding_id": "hash_5.2_1795685832591_icd0j",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -6529,7 +6548,7 @@
       "email": null
     },
     "site_management_status": "actively_managed",
-    "total_urls_found": 6090,
+    "total_urls_found": 6123,
     "existing_pages": [
       "https://www.onehourheatandair.com/",
       "https://www.onehourheatandair.com/about-us/",
@@ -6587,9 +6606,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3896,
-      "cls": 0.11594415460190136,
-      "fcp": 1164
+      "lcp": 3848,
+      "cls": 0.11135584522441946,
+      "fcp": 1188
     },
     "redesign_blueprint": {
       "url": "https://www.onehourheatandair.com/tampa/",
@@ -6679,7 +6698,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795599536673_fqlbk",
+        "finding_id": "hash_10.1_1795685928112_hogr3",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -6697,7 +6716,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599536673_yphgv",
+        "finding_id": "hash_3.2_1795685928112_mex5k",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -6715,7 +6734,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599536673_ids1d",
+        "finding_id": "hash_3.2_1795685928112_58mlh",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -6733,7 +6752,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599536673_7y4ew",
+        "finding_id": "hash_4.1_1795685928112_zr7qm",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -6751,7 +6770,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599536673_ncqzk",
+        "finding_id": "hash_5.2_1795685928112_43mvy",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -6769,7 +6788,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795599536673_x1u3b",
+        "finding_id": "hash_6.1_1795685928112_k884c",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -6787,7 +6806,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795599536673_a3msj",
+        "finding_id": "hash_10.6_1795685928112_ma5uj",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -6879,9 +6898,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 5316,
+      "lcp": 7412,
       "cls": 0,
-      "fcp": 5228
+      "fcp": 7392
     },
     "redesign_blueprint": {
       "url": "https://www.marlinjames.com/tampa-fl/",
@@ -6976,7 +6995,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795599547332_7fb4u",
+        "finding_id": "hash_10.8_1795685938524_qomdi",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -6994,7 +7013,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795599557175_38amv",
+        "finding_id": "hash_10.1_1795685948298_ygop4",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -7012,7 +7031,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599557175_4j2id",
+        "finding_id": "hash_3.2_1795685948298_58kab",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7030,7 +7049,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599557175_7i941",
+        "finding_id": "hash_3.2_1795685948298_vfb9o",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7048,7 +7067,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599557175_a11de",
+        "finding_id": "hash_5.2_1795685948298_p0jl0",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -7140,9 +7159,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1308,
-      "cls": 0.017275794301566935,
-      "fcp": 1308
+      "lcp": 1296,
+      "cls": 0.017275676582380634,
+      "fcp": 1296
     },
     "redesign_blueprint": {
       "url": "https://www.flhvacteam.com/",
@@ -7235,7 +7254,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795599595492_01irp",
+        "finding_id": "hash_10.4_1795685984259_fvlwc",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -7253,7 +7272,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599683402_7op5y",
+        "finding_id": "hash_3.2_1795686072115_df5k5",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7271,7 +7290,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599683402_uz64n",
+        "finding_id": "hash_3.2_1795686072115_yiol1",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7289,7 +7308,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599683402_tatcp",
+        "finding_id": "hash_4.1_1795686072115_fd9cv",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -7307,7 +7326,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599683402_3bqu9",
+        "finding_id": "hash_5.2_1795686072115_v2ph3",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -7325,7 +7344,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795599683402_hy7lx",
+        "finding_id": "hash_10.6_1795686072115_2o3ke",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -7366,9 +7385,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 2616,
+      "lcp": 2608,
       "cls": 0.0768132230274218,
-      "fcp": 2076
+      "fcp": 2204
     },
     "redesign_blueprint": {
       "url": "https://www.trane.com/residential/en/find-a-dealer/florida/tampa/",
@@ -7411,7 +7430,7 @@
     "priorityScore": 30,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795599765185_jklt4",
+        "finding_id": "hash_10.1_1795686152225_p4z8b",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -7429,7 +7448,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599765185_go14s",
+        "finding_id": "hash_3.2_1795686152225_4vela",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7447,7 +7466,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599765185_ghxpo",
+        "finding_id": "hash_4.1_1795686152225_sfafn",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -7465,7 +7484,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599765185_7tvwo",
+        "finding_id": "hash_5.2_1795686152225_80ibh",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -7557,9 +7576,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 8320,
-      "cls": 0.21489269626397856,
-      "fcp": 4156
+      "lcp": 4072,
+      "cls": 0.29577170668775443,
+      "fcp": 4072
     },
     "redesign_blueprint": {
       "url": "https://www.nuccioac.com/",
@@ -7650,7 +7669,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795599813040_707b5",
+        "finding_id": "hash_1.2_1795686199390_ck1fa",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -7668,7 +7687,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795599813040_t35v0",
+        "finding_id": "hash_10.1_1795686199390_is0ab",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -7686,7 +7705,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.1_1795599813040_t2wkq",
+        "finding_id": "hash_3.1_1795686199390_woiy0",
         "check_id": "3.1",
         "status": "fail",
         "scope": "page",
@@ -7704,7 +7723,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599813040_8bk2x",
+        "finding_id": "hash_5.2_1795686199390_low81",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -7796,9 +7815,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 2040,
+      "lcp": 2036,
       "cls": 0.09101318651699371,
-      "fcp": 1096
+      "fcp": 1100
     },
     "redesign_blueprint": {
       "url": "https://www.ars.com/tampa-bay",
@@ -7886,10 +7905,10 @@
   {
     "url": "https://airsupportnow.com/",
     "title": "HVAC Company | Tampa Florida | Air Support Cooling and Heating",
-    "priorityScore": 0,
+    "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795599897987_7ip3m",
+        "finding_id": "hash_1.2_1795686308450_ufprr",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -7907,7 +7926,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795599897987_hvneq",
+        "finding_id": "hash_2.2_1795686308450_bqf6v",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -7925,25 +7944,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.1_1795599897987_5uzth",
-        "check_id": "2.1",
-        "status": "fail",
-        "scope": "page",
-        "url": "",
-        "page_role": "homepage",
-        "observation": "Form UI fails",
-        "test_method": "Playwright 390x844",
-        "evidence_grade": "A",
-        "fix_category": "maintenance",
-        "effort_hours": 1,
-        "customer_impact": "Users think form failed.",
-        "blocked_action": "User cannot convert",
-        "recommended_fix": "Fix handler.",
-        "verification_method": "Re-run audit",
-        "financial_tier": "none"
-      },
-      {
-        "finding_id": "hash_3.2_1795599897987_wzlxp",
+        "finding_id": "hash_3.2_1795686308450_e7iqa",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7961,7 +7962,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599897987_0r4j0",
+        "finding_id": "hash_3.2_1795686308450_dan2q",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -7979,7 +7980,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795599897987_uqjmp",
+        "finding_id": "hash_4.1_1795686308450_hya2j",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -7997,7 +7998,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599897987_hncc5",
+        "finding_id": "hash_5.2_1795686308450_7e0ua",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -8088,14 +8089,14 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 3808,
-      "cls": 0.0887430399409253,
-      "fcp": 3764
+      "lcp": 3568,
+      "cls": 0.0005809424231304847,
+      "fcp": 3468
     },
     "redesign_blueprint": {
       "url": "https://airsupportnow.com/",
       "title": "HVAC Company | Tampa Florida | Air Support Cooling and Heating",
-      "priority_score": 0,
+      "priority_score": 15,
       "brand_assets": {
         "logo": "https://airsupportnow.com/wp-content/uploads/2024/05/Air-Support-Cooling-and-Heating-LLC.webp",
         "fonts": [
@@ -8166,7 +8167,6 @@
       "technical_fixes": [
         "Add CTA.",
         "Reduce fields.",
-        "Fix handler.",
         "Increase padding.",
         "Increase to 16px.",
         "Optimize assets.",
@@ -8181,7 +8181,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795599904625_pcwuc",
+        "finding_id": "hash_10.4_1795686314274_4vvzn",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -8199,7 +8199,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795599909567_n8oiv",
+        "finding_id": "hash_10.1_1795686319245_5m1or",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -8217,7 +8217,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599909567_712yk",
+        "finding_id": "hash_3.2_1795686319245_c6vql",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8235,7 +8235,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599909567_tzk1g",
+        "finding_id": "hash_3.2_1795686319245_hp4xb",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8253,7 +8253,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599909567_g6kbo",
+        "finding_id": "hash_5.2_1795686319245_5n4rq",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -8294,9 +8294,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 432,
+      "lcp": 428,
       "cls": 0,
-      "fcp": 432
+      "fcp": 428
     },
     "redesign_blueprint": {
       "url": "https://www.tampadental.com/",
@@ -8338,7 +8338,7 @@
     "priorityScore": 30,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795599950428_sdff4",
+        "finding_id": "hash_10.8_1795686360471_qyvf4",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -8356,7 +8356,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795599954254_i4n48",
+        "finding_id": "hash_1.2_1795686364324_ayjkv",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -8374,7 +8374,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599954254_4ac2v",
+        "finding_id": "hash_3.2_1795686364324_wl4om",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8392,7 +8392,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795599954254_et999",
+        "finding_id": "hash_3.2_1795686364324_pciig",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8410,7 +8410,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795599954254_luiz2",
+        "finding_id": "hash_5.2_1795686364324_q6vd0",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -8596,7 +8596,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795599990871_5vsvy",
+        "finding_id": "hash_10.4_1795686400589_7ghui",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -8614,7 +8614,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.8_1795599993065_kwzpa",
+        "finding_id": "hash_10.8_1795686402718_zc3z6",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -8632,7 +8632,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795600073190_w4qrb",
+        "finding_id": "hash_1.2_1795686479863_m00x6",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -8650,7 +8650,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.2_1795600073190_wqpqv",
+        "finding_id": "hash_2.2_1795686479863_gca6i",
         "check_id": "2.2",
         "status": "fail",
         "scope": "page",
@@ -8668,7 +8668,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600073190_3vo3r",
+        "finding_id": "hash_3.2_1795686479863_yge6j",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8686,7 +8686,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600073190_eqxk7",
+        "finding_id": "hash_3.2_1795686479863_nnne4",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8704,7 +8704,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795600073190_38yxu",
+        "finding_id": "hash_4.1_1795686479863_y5e76",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -8722,7 +8722,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600073190_5xpxv",
+        "finding_id": "hash_5.2_1795686479863_epht7",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -8812,9 +8812,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 824,
-      "cls": 0.17956375941719238,
-      "fcp": 824
+      "lcp": 664,
+      "cls": 0.17971964617568834,
+      "fcp": 664
     },
     "redesign_blueprint": {
       "url": "https://www.dentisttampa.com/",
@@ -8908,7 +8908,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795600079909_nhqkk",
+        "finding_id": "hash_10.4_1795686486378_dqwsm",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -8926,7 +8926,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795600127480_unvfm",
+        "finding_id": "hash_10.1_1795686534905_vvz9m",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -8944,7 +8944,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600127480_o2pxo",
+        "finding_id": "hash_3.2_1795686534905_dufty",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8962,7 +8962,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600127480_0d2ks",
+        "finding_id": "hash_3.2_1795686534905_xto87",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -8980,7 +8980,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795600127480_wm780",
+        "finding_id": "hash_4.1_1795686534905_jil5m",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -8998,7 +8998,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600127480_e4z7o",
+        "finding_id": "hash_5.2_1795686534905_dmxu1",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -9090,9 +9090,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 9244,
-      "cls": 0.0004653378785810672,
-      "fcp": 616
+      "lcp": 9628,
+      "cls": 0.08298876256861498,
+      "fcp": 716
     },
     "redesign_blueprint": {
       "url": "https://jacksondentaltampa.com/",
@@ -9186,7 +9186,7 @@
     "priorityScore": 30,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795600133966_wvf7i",
+        "finding_id": "hash_10.4_1795686541222_sa5ba",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -9204,7 +9204,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795600161087_ljo31",
+        "finding_id": "hash_10.1_1795686569259_o3wxu",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -9222,7 +9222,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600161087_kl42a",
+        "finding_id": "hash_3.2_1795686569259_kn2td",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -9240,7 +9240,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600161087_h8t9c",
+        "finding_id": "hash_5.2_1795686569259_mtyne",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -9332,9 +9332,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1872,
+      "lcp": 2012,
       "cls": 0.08942972690178187,
-      "fcp": 572
+      "fcp": 720
     },
     "redesign_blueprint": {
       "url": "https://southtampadentistry.com/",
@@ -9426,7 +9426,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795600175546_sdnh0",
+        "finding_id": "hash_1.2_1795686584406_vlmyo",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -9444,7 +9444,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_2.1_1795600175546_mwxhm",
+        "finding_id": "hash_2.1_1795686584406_6g7ki",
         "check_id": "2.1",
         "status": "fail",
         "scope": "page",
@@ -9462,7 +9462,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.1_1795600175546_me7u2",
+        "finding_id": "hash_3.1_1795686584406_8g944",
         "check_id": "3.1",
         "status": "fail",
         "scope": "page",
@@ -9480,7 +9480,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600175546_4u9ny",
+        "finding_id": "hash_5.2_1795686584406_gdeuu",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -9498,7 +9498,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795600175546_y7cty",
+        "finding_id": "hash_6.1_1795686584406_aiyox",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -9516,7 +9516,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.3_1795600175546_yuo00",
+        "finding_id": "hash_10.3_1795686584406_dlfio",
         "check_id": "10.3",
         "status": "fail",
         "scope": "page",
@@ -9594,9 +9594,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 236,
+      "lcp": 308,
       "cls": 0,
-      "fcp": 236
+      "fcp": 308
     },
     "redesign_blueprint": {
       "url": "https://northtampafamilydental.com/",
@@ -9675,7 +9675,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795600181032_66sgo",
+        "finding_id": "hash_10.4_1795686589806_pb4oj",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -9693,7 +9693,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795600273213_3l30u",
+        "finding_id": "hash_10.1_1795686681987_ua0vq",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -9711,7 +9711,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600273213_95wji",
+        "finding_id": "hash_3.2_1795686681987_v1x3u",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -9729,7 +9729,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600273213_5ii0u",
+        "finding_id": "hash_3.2_1795686681987_4bppt",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -9747,7 +9747,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795600273213_txiek",
+        "finding_id": "hash_4.1_1795686681987_hfxd7",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -9765,7 +9765,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600273213_e4zi4",
+        "finding_id": "hash_5.2_1795686681987_8o48w",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -9806,9 +9806,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 19120,
+      "lcp": 19304,
       "cls": 0.0024936947137701943,
-      "fcp": 884
+      "fcp": 892
     },
     "redesign_blueprint": {
       "url": "https://www.ismiletampa.com/",
@@ -9851,7 +9851,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.8_1795600284326_9r8me",
+        "finding_id": "hash_10.8_1795686692506_7j39c",
         "check_id": "10.8",
         "status": "fail",
         "scope": "page",
@@ -9869,7 +9869,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795600290628_bezk1",
+        "finding_id": "hash_10.1_1795686698916_zf48v",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -9887,7 +9887,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600290628_ms29u",
+        "finding_id": "hash_3.2_1795686698916_lnwho",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -9905,7 +9905,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600290628_vabbs",
+        "finding_id": "hash_3.2_1795686698916_hqrlx",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -9923,7 +9923,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600290628_c9fbo",
+        "finding_id": "hash_5.2_1795686698916_mxsvc",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -10110,7 +10110,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_1.2_1795600362214_92wo0",
+        "finding_id": "hash_1.2_1795686765268_6pljc",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -10128,7 +10128,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795600362214_vowm3",
+        "finding_id": "hash_10.1_1795686765268_9xwj4",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -10146,7 +10146,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600362214_sgpa4",
+        "finding_id": "hash_3.2_1795686765268_wauta",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10164,7 +10164,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600362214_9nx2n",
+        "finding_id": "hash_3.2_1795686765268_y4qxk",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10182,7 +10182,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600362214_9tu0k",
+        "finding_id": "hash_5.2_1795686765268_v67v4",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -10200,7 +10200,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795600362214_e8zsc",
+        "finding_id": "hash_10.6_1795686765268_a6tyo",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -10292,9 +10292,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1696,
+      "lcp": 1692,
       "cls": 0.022900886831207282,
-      "fcp": 1696
+      "fcp": 1692
     },
     "redesign_blueprint": {
       "url": "https://www.coastdental.com/dentist-office/dentist-tampa",
@@ -10388,7 +10388,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.1_1795600376557_6woe4",
+        "finding_id": "hash_10.1_1795686778249_16oq4",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -10406,7 +10406,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600376557_twrn8",
+        "finding_id": "hash_3.2_1795686778249_r9i4z",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10424,7 +10424,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600376557_73kry",
+        "finding_id": "hash_3.2_1795686778249_3cv81",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10442,7 +10442,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795600376557_uagx7",
+        "finding_id": "hash_4.1_1795686778249_i1o9i",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -10460,7 +10460,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600376557_spa9t",
+        "finding_id": "hash_5.2_1795686778249_yvwy3",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -10478,7 +10478,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_6.1_1795600376557_7t6h1",
+        "finding_id": "hash_6.1_1795686778249_j9lm1",
         "check_id": "6.1",
         "status": "fail",
         "scope": "page",
@@ -10496,7 +10496,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.6_1795600376557_e8cam",
+        "finding_id": "hash_10.6_1795686778249_cobpg",
         "check_id": "10.6",
         "status": "fail",
         "scope": "page",
@@ -10685,7 +10685,7 @@
     "priorityScore": 15,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795600383342_21o7c",
+        "finding_id": "hash_10.4_1795686784428_1n9m7",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -10703,7 +10703,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.1_1795600410493_hkomm",
+        "finding_id": "hash_10.1_1795686812433_1rm29",
         "check_id": "10.1",
         "status": "fail",
         "scope": "page",
@@ -10721,7 +10721,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600410493_jc9vk",
+        "finding_id": "hash_3.2_1795686812433_c4kt7",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10739,7 +10739,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795600410493_8miog",
+        "finding_id": "hash_4.1_1795686812433_8shxp",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -10757,7 +10757,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600410493_jhkxy",
+        "finding_id": "hash_5.2_1795686812433_xxwil",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -10849,9 +10849,9 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1944,
+      "lcp": 2036,
       "cls": 0.10065815756458059,
-      "fcp": 580
+      "fcp": 720
     },
     "redesign_blueprint": {
       "url": "https://mytampadentistry.com/",
@@ -10944,7 +10944,7 @@
     "priorityScore": 60,
     "findings": [
       {
-        "finding_id": "hash_3.2_1795600444614_b0l7w",
+        "finding_id": "hash_3.2_1795686847036_yqvd8",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10962,7 +10962,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600444614_axtqw",
+        "finding_id": "hash_3.2_1795686847036_6zoxn",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -10980,7 +10980,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600444614_6q0ms",
+        "finding_id": "hash_5.2_1795686847036_mfd7m",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -11009,7 +11009,7 @@
       "primaryColor": "transparent",
       "headingFont": "\"Open Sans Variable\", \"Open Sans\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
       "bodyFont": "\"Open Sans Variable\", \"Open Sans\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
-      "logoUrl": "https://www.skynettechnologies.com/sites/default/files/Skynet-Technologies-Logo-2.svg",
+      "logoUrl": "https://www.dentalofficeoftampa.com/images/2025/06/Artboard-2-960.webp",
       "phone": "(813) 450-1212",
       "email": "info@dentalofficeoftampa.com"
     },
@@ -11070,16 +11070,16 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 1680,
+      "lcp": 1592,
       "cls": 0.009344596240667757,
-      "fcp": 952
+      "fcp": 872
     },
     "redesign_blueprint": {
       "url": "https://www.dentalofficeoftampa.com/",
       "title": "Dentist in Tampa, FL | Dental Office of Tampa",
       "priority_score": 60,
       "brand_assets": {
-        "logo": "https://www.skynettechnologies.com/sites/default/files/Skynet-Technologies-Logo-2.svg",
+        "logo": "https://www.dentalofficeoftampa.com/images/2025/06/Artboard-2-960.webp",
         "fonts": [
           "\"Open Sans Variable\", \"Open Sans\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
           "\"Open Sans Variable\", \"Open Sans\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"
@@ -11158,7 +11158,7 @@
     "priorityScore": 0,
     "findings": [
       {
-        "finding_id": "hash_10.4_1795600482163_l4it2",
+        "finding_id": "hash_10.4_1795686883528_yifmr",
         "check_id": "10.4",
         "status": "fail",
         "scope": "page",
@@ -11176,7 +11176,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_1.2_1795600546262_u0tjj",
+        "finding_id": "hash_1.2_1795686947332_u7av3",
         "check_id": "1.2",
         "status": "fail",
         "scope": "page",
@@ -11194,7 +11194,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600546262_5jodr",
+        "finding_id": "hash_3.2_1795686947332_n2kck",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -11212,7 +11212,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_3.2_1795600546262_cbyya",
+        "finding_id": "hash_3.2_1795686947332_4surq",
         "check_id": "3.2",
         "status": "fail",
         "scope": "page",
@@ -11230,7 +11230,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_4.1_1795600546262_mivwg",
+        "finding_id": "hash_4.1_1795686947332_m9j7n",
         "check_id": "4.1",
         "status": "fail",
         "scope": "page",
@@ -11248,7 +11248,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_5.2_1795600546262_8r6dn",
+        "finding_id": "hash_5.2_1795686947332_u9yyi",
         "check_id": "5.2",
         "status": "fail",
         "scope": "page",
@@ -11266,7 +11266,7 @@
         "financial_tier": "none"
       },
       {
-        "finding_id": "hash_10.3_1795600546262_juyvi",
+        "finding_id": "hash_10.3_1795686947332_a57ug",
         "check_id": "10.3",
         "status": "fail",
         "scope": "page",
@@ -11295,7 +11295,7 @@
       "primaryColor": "rgb(243, 241, 243)",
       "headingFont": "Circular",
       "bodyFont": "\"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-      "logoUrl": "https://www.opencare.com/dist/images/brand/opencare-logo-cross-and-text-charcoal.346f4cd3.svg",
+      "logoUrl": "/dist/images/brand/opencare-logo-cross-and-text-charcoal.346f4cd3.svg",
       "phone": null,
       "email": null
     },
@@ -11307,16 +11307,16 @@
       "trust_signals": null
     },
     "technical_metrics": {
-      "lcp": 5940,
+      "lcp": 5736,
       "cls": 0.12022354666412827,
-      "fcp": 5872
+      "fcp": 5672
     },
     "redesign_blueprint": {
       "url": "https://www.opencare.com/dentists/tampa-fl/",
       "title": "20 Best Dentists Near Me in Tampa, FL | Opencare.com",
       "priority_score": 0,
       "brand_assets": {
-        "logo": "https://www.opencare.com/dist/images/brand/opencare-logo-cross-and-text-charcoal.346f4cd3.svg",
+        "logo": "/dist/images/brand/opencare-logo-cross-and-text-charcoal.346f4cd3.svg",
         "fonts": [
           "Circular",
           "\"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif"
