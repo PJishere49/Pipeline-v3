@@ -6,6 +6,12 @@
     "action": "Investigate if business is active"
   },
   {
+    "url": "https://www.delair.com/tampa/",
+    "title": "Tampa HVAC, Plumbing & Electrical | Del-Air",
+    "reason": "Site Down (HTTP 403)",
+    "action": "Investigate if business is active"
+  },
+  {
     "url": "https://www.ferguson.com/store/fl/tampa/hvac-2523",
     "title": "Tampa, FL 33610-9611 | Ferguson HVAC Supply Store",
     "reason": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.ferguson.com/store/fl/tampa/hvac-2523\", waiting until \"domcontentloaded\"\n",
